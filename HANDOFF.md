@@ -321,7 +321,7 @@ Import-Csv output_gt_e0_rec_40_8_3_e100\E0_uncertainty_results.csv
 - 实验编号：EXP-0002
 - 时间：2026-08-17 03:37:59 +08:00
 - 类型：版本管理 / 上传诊断；未进行训练或重新评估。
-- 当前状态：进行中，等待 GitHub API 上传完成后补充远端提交结果。
+- 当前状态：已完成。
 
 ### 2. 本轮目标
 - 将当前项目中除 `data/` 以外的文件上传到 GitHub 仓库：`https://github.com/candicewalker244-cmd/ctri.git`。
@@ -332,6 +332,9 @@ Import-Csv output_gt_e0_rec_40_8_3_e100\E0_uncertainty_results.csv
 - 本轮开始时本地目录不是 git 仓库。
 - 远端仓库存在，默认分支为 `main`，仓库 size 为 0，当前账号对仓库具备 push 权限。
 - 本地初始提交已创建：`e90c0917e6fb3f422f1b5b5bdf0713b2de8ef484`。
+- 本地包含 EXP-0002 记录的提交：`0558851398547ffee7262ee452286e6c42113ee4`。
+- 远端初始化提交：`f7ac7cade683ba349c494caeb509adf2016ffd8e`。
+- 远端完整上传提交：`8b23967dd83434bea4448d22e13b3680b248b57d`。
 
 未获得：
 - 训练 checkpoint。
@@ -391,7 +394,7 @@ git credential-manager github list
 git credential fill
 ```
 
-待运行：
+已运行：
 ```powershell
 # 使用 GitHub Git Data API：create blob -> create tree -> create commit -> create/update refs/heads/main。
 # credential 来自 Git Credential Manager，仅用于本次 API 请求；禁止写入文件或记录 token。
@@ -434,7 +437,7 @@ git credential fill
 
 ### 13. 是否严格可比；不可比时写明原因
 - 本轮不是训练/评估实验，不涉及指标严格可比性。
-- 上传文件层面，`data/` 已被排除；其他当前 git tracked 文件计划上传。
+- 上传文件层面，`data/` 已被排除；其他当前 git tracked 文件已上传。
 
 ### 14. 训练 / 评估异常、失败实验、报错或数值异常
 事实：
@@ -453,8 +456,8 @@ git credential fill
 - 未运行。
 
 ### 15. 遗留问题
-- 远端 API 上传尚未完成，需补充远端 commit SHA。
-- 本地 git 历史与即将通过 GitHub API 生成的远端 commit SHA 可能不一致。
+- 远端完整上传已完成：`8b23967dd83434bea4448d22e13b3680b248b57d`。
+- 本地 git 历史与通过 GitHub API 生成的远端 commit SHA 不一致。
 - 若后续希望直接使用 `git push`，需要解决本机到 `github.com:443` 的网络限制，或配置已授权 SSH key。
 
 ### 16. 本轮事实性结论
@@ -463,9 +466,12 @@ git credential fill
 - 本地已创建 git 仓库、连接远端 `origin`，并创建初始提交 `e90c0917e6fb3f422f1b5b5bdf0713b2de8ef484`。
 - 当前 tracked 文件数为 18，未包含 `data/`。
 - 直接 `git push` 尚未成功，原因是本机无法连接 `github.com:443`。
+- 已通过 GitHub Git Data API 将 18 个 tracked 文件上传到远端 `main`。
+- 远端完整上传 commit：`8b23967dd83434bea4448d22e13b3680b248b57d`。
 
 解释/推测：
-- 通过 `api.github.com` 上传应可绕过当前 git/HTTPS 传输限制。
+- 通过 `api.github.com` 上传已绕过当前 git/HTTPS 传输限制。
+- 本地 git 历史与远端 API 历史不同；后续若要继续从本机常规 push，建议先解决网络/SSH 后重新 clone 或对齐历史。
 
 ### 17. 供下一位分析者重点判断的问题
 - 远端最终 commit 是否完整包含 18 个非 `data/` 文件。
