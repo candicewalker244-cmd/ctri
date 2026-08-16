@@ -488,3 +488,419 @@ Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/candicewalker24
 - 远端最终 commit 是否完整包含 18 个非 `data/` 文件。
 - 远端仓库中是否不存在 `data/` 目录或 `.nii.gz` 医学影像文件。
 - 后续是否需要把本地仓库历史与 API 生成的远端历史重新对齐。
+
+---
+
+## EXP-0003：新文件实现 RA-MedReCL++（不改旧训练/模型代码）
+
+### 1. 本轮实验编号与时间
+- 实验编号：EXP-0003
+- 时间：2026-08-17 05:05:48 +08:00
+- 类型：代码实现 / 轻量诊断；未运行正式训练或正式评估。
+
+### 2. 本轮目标
+- 按用户要求，不在旧代码文件上直接修改，而是基于旧代码复制出新版本文件。
+- 在新版本中一次性接入对话方案中的 RA/RG-MedReCL++：重建导向 latent 对齐、多尺度解剖/图像一致性、error/hard-region mining、频域一致性、梯度一致性、自适应 hard-region 权重和多尺度医学一致性。
+
+### 3. 修改前基线版本 / 模型 / commit
+事实：
+- 修改前本地 HEAD：`ef0141b731675b477fee2c50f4a7ea61d1823b03`。
+- 旧文件 `model_attnres3d_gtmedreclpp.py` 和 `train_gtmedreclpp.py` 在本轮结束时仍无 git diff。
+- 本轮基于旧文件复制出新文件后，只在新文件上实现新方法。
+
+### 4. 理论依据
+事实：
+- 用户要求 MedReCL 必须改善最终 CT→MRI 重建任务，而不是只完成独立 feature contrast。
+- 新实现把辅助目标从“CT/MRI 跨模态表征对齐”收敛为“生成 MRI / 预测 MRI 与真实 MRI 的重建导向医学表征一致性”。
+
+解释/推测：
+- 预测 MRI latent 对齐真实 MRI latent，比 CT feature 直接对齐 MRI feature 更贴合 paired voxel-wise reconstruction。
+- error 与解剖梯度共同构造 hard-region 权重，可让辅助约束集中在边界、小结构和当前重建误差大的区域。
+- 频域与梯度一致性直接对应 HFEN、Gradient MAE 和视觉边缘质量，理论上比单纯 feature similarity 更可能服务定量/定性重建。
+
+### 5. 实际修改文件
+- 新增：`model_attnres3d_ramedreclpp.py`
+- 新增：`train_ramedreclpp.py`
+- 修改：`.gitignore`
+- 修改：`HANDOFF.md`
+
+### 6. 每个文件具体修改内容
+- `model_attnres3d_ramedreclpp.py`
+  - 从旧 `model_attnres3d_gtmedreclpp.py` 复制得到，不改旧文件。
+  - 将 `MedReCLConfig` 文档和参数升级为 RA-MedReCL++。
+  - 新增结构项权重：`structure_contrast_weight`。
+  - 新增重建导向项：`latent_alignment_weight`、`image_multiscale_weight`、`gradient_consistency_weight`、`frequency_consistency_weight`。
+  - 新增 hard-region 自适应权重参数：`uncertainty_blend`、`uncertainty_boost`、`adaptive_weight_max`、`hard_region_quantile`。
+  - 新增 hard-region 对 InfoNCE 温度、anchor 权重、negative alpha 的调节参数：`kappa_u`、`beta_u`、`rho_u`。
+  - 将 `lambda_R` 默认从 0.0 改为 0.5，使 error-guided hard negative 默认参与。
+  - 在 `forward_components()` 中新增 `pred_mri_feats = model.extract_target_features(pred)`，并通过 `project_medrecl_target_features()` 形成 prediction MRI latent。
+  - 新增 `_adaptive_reconstruction_weight()`，用当前 error map 与 target gradient map 构造 stop-gradient hard-region 权重。
+  - 新增 `_prediction_latent_alignment_loss()`，对齐 prediction MRI latent 与 EMA true MRI latent。
+  - 新增 `_multiscale_image_consistency_loss()`，进行 hard-region 加权多尺度强度和局部统计一致性约束。
+  - 新增 `_gradient_consistency_loss()`，进行 hard-region 加权 3D 梯度幅值一致性约束。
+  - 新增 `_frequency_consistency_loss()`，进行 focal-style 3D 频域一致性约束。
+  - 将 hard-region 权重接入 `_build_level_context()` 与 `_single_case_level_loss()`，影响 anchor 采样、温度、omega、hard negative 和 alpha。
+  - 新增训练返回指标：`medrecl_latent_alignment_loss`、`medrecl_image_multiscale_loss`、`medrecl_gradient_consistency_loss`、`medrecl_frequency_consistency_loss`、`medrecl_adaptive_weight_mean`、`medrecl_hard_region_fraction`。
+- `train_ramedreclpp.py`
+  - 从旧 `train_gtmedreclpp.py` 复制得到，不改旧文件。
+  - import 改为 `import model_attnres3d_ramedreclpp as net`。
+  - 方法名打印改为 RA-MedReCL++。
+  - 新增 CLI 参数：`--medrecl_structure_contrast_weight`、`--medrecl_latent_alignment_weight`、`--medrecl_image_multiscale_weight`、`--medrecl_gradient_consistency_weight`、`--medrecl_frequency_consistency_weight`、`--medrecl_uncertainty_blend`、`--medrecl_uncertainty_boost`、`--medrecl_adaptive_weight_max`、`--medrecl_hard_region_quantile`、`--medrecl_error_negative_weight`、`--medrecl_beta_u`、`--medrecl_rho_u`、`--medrecl_kappa_u`。
+  - 将上述参数传入 `MedReCLConfig`。
+  - 新增 CSV 训练日志列和控制台输出：Lat / MSImg / GradC / FreqC / Hard 等。
+- `.gitignore`
+  - 新增 `__pycache__/`，避免 py_compile 生成物进入版本控制。
+- `HANDOFF.md`
+  - 追加本轮 EXP-0003 记录。
+
+### 7. 实际运行命令
+已运行：
+```powershell
+git status --short --ignored
+git diff -- model_attnres3d_gtmedreclpp.py train_gtmedreclpp.py
+Copy-Item -LiteralPath model_attnres3d_gtmedreclpp.py -Destination model_attnres3d_ramedreclpp.py
+Copy-Item -LiteralPath train_gtmedreclpp.py -Destination train_ramedreclpp.py
+python -m py_compile model_attnres3d_ramedreclpp.py train_ramedreclpp.py
+python train_ramedreclpp.py --help
+```
+
+轻量 smoke 命令：
+```powershell
+@'
+import torch
+import model_attnres3d_ramedreclpp as net
+
+torch.manual_seed(7)
+model = net.AttnResCTtoMRI(
+    in_channels=1,
+    out_channels=1,
+    base_channels=4,
+    bottleneck_blocks=1,
+    dropout=0.1,
+    use_medrecl=True,
+    medrecl_proj_dim=8,
+)
+criterion = net.ReconstructionLoss(frequency_weight=0.02)
+med = net.MedReCLLoss(net.MedReCLConfig(
+    proj_dim=8,
+    lambda_structure_max=0.01,
+    lambda_appearance_max=0.004,
+    anchor_samples=16,
+    normal_negative_samples=8,
+    hard_negative_samples=4,
+    easy_background_samples=4,
+    candidate_pool_size=64,
+    appearance_context_samples=8,
+    invariance_samples=8,
+    gradient_balance_interval=999,
+))
+source = torch.rand(1, 1, 16, 16, 16)
+target = torch.rand(1, 1, 16, 16, 16)
+model.train()
+pred, features = model.forward_with_features(source)
+rec_loss = criterion(pred, target)
+weighted, metrics, raw = med.weighted_loss(
+    model=model,
+    source=source,
+    target=target,
+    pred=pred,
+    feature_dict=features,
+    rec_loss=rec_loss,
+    current_step=90,
+    total_steps=100,
+)
+loss = rec_loss + weighted
+loss.backward()
+print('pred_shape', tuple(pred.shape))
+print('rec_loss', float(rec_loss.detach()))
+print('raw_medrecl', float(raw.detach()))
+print('weighted_medrecl', float(weighted.detach()))
+for key in ['latent_alignment_loss','image_multiscale_loss','gradient_consistency_loss','frequency_consistency_loss','adaptive_weight_mean','hard_region_fraction']:
+    print(key, metrics[key])
+'@ | python -
+```
+
+训练命令：未运行。
+
+评估命令：未运行。
+
+### 8. 数据集 / 数据划分，以及是否与基线一致
+- 本轮未改动 `data/`。
+- 本轮未运行训练/评估，因此未实际使用完整数据集。
+- 数据划分仍沿用 EXP-0001：train/val/test = 40/8/3。
+
+### 9. seed、epoch、batch size、learning rate、optimizer、loss 和关键开关
+正式训练：
+- seed：未运行。
+- epoch：未运行。
+- batch size：未运行。
+- learning rate：未运行。
+- optimizer：未运行。
+
+轻量 smoke：
+- seed：`torch.manual_seed(7)`。
+- batch size：1。
+- 输入尺寸：`16x16x16` 随机张量。
+- 模型：`base_channels=4`、`bottleneck_blocks=1`、`dropout=0.1`、`medrecl_proj_dim=8`。
+- ReconstructionLoss：`frequency_weight=0.02`。
+- MedReCLConfig smoke：`anchor_samples=16`、`candidate_pool_size=64`、`appearance_context_samples=8`、`invariance_samples=8`、`gradient_balance_interval=999`。
+- optimizer：未使用，仅验证 `loss.backward()`。
+- 关键开关：新入口默认启用 RA-MedReCL++，旧入口不受影响。
+
+### 10. GPU、CUDA、Python、PyTorch
+当前诊断环境：
+- Python：3.13.7
+- PyTorch：2.11.0+cpu
+- CUDA available：False
+- torch CUDA version：None
+
+### 11. 最新真实测试结果：PSNR、SSIM、MAE 及项目实际使用的其他指标
+- 本轮未运行正式训练或评估。
+- PSNR：未获得。
+- SSIM：未获得。
+- MAE：未获得。
+- HFEN / Gradient MAE：未获得。
+- 最新真实测试结果仍沿用 EXP-0001 中已有 E0 结果：MAE 0.107510，PSNR 16.068155，SSIM 0.529396。
+
+轻量 smoke 输出事实：
+- `pred_shape (1, 1, 16, 16, 16)`
+- `rec_loss 0.27169516682624817`
+- `raw_medrecl 11.600701332092285`
+- `weighted_medrecl 0.000997519469819963`
+- `latent_alignment_loss 0.32534298300743103`
+- `image_multiscale_loss 0.23910541832447052`
+- `gradient_consistency_loss 0.47299808263778687`
+- `frequency_consistency_loss 0.008381301537156105`
+- `adaptive_weight_mean 1.0`
+- `hard_region_fraction 0.2001953125`
+
+### 12. 与可比基线的差值
+- 本轮未运行正式评估，差值未获得。
+- 不能用 smoke 随机张量结果与 E0/GTMedReCL++ 做任何性能比较。
+
+### 13. 是否严格可比；不可比时写明原因
+- 本轮代码 smoke 不可与历史实验严格可比。
+- 原因：未使用真实数据、未训练、未评估 test split、未加载历史 checkpoint。
+
+### 14. 训练 / 评估异常、失败实验、报错或数值异常
+事实：
+- 第一次 smoke 命令使用 Bash 风格 `python - <<'PY'`，在 PowerShell 中失败；随后改用 PowerShell here-string 成功。
+- `python -m py_compile model_attnres3d_ramedreclpp.py train_ramedreclpp.py` 成功。
+- `python train_ramedreclpp.py --help` 成功，退出码 0。
+- 轻量 smoke 前向、loss 计算、`loss.backward()` 成功。
+- 删除 `__pycache__/` 的 PowerShell 删除命令被环境策略拦截；已改为在 `.gitignore` 中忽略 `__pycache__/`。
+
+数值异常：
+- smoke 未发现 NaN/Inf。
+- 未运行正式训练，无法判断长程训练稳定性。
+
+### 15. 遗留问题
+- 需要在真实数据上先跑 1 epoch 或少量 batch，观察显存、速度、loss 数值量级和是否出现梯度异常。
+- 需要与 E0 reconstruction-only 基线严格同划分、同 seed、同 epoch、同评估脚本对比。
+- 由于 RA-MedReCL++ 新增 prediction encoder pass 和频域/梯度项，训练显存与耗时会增加，需实测。
+- 本轮未上传 GitHub；若需要同步远端，应注意当前本机直接 `git push` 仍可能受 `github.com:443` 网络问题影响。
+
+### 16. 本轮事实性结论
+事实：
+- 已按用户要求在新文件上实现，没有改旧 `model_attnres3d_gtmedreclpp.py` 与 `train_gtmedreclpp.py`。
+- 新增 `model_attnres3d_ramedreclpp.py` 和 `train_ramedreclpp.py`。
+- 新训练入口能解析 RA-MedReCL++ 参数。
+- 新模型文件通过 py_compile 和随机张量 backward smoke。
+
+解释/推测：
+- 该实现更贴合“MedReCL 服务 reconstruction”的目标，因为新增项直接约束 `pred MRI` 与 `GT MRI` 的 latent、图像、多尺度局部统计、梯度和频域一致性。
+- 是否提升 MAE/PSNR/SSIM/HFEN 必须等待真实训练与测试，当前禁止估算。
+
+### 17. 供下一位分析者重点判断的问题
+- RA-MedReCL++ 新默认权重是否过强，是否需要先小权重 warmup 或提高 `recon_only_ratio`？
+- `lambda_R=0.5` 的 error-guided hard negative 是否稳定，是否需要与 `hard_region_quantile` 联合消融？
+- prediction MRI latent 经过 target encoder 是否会带来额外显存瓶颈？
+- 频域一致性和原 ReconstructionLoss 的 frequency 项是否存在重复，需要真实训练后观察梯度和指标。
+- 首个真实实验建议命令应优先小规模 smoke：`--epochs 1 --save_dir ./output_ra_smoke --max_test_figures 1 --no_eval_mc_dropout_compare`。
+
+---
+
+## EXP-0004：RA-MedReCL++ 二次代码审查与真实数据轻量诊断
+
+### 1. 本轮实验编号与时间
+- 实验编号：EXP-0004
+- 时间：2026-08-17 05:14:49 +08:00
+- 类型：代码审查 / 诊断；未修改模型与训练逻辑，未运行正式训练或正式评估。
+
+### 2. 本轮目标
+- 复查 EXP-0003 新增 RA-MedReCL++ 是否存在代码错误、无效梯度、尺寸问题、数值异常或与方案不一致之处。
+- 严格保留旧版 `model_attnres3d_gtmedreclpp.py` 与 `train_gtmedreclpp.py`，不在旧版上修改。
+
+### 3. 修改前基线版本 / 模型 / commit
+事实：
+- 本地 HEAD 仍为 `ef0141b731675b477fee2c50f4a7ea61d1823b03`。
+- 审查对象为未提交的新文件 `model_attnres3d_ramedreclpp.py` 与 `train_ramedreclpp.py`。
+- `git diff -- model_attnres3d_gtmedreclpp.py train_gtmedreclpp.py` 无输出，旧版文件仍未改动。
+
+### 4. 理论依据
+事实：
+- 对话方案要求 reconstruction-guided latent alignment、multi-scale consistency、error-guided hard mining、frequency/gradient consistency 以及 uncertainty-guided adaptive weighting。
+- 代码审查必须区分“能运行”与“严格实现方案并能产生独立训练信号”。
+
+解释/推测：
+- 如果所谓 uncertainty map 只由重建误差和 GT 梯度构成，则它是 hard-region score，不是 Moment predictive variance。
+- 如果辅助频域项与主重建 FFL 完全相同，则它只是在另一调度权重下重复同一个目标，没有引入新的频域信息。
+
+### 5. 实际修改文件
+- 仅修改：`HANDOFF.md`（追加本轮诊断记录）。
+- 模型代码：未修改。
+- 训练代码：未修改。
+
+### 6. 每个文件具体修改内容
+- `HANDOFF.md`
+  - 追加 EXP-0004 的审查命令、真实 smoke 事实、发现的问题、风险和后续判断项。
+
+### 7. 实际运行命令
+已运行：
+```powershell
+git status --short
+git diff --stat
+git diff -- model_attnres3d_gtmedreclpp.py train_gtmedreclpp.py
+git diff --no-index -- model_attnres3d_gtmedreclpp.py model_attnres3d_ramedreclpp.py
+git diff --no-index -- train_gtmedreclpp.py train_ramedreclpp.py
+rg -n "...关键类、函数、配置与日志字段..." model_attnres3d_ramedreclpp.py train_ramedreclpp.py
+ruff check model_attnres3d_ramedreclpp.py --output-format concise
+ruff check train_ramedreclpp.py --output-format concise
+ruff check model_attnres3d_gtmedreclpp.py --output-format concise
+```
+
+多尺寸、多 batch 和单项梯度 smoke：
+```powershell
+@'
+# seed=23；测试 batch=2/shape=16、batch=1/shape=17、调度边界、
+# multiscale/gradient/frequency 单项梯度以及常量体数据。
+'@ | python -
+```
+
+真实 NIfTI 小块 smoke：
+```powershell
+@'
+# seed=31；从 data/dataset/train 读取真实病例，随机裁剪 16x16x16，
+# 使用 base_channels=4、bottleneck_blocks=1 完成 forward/loss/backward。
+'@ | python -
+```
+
+默认 `96x96x96` 裁剪前景比例诊断：
+```powershell
+@'
+# seed=42；遍历 40 个训练病例各一个随机 96^3 patch，统计 target > 0.02 比例。
+'@ | python -
+```
+
+频域损失等价性检查：
+```powershell
+@'
+# seed=5；比较 ReconstructionLoss._focal_frequency_loss 与
+# MedReCLLoss._frequency_consistency_loss。
+'@ | python -
+```
+
+训练命令：未运行。
+
+评估命令：未运行。
+
+### 8. 数据集 / 数据划分，以及是否与基线一致
+- 真实轻量诊断读取 `data/dataset/train`，发现 40 个训练病例。
+- 默认 `96^3` 裁剪前景比例诊断使用全部 40 个训练病例，每例抽取一个 patch。
+- 未使用 val/test 计算模型指标。
+- 数据划分未改变，仍为 train/val/test = 40/8/3，与既有基线划分一致；但本轮不是正式可比实验。
+
+### 9. seed、epoch、batch size、learning rate、optimizer、loss 和关键开关
+正式训练：
+- seed：未运行。
+- epoch：未运行。
+- batch size：未运行。
+- learning rate：未运行。
+- optimizer：未运行。
+
+诊断 smoke：
+- 随机张量 seed：23；batch size 2 和 1；尺寸 `16^3`、`17^3`。
+- 真实 NIfTI smoke seed：31；batch size 1；尺寸 `16^3`。
+- 默认 patch 前景统计 seed：42；patch size `96^3`。
+- 频域等价性 seed：5。
+- loss：`ReconstructionLoss` + `MedReCLLoss`；真实 smoke 在 `current_step=90/100` 激活结构和外观分支。
+- optimizer：未使用；执行了 `loss.backward()`。
+
+### 10. GPU、CUDA、Python、PyTorch
+- Python：3.13.7
+- PyTorch：2.11.0+cpu
+- CUDA available：False
+- GPU/CUDA 显存与 AMP：未获得，当前环境无法验证。
+
+### 11. 最新真实测试结果：PSNR、SSIM、MAE 及项目实际使用的其他指标
+- 本轮未运行正式训练或 test 评估。
+- PSNR：未获得。
+- SSIM：未获得。
+- MAE：未获得。
+- HFEN / Gradient MAE：未获得。
+- 最新真实测试结果仍为 EXP-0001 的 E0：MAE 0.107510，PSNR 16.068155，SSIM 0.529396。
+
+真实训练 patch 轻量 smoke（不是测试指标）：
+- `rec_loss = 0.5629761219024658`
+- `raw_medrecl = 9.064045906066895`
+- `weighted_medrecl = 0.0015969834057614207`
+- `structure_gradient_ratio = 6.8334330868927`
+- `structure_gradient_scale = 0.011707146171292595`
+- 所有已产生参数梯度均为有限值。
+
+默认 `96^3` patch 前景统计：
+- 40 个 patch 的 `target > 0.02` 前景比例最小值 0.252527、median 0.697283、mean 0.677276、最大值 0.971408。
+- 近空白 patch（前景小于 1% 或 5%）：0/40。
+
+### 12. 与可比基线的差值
+- 未运行正式评估，PSNR/SSIM/MAE 差值未获得。
+- smoke loss 不可与历史 E0 或 GT-MedReCL++ 指标比较。
+
+### 13. 是否严格可比；不可比时写明原因
+- 不严格可比。
+- 原因：未训练、未加载同一 checkpoint、未在 test split 上评估；模型 smoke 使用缩小网络和小 patch。
+
+### 14. 训练 / 评估异常、失败实验、报错或数值异常
+事实：
+- 首次真实数据 smoke 错误使用 `data/train`，报 `FileNotFoundError`；确认项目实际路径为 `data/dataset/train` 后重跑成功。
+- batch=2、`16^3` 与 batch=1、`17^3` 的完整 RA loss/backward 均成功，无 NaN/Inf。
+- multiscale、gradient、frequency 三个新增直接项均产生有限且非零的预测梯度。
+- 常量体数据的 adaptive map 为有限值且均值 1.0。
+- `train_ramedreclpp.py` 通过 Ruff。
+- 新旧 model 文件均有相同的 9 个 Ruff 告警（3 个未使用 import、2 个未使用局部变量、4 个歧义变量名），属于继承的旧代码问题，不是本轮 RA 新增逻辑引入。
+
+已确认问题：
+1. 严格方案缺口：`_adaptive_reconstruction_weight()` 只接收 `target_aux`、`grad_map`、`error_map`，没有接入 Moment variance 或其他预测不确定性。因此当前是 error/edge-guided，而不是真正 uncertainty-guided。
+2. 重复目标：默认 RA `_frequency_consistency_loss()` 与 `ReconstructionLoss._focal_frequency_loss()` 数学实现相同。seed=5 随机张量实测二者均为 `0.07139548659324646`，绝对差 `0.0`。
+3. 日志错误：`hard_region_fraction` 使用 `adaptive_map >= quantile`。近空白真实 patch 因大量值并列，日志为 `1.0`，而按训练 hard mask 同样的严格 `>` 规则实际比例为 `0.003173828125`。该问题会误导实验诊断，但训练 hard mask 本身使用 `>`。
+4. 有效权重风险：真实小 patch 上结构分支 raw gradient ratio 为 6.833433，梯度平衡将其 scale 压到 0.011707，最终 weighted MedReCL 仅 0.001597，而 rec loss 为 0.562976。该行为符合现有 cap 逻辑，但新增项可能因此贡献过弱；是否影响指标必须训练验证。
+5. 资源风险：结构激活后每批至少增加 prediction MRI online encoder、GT MRI online encoder、GT MRI EMA encoder，并在 invariance 开启时再增加增强 MRI online encoder。当前 CPU 小模型通过，但默认 `96^3`、base_channels=32 的 GPU 显存/速度未验证。
+
+### 15. 遗留问题
+- 需要决定是否将真实 Moment variance 以 stop-gradient 形式接入 hard-region weighting，或明确将方法改名为 error/edge-guided，避免概念不一致。
+- 需要把 RA 频域项改成与基础 FFL 不重复的约束（例如分频带、局部频域或频率-空间耦合），或者移除重复项并只保留主重建 FFL。
+- 需要修正 `hard_region_fraction` 的并列分位数统计，使日志反映训练实际 hard mask。
+- 需要确认 gradient cap 是否让新模块过弱，建议先记录每个新增项对共享解码器的独立梯度比例。
+- 需要在 CUDA 环境执行默认 `96^3` 配置的一批显存/耗时 smoke，再决定是否保留四次 MRI encoder 前向。
+
+### 16. 本轮事实性结论
+事实：
+- 新代码具备基本可运行性：多 batch、奇数尺寸、常量输入、真实 NIfTI 小块均可完成前向和反向，未发现 NaN/Inf。
+- 旧版模型与训练文件没有被修改。
+- 当前实现没有真正使用 Moment uncertainty。
+- 当前新增频域项与主重建 FFL 完全重复。
+- 当前 `hard_region_fraction` 在分位数并列时可能严重虚报。
+
+解释/推测：
+- 以上三个设计/日志问题不一定导致训练崩溃，但会削弱“严格按方案实现”的可信度，并使后续实验解释不可靠。
+- 在正式长训练前修正这些点，比直接跑 100 epoch 更稳妥。
+
+下一步建议：
+- 只在新文件 `model_attnres3d_ramedreclpp.py`、`train_ramedreclpp.py` 基础上继续建立下一版，不回改旧 GT 文件。
+- 优先修复真实 uncertainty 接入、非重复频域约束和 hard fraction 日志，再做 1 epoch CUDA smoke。
+
+### 17. 供下一位分析者重点判断的问题
+- 训练期 Moment variance 的计算成本是否可接受；若不可接受，应选择低成本 uncertainty proxy 并准确命名。
+- 新频域目标应采用哪种非重复形式，才能直接对应 HFEN/Gradient MAE 改善。
+- 是否要将 prediction latent alignment 与原结构对比拆开独立做 gradient cap，避免高 raw contrast 梯度把所有新重建项一起压低。
+- 默认四次 MRI encoder 前向在目标 GPU 上的峰值显存和单 batch 时间是多少。
