@@ -335,6 +335,7 @@ Import-Csv output_gt_e0_rec_40_8_3_e100\E0_uncertainty_results.csv
 - 本地包含 EXP-0002 记录的提交：`0558851398547ffee7262ee452286e6c42113ee4`。
 - 远端初始化提交：`f7ac7cade683ba349c494caeb509adf2016ffd8e`。
 - 远端完整上传提交：`8b23967dd83434bea4448d22e13b3680b248b57d`。
+- 远端 HANDOFF 首次结果同步提交：`347b737fa8bad0f801258c2e57a97bb956a1b20e`。
 
 未获得：
 - 训练 checkpoint。
@@ -392,6 +393,13 @@ git config --show-origin --get-all credential.helper
 git credential-manager --version
 git credential-manager github list
 git credential fill
+Invoke-RestMethod -Method Put -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/contents/.gitignore"
+Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/git/blobs"
+Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/git/trees"
+Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/git/commits"
+Invoke-RestMethod -Method Patch -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/git/refs/heads/main"
+Invoke-RestMethod -Method Put -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/contents/HANDOFF.md"
+Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/candicewalker244-cmd/ctri/git/trees/<tree_sha>?recursive=1"
 ```
 
 已运行：
@@ -468,6 +476,9 @@ git credential fill
 - 直接 `git push` 尚未成功，原因是本机无法连接 `github.com:443`。
 - 已通过 GitHub Git Data API 将 18 个 tracked 文件上传到远端 `main`。
 - 远端完整上传 commit：`8b23967dd83434bea4448d22e13b3680b248b57d`。
+- 远端校验时 HEAD：`347b737fa8bad0f801258c2e57a97bb956a1b20e`。
+- 远端校验 blob 数：18。
+- 远端校验 `data/` 或 `.nii.gz` 文件数：0。
 
 解释/推测：
 - 通过 `api.github.com` 上传已绕过当前 git/HTTPS 传输限制。
