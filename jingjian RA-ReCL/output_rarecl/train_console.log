@@ -1,0 +1,275 @@
+nohup: ignoring input
+训练设备: cuda
+混合精度状态: True
+数据集路径: /root/sj-tmp/ctri/data/dataset
+精简 RA-ReCL 状态: True
+方法版本: E0 + prediction/GT latent alignment + Region-aware PatchNCE
+精简 RA-ReCL 参数: lambda_latent/region=0.05/0.05, temperature=0.07, hard_ratio=0.2, feature_dim=64, latent/region/negative_pool=256/256/1024
+Moment propagation不参与训练，仅保留为训练后不确定性评估路径
+验证/测试裁剪: (150, 150, 150)
+训练集病例总数: 40
+验证集病例总数: 8
+测试集病例总数: 3
+CT/MRI配对检查: 病例ID、shape、affine和跨集合去重均通过
+模型总参数量: 30,424,353
+可训练参数量: 30,424,353
+
+开始训练，epoch 1 到 100
+Epoch   1/100 | lr:1.00e-04 train L:0.762407 Rec:0.354702 Lat/Reg:0.5491/7.6050 LatW/RegW:0.0275/0.3803 Hard/Sampled:0.200/0.264 Lat/PosSim:0.451/0.449 Opt:40 Skip:0 Grad:0.924 Scale:65536 MAE:0.2655 PSNR:10.5 SSIM:0.1783 | val L:0.3153 PSNR:11.8 SSIM:0.2315 HFEN:0.8556 | 预估剩余时间:55分钟
+  >> 刷新最优模型，验证SSIM：0.231455
+  >> 刷新PSNR最优模型：11.7980 dB
+  >> 刷新HFEN最优模型：0.855635
+Epoch   2/100 | lr:1.00e-04 train L:0.682949 Rec:0.327246 Lat/Reg:0.3848/6.7292 LatW/RegW:0.0192/0.3365 Hard/Sampled:0.200/0.262 Lat/PosSim:0.615/0.611 Opt:40 Skip:0 Grad:0.488 Scale:65536 MAE:0.2328 PSNR:11.5 SSIM:0.2133 | val L:0.3064 PSNR:12.1 SSIM:0.2455 HFEN:0.8370 | 预估剩余时间:52分钟
+  >> 刷新最优模型，验证SSIM：0.245465
+  >> 刷新PSNR最优模型：12.1492 dB
+  >> 刷新HFEN最优模型：0.837004
+Epoch   3/100 | lr:9.99e-05 train L:0.648374 Rec:0.314518 Lat/Reg:0.3173/6.3598 LatW/RegW:0.0159/0.3180 Hard/Sampled:0.200/0.258 Lat/PosSim:0.683/0.679 Opt:40 Skip:0 Grad:0.421 Scale:65536 MAE:0.2150 PSNR:12.0 SSIM:0.2239 | val L:0.3019 PSNR:12.5 SSIM:0.2477 HFEN:0.8279 | 预估剩余时间:52分钟
+  >> 刷新最优模型，验证SSIM：0.247659
+  >> 刷新PSNR最优模型：12.5490 dB
+  >> 刷新HFEN最优模型：0.827885
+Epoch   4/100 | lr:9.98e-05 train L:0.629662 Rec:0.311041 Lat/Reg:0.2709/6.1015 LatW/RegW:0.0135/0.3051 Hard/Sampled:0.200/0.259 Lat/PosSim:0.729/0.725 Opt:40 Skip:0 Grad:0.418 Scale:65536 MAE:0.2110 PSNR:12.2 SSIM:0.2318 | val L:0.2980 PSNR:12.6 SSIM:0.2552 HFEN:0.8256 | 预估剩余时间:51分钟
+  >> 刷新最优模型，验证SSIM：0.255218
+  >> 刷新PSNR最优模型：12.6274 dB
+  >> 刷新HFEN最优模型：0.825591
+Epoch   5/100 | lr:9.96e-05 train L:0.628853 Rec:0.321735 Lat/Reg:0.2444/5.8979 LatW/RegW:0.0122/0.2949 Hard/Sampled:0.200/0.258 Lat/PosSim:0.756/0.753 Opt:40 Skip:0 Grad:0.406 Scale:65536 MAE:0.2181 PSNR:12.0 SSIM:0.2082 | val L:0.2951 PSNR:12.7 SSIM:0.2584 HFEN:0.8267 | 预估剩余时间:51分钟
+  >> 刷新最优模型，验证SSIM：0.258378
+  >> 刷新PSNR最优模型：12.7428 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0005.pth
+Epoch   6/100 | lr:9.94e-05 train L:0.614363 Rec:0.310553 Lat/Reg:0.2371/5.8391 LatW/RegW:0.0119/0.2920 Hard/Sampled:0.200/0.255 Lat/PosSim:0.763/0.761 Opt:40 Skip:0 Grad:0.450 Scale:65536 MAE:0.2061 PSNR:12.4 SSIM:0.2247 | val L:0.2915 PSNR:12.8 SSIM:0.2657 HFEN:0.8299 | 预估剩余时间:50分钟
+  >> 刷新最优模型，验证SSIM：0.265740
+  >> 刷新PSNR最优模型：12.7952 dB
+Epoch   7/100 | lr:9.91e-05 train L:0.599463 Rec:0.301093 Lat/Reg:0.2230/5.7444 LatW/RegW:0.0111/0.2872 Hard/Sampled:0.200/0.257 Lat/PosSim:0.777/0.774 Opt:40 Skip:0 Grad:0.399 Scale:65536 MAE:0.1946 PSNR:12.6 SSIM:0.2375 | val L:0.2885 PSNR:13.1 SSIM:0.2638 HFEN:0.8292 | 预估剩余时间:49分钟
+  >> 刷新PSNR最优模型：13.0924 dB
+Epoch   8/100 | lr:9.88e-05 train L:0.591437 Rec:0.298755 Lat/Reg:0.2115/5.6421 LatW/RegW:0.0106/0.2821 Hard/Sampled:0.200/0.258 Lat/PosSim:0.788/0.785 Opt:40 Skip:0 Grad:0.384 Scale:65536 MAE:0.1905 PSNR:12.8 SSIM:0.2357 | val L:0.2855 PSNR:13.1 SSIM:0.2716 HFEN:0.8280 | 预估剩余时间:49分钟
+  >> 刷新最优模型，验证SSIM：0.271590
+Epoch   9/100 | lr:9.84e-05 train L:0.595608 Rec:0.299648 Lat/Reg:0.2189/5.7003 LatW/RegW:0.0109/0.2850 Hard/Sampled:0.200/0.254 Lat/PosSim:0.781/0.778 Opt:40 Skip:0 Grad:0.415 Scale:65536 MAE:0.1952 PSNR:12.6 SSIM:0.2427 | val L:0.2841 PSNR:13.3 SSIM:0.2717 HFEN:0.8194 | 预估剩余时间:48分钟
+  >> 刷新最优模型，验证SSIM：0.271651
+  >> 刷新PSNR最优模型：13.2895 dB
+  >> 刷新HFEN最优模型：0.819443
+Epoch  10/100 | lr:9.80e-05 train L:0.592352 Rec:0.300835 Lat/Reg:0.2071/5.6233 LatW/RegW:0.0104/0.2812 Hard/Sampled:0.200/0.260 Lat/PosSim:0.793/0.791 Opt:40 Skip:0 Grad:0.431 Scale:65536 MAE:0.1950 PSNR:12.7 SSIM:0.2354 | val L:0.2793 PSNR:13.2 SSIM:0.2819 HFEN:0.8282 | 预估剩余时间:47分钟
+  >> 刷新最优模型，验证SSIM：0.281910
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0010.pth
+Epoch  11/100 | lr:9.76e-05 train L:0.576235 Rec:0.291272 Lat/Reg:0.1946/5.5046 LatW/RegW:0.0097/0.2752 Hard/Sampled:0.200/0.256 Lat/PosSim:0.805/0.802 Opt:40 Skip:0 Grad:0.480 Scale:65536 MAE:0.1830 PSNR:13.0 SSIM:0.2431 | val L:0.2735 PSNR:13.4 SSIM:0.2926 HFEN:0.8268 | 预估剩余时间:47分钟
+  >> 刷新最优模型，验证SSIM：0.292553
+  >> 刷新PSNR最优模型：13.3578 dB
+Epoch  12/100 | lr:9.71e-05 train L:0.581870 Rec:0.291863 Lat/Reg:0.2033/5.5969 LatW/RegW:0.0102/0.2798 Hard/Sampled:0.200/0.257 Lat/PosSim:0.797/0.795 Opt:40 Skip:0 Grad:0.430 Scale:65536 MAE:0.1846 PSNR:13.0 SSIM:0.2489 | val L:0.2749 PSNR:13.6 SSIM:0.2838 HFEN:0.8223 | 预估剩余时间:46分钟
+  >> 刷新PSNR最优模型：13.5960 dB
+Epoch  13/100 | lr:9.65e-05 train L:0.575401 Rec:0.292866 Lat/Reg:0.1897/5.4610 LatW/RegW:0.0095/0.2731 Hard/Sampled:0.200/0.251 Lat/PosSim:0.810/0.809 Opt:40 Skip:0 Grad:0.457 Scale:65536 MAE:0.1820 PSNR:13.1 SSIM:0.2394 | val L:0.2734 PSNR:13.4 SSIM:0.2921 HFEN:0.8268 | 预估剩余时间:46分钟
+Epoch  14/100 | lr:9.59e-05 train L:0.579520 Rec:0.297321 Lat/Reg:0.1898/5.4542 LatW/RegW:0.0095/0.2727 Hard/Sampled:0.200/0.254 Lat/PosSim:0.810/0.807 Opt:40 Skip:0 Grad:0.464 Scale:65536 MAE:0.1895 PSNR:13.0 SSIM:0.2386 | val L:0.2671 PSNR:13.6 SSIM:0.3033 HFEN:0.8211 | 预估剩余时间:45分钟
+  >> 刷新最优模型，验证SSIM：0.303319
+  >> 刷新PSNR最优模型：13.6125 dB
+Epoch  15/100 | lr:9.53e-05 train L:0.566827 Rec:0.291878 Lat/Reg:0.1780/5.3210 LatW/RegW:0.0089/0.2660 Hard/Sampled:0.200/0.251 Lat/PosSim:0.822/0.819 Opt:40 Skip:0 Grad:0.521 Scale:65536 MAE:0.1810 PSNR:13.3 SSIM:0.2388 | val L:0.2708 PSNR:13.4 SSIM:0.3007 HFEN:0.8398 | 预估剩余时间:45分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0015.pth
+Epoch  16/100 | lr:9.46e-05 train L:0.557237 Rec:0.281235 Lat/Reg:0.1836/5.3364 LatW/RegW:0.0092/0.2668 Hard/Sampled:0.200/0.253 Lat/PosSim:0.816/0.813 Opt:40 Skip:0 Grad:0.524 Scale:65536 MAE:0.1739 PSNR:13.4 SSIM:0.2634 | val L:0.2628 PSNR:13.6 SSIM:0.3154 HFEN:0.8200 | 预估剩余时间:44分钟
+  >> 刷新最优模型，验证SSIM：0.315423
+  >> 刷新PSNR最优模型：13.6161 dB
+Epoch  17/100 | lr:9.39e-05 train L:0.544738 Rec:0.270411 Lat/Reg:0.1852/5.3013 LatW/RegW:0.0093/0.2651 Hard/Sampled:0.200/0.248 Lat/PosSim:0.815/0.811 Opt:40 Skip:0 Grad:0.588 Scale:65536 MAE:0.1624 PSNR:13.8 SSIM:0.2761 | val L:0.2608 PSNR:13.5 SSIM:0.3234 HFEN:0.8287 | 预估剩余时间:43分钟
+  >> 刷新最优模型，验证SSIM：0.323379
+Epoch  18/100 | lr:9.31e-05 train L:0.559098 Rec:0.276741 Lat/Reg:0.2019/5.4452 LatW/RegW:0.0101/0.2723 Hard/Sampled:0.200/0.254 Lat/PosSim:0.798/0.795 Opt:40 Skip:0 Grad:0.541 Scale:65536 MAE:0.1694 PSNR:13.4 SSIM:0.2691 | val L:0.2560 PSNR:13.8 SSIM:0.3282 HFEN:0.8184 | 预估剩余时间:43分钟
+  >> 刷新最优模型，验证SSIM：0.328244
+  >> 刷新PSNR最优模型：13.8073 dB
+  >> 刷新HFEN最优模型：0.818420
+Epoch  19/100 | lr:9.23e-05 train L:0.551865 Rec:0.278663 Lat/Reg:0.1820/5.2820 LatW/RegW:0.0091/0.2641 Hard/Sampled:0.200/0.251 Lat/PosSim:0.818/0.816 Opt:40 Skip:0 Grad:0.552 Scale:65536 MAE:0.1682 PSNR:13.6 SSIM:0.2614 | val L:0.2543 PSNR:13.7 SSIM:0.3340 HFEN:0.8169 | 预估剩余时间:42分钟
+  >> 刷新最优模型，验证SSIM：0.333984
+  >> 刷新HFEN最优模型：0.816940
+Epoch  20/100 | lr:9.14e-05 train L:0.550517 Rec:0.277218 Lat/Reg:0.1811/5.2848 LatW/RegW:0.0091/0.2642 Hard/Sampled:0.200/0.254 Lat/PosSim:0.819/0.815 Opt:40 Skip:0 Grad:0.551 Scale:65536 MAE:0.1658 PSNR:13.8 SSIM:0.2624 | val L:0.2621 PSNR:13.7 SSIM:0.3191 HFEN:0.8292 | 预估剩余时间:42分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0020.pth
+Epoch  21/100 | lr:9.05e-05 train L:0.548167 Rec:0.272183 Lat/Reg:0.1844/5.3353 LatW/RegW:0.0092/0.2668 Hard/Sampled:0.200/0.252 Lat/PosSim:0.816/0.813 Opt:40 Skip:0 Grad:0.556 Scale:65536 MAE:0.1619 PSNR:14.0 SSIM:0.2716 | val L:0.2423 PSNR:13.9 SSIM:0.3602 HFEN:0.8080 | 预估剩余时间:41分钟
+  >> 刷新最优模型，验证SSIM：0.360220
+  >> 刷新PSNR最优模型：13.8553 dB
+  >> 刷新HFEN最优模型：0.807952
+Epoch  22/100 | lr:8.96e-05 train L:0.537530 Rec:0.268595 Lat/Reg:0.1726/5.2061 LatW/RegW:0.0086/0.2603 Hard/Sampled:0.200/0.247 Lat/PosSim:0.827/0.824 Opt:40 Skip:0 Grad:0.534 Scale:65536 MAE:0.1622 PSNR:13.8 SSIM:0.2829 | val L:0.2541 PSNR:13.5 SSIM:0.3473 HFEN:0.8188 | 预估剩余时间:41分钟
+Epoch  23/100 | lr:8.86e-05 train L:0.541267 Rec:0.277345 Lat/Reg:0.1662/5.1123 LatW/RegW:0.0083/0.2556 Hard/Sampled:0.200/0.251 Lat/PosSim:0.834/0.833 Opt:40 Skip:0 Grad:0.475 Scale:65536 MAE:0.1648 PSNR:13.8 SSIM:0.2584 | val L:0.2369 PSNR:14.1 SSIM:0.3725 HFEN:0.8009 | 预估剩余时间:40分钟
+  >> 刷新最优模型，验证SSIM：0.372513
+  >> 刷新PSNR最优模型：14.0855 dB
+  >> 刷新HFEN最优模型：0.800870
+Epoch  24/100 | lr:8.76e-05 train L:0.514781 Rec:0.248712 Lat/Reg:0.1791/5.1423 LatW/RegW:0.0090/0.2571 Hard/Sampled:0.200/0.251 Lat/PosSim:0.821/0.818 Opt:40 Skip:0 Grad:0.574 Scale:65536 MAE:0.1465 PSNR:14.3 SSIM:0.3183 | val L:0.2339 PSNR:14.3 SSIM:0.3752 HFEN:0.8046 | 预估剩余时间:40分钟
+  >> 刷新最优模型，验证SSIM：0.375194
+  >> 刷新PSNR最优模型：14.2904 dB
+Epoch  25/100 | lr:8.66e-05 train L:0.525331 Rec:0.264191 Lat/Reg:0.1703/5.0525 LatW/RegW:0.0085/0.2526 Hard/Sampled:0.200/0.251 Lat/PosSim:0.830/0.828 Opt:40 Skip:0 Grad:0.549 Scale:65536 MAE:0.1582 PSNR:14.0 SSIM:0.2877 | val L:0.2329 PSNR:13.9 SSIM:0.3895 HFEN:0.7968 | 预估剩余时间:39分钟
+  >> 刷新最优模型，验证SSIM：0.389545
+  >> 刷新HFEN最优模型：0.796792
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0025.pth
+Epoch  26/100 | lr:8.55e-05 train L:0.516948 Rec:0.248249 Lat/Reg:0.1897/5.1843 LatW/RegW:0.0095/0.2592 Hard/Sampled:0.200/0.248 Lat/PosSim:0.810/0.806 Opt:40 Skip:0 Grad:0.667 Scale:65536 MAE:0.1472 PSNR:14.3 SSIM:0.3196 | val L:0.2370 PSNR:14.0 SSIM:0.3789 HFEN:0.8019 | 预估剩余时间:39分钟
+Epoch  27/100 | lr:8.44e-05 train L:0.518930 Rec:0.251982 Lat/Reg:0.1832/5.1558 LatW/RegW:0.0092/0.2578 Hard/Sampled:0.200/0.250 Lat/PosSim:0.817/0.815 Opt:40 Skip:0 Grad:0.601 Scale:65536 MAE:0.1523 PSNR:14.1 SSIM:0.3198 | val L:0.2312 PSNR:14.1 SSIM:0.3931 HFEN:0.7981 | 预估剩余时间:38分钟
+  >> 刷新最优模型，验证SSIM：0.393139
+Epoch  28/100 | lr:8.32e-05 train L:0.512657 Rec:0.248742 Lat/Reg:0.1761/5.1022 LatW/RegW:0.0088/0.2551 Hard/Sampled:0.200/0.252 Lat/PosSim:0.824/0.822 Opt:40 Skip:0 Grad:0.599 Scale:65536 MAE:0.1486 PSNR:14.2 SSIM:0.3229 | val L:0.2283 PSNR:14.2 SSIM:0.3980 HFEN:0.7985 | 预估剩余时间:38分钟
+  >> 刷新最优模型，验证SSIM：0.398033
+Epoch  29/100 | lr:8.21e-05 train L:0.514212 Rec:0.255478 Lat/Reg:0.1692/5.0054 LatW/RegW:0.0085/0.2503 Hard/Sampled:0.200/0.250 Lat/PosSim:0.831/0.828 Opt:40 Skip:0 Grad:0.508 Scale:65536 MAE:0.1489 PSNR:14.4 SSIM:0.3033 | val L:0.2225 PSNR:14.3 SSIM:0.4073 HFEN:0.8057 | 预估剩余时间:37分钟
+  >> 刷新最优模型，验证SSIM：0.407262
+  >> 刷新PSNR最优模型：14.3288 dB
+Epoch  30/100 | lr:8.08e-05 train L:0.510620 Rec:0.249089 Lat/Reg:0.1789/5.0517 LatW/RegW:0.0089/0.2526 Hard/Sampled:0.200/0.245 Lat/PosSim:0.821/0.817 Opt:40 Skip:0 Grad:0.681 Scale:65536 MAE:0.1503 PSNR:14.4 SSIM:0.3232 | val L:0.2226 PSNR:14.2 SSIM:0.4102 HFEN:0.7945 | 预估剩余时间:36分钟
+  >> 刷新最优模型，验证SSIM：0.410185
+  >> 刷新HFEN最优模型：0.794543
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0030.pth
+Epoch  31/100 | lr:7.96e-05 train L:0.508590 Rec:0.246210 Lat/Reg:0.1800/5.0676 LatW/RegW:0.0090/0.2534 Hard/Sampled:0.200/0.255 Lat/PosSim:0.820/0.817 Opt:40 Skip:0 Grad:0.637 Scale:65536 MAE:0.1453 PSNR:14.3 SSIM:0.3253 | val L:0.2241 PSNR:14.4 SSIM:0.4021 HFEN:0.7911 | 预估剩余时间:36分钟
+  >> 刷新PSNR最优模型：14.4062 dB
+  >> 刷新HFEN最优模型：0.791061
+Epoch  32/100 | lr:7.83e-05 train L:0.536133 Rec:0.274177 Lat/Reg:0.1739/5.0652 LatW/RegW:0.0087/0.2533 Hard/Sampled:0.200/0.248 Lat/PosSim:0.826/0.823 Opt:40 Skip:0 Grad:0.614 Scale:65536 MAE:0.1616 PSNR:14.0 SSIM:0.2669 | val L:0.2213 PSNR:14.4 SSIM:0.4109 HFEN:0.7982 | 预估剩余时间:35分钟
+  >> 刷新最优模型，验证SSIM：0.410901
+Epoch  33/100 | lr:7.70e-05 train L:0.514104 Rec:0.258181 Lat/Reg:0.1682/4.9503 LatW/RegW:0.0084/0.2475 Hard/Sampled:0.200/0.251 Lat/PosSim:0.832/0.829 Opt:40 Skip:0 Grad:0.514 Scale:65536 MAE:0.1490 PSNR:14.3 SSIM:0.2923 | val L:0.2219 PSNR:14.2 SSIM:0.4104 HFEN:0.7903 | 预估剩余时间:35分钟
+  >> 刷新HFEN最优模型：0.790288
+Epoch  34/100 | lr:7.57e-05 train L:0.495740 Rec:0.241638 Lat/Reg:0.1698/4.9122 LatW/RegW:0.0085/0.2456 Hard/Sampled:0.200/0.250 Lat/PosSim:0.830/0.826 Opt:40 Skip:0 Grad:0.553 Scale:65536 MAE:0.1384 PSNR:14.7 SSIM:0.3278 | val L:0.2194 PSNR:14.5 SSIM:0.4141 HFEN:0.7930 | 预估剩余时间:34分钟
+  >> 刷新最优模型，验证SSIM：0.414084
+  >> 刷新PSNR最优模型：14.4549 dB
+Epoch  35/100 | lr:7.43e-05 train L:0.501104 Rec:0.245960 Lat/Reg:0.1748/4.9281 LatW/RegW:0.0087/0.2464 Hard/Sampled:0.200/0.253 Lat/PosSim:0.825/0.823 Opt:40 Skip:0 Grad:0.562 Scale:65536 MAE:0.1462 PSNR:14.4 SSIM:0.3289 | val L:0.2175 PSNR:14.3 SSIM:0.4239 HFEN:0.7911 | 预估剩余时间:34分钟
+  >> 刷新最优模型，验证SSIM：0.423855
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0035.pth
+Epoch  36/100 | lr:7.30e-05 train L:0.504299 Rec:0.248989 Lat/Reg:0.1745/4.9317 LatW/RegW:0.0087/0.2466 Hard/Sampled:0.200/0.250 Lat/PosSim:0.825/0.823 Opt:40 Skip:0 Grad:0.599 Scale:65536 MAE:0.1451 PSNR:14.4 SSIM:0.3168 | val L:0.2135 PSNR:14.5 SSIM:0.4309 HFEN:0.7964 | 预估剩余时间:33分钟
+  >> 刷新最优模型，验证SSIM：0.430881
+  >> 刷新PSNR最优模型：14.5011 dB
+Epoch  37/100 | lr:7.16e-05 train L:0.496324 Rec:0.240640 Lat/Reg:0.1754/4.9383 LatW/RegW:0.0088/0.2469 Hard/Sampled:0.200/0.250 Lat/PosSim:0.825/0.822 Opt:40 Skip:0 Grad:0.622 Scale:65536 MAE:0.1409 PSNR:14.6 SSIM:0.3374 | val L:0.2132 PSNR:14.5 SSIM:0.4295 HFEN:0.7972 | 预估剩余时间:33分钟
+  >> 刷新PSNR最优模型：14.5257 dB
+Epoch  38/100 | lr:7.02e-05 train L:0.493475 Rec:0.241857 Lat/Reg:0.1697/4.8626 LatW/RegW:0.0085/0.2431 Hard/Sampled:0.200/0.249 Lat/PosSim:0.830/0.827 Opt:40 Skip:0 Grad:0.550 Scale:65536 MAE:0.1397 PSNR:14.7 SSIM:0.3332 | val L:0.2121 PSNR:14.6 SSIM:0.4318 HFEN:0.7900 | 预估剩余时间:32分钟
+  >> 刷新最优模型，验证SSIM：0.431834
+  >> 刷新PSNR最优模型：14.6423 dB
+  >> 刷新HFEN最优模型：0.789996
+Epoch  39/100 | lr:6.87e-05 train L:0.492206 Rec:0.240473 Lat/Reg:0.1711/4.8635 LatW/RegW:0.0086/0.2432 Hard/Sampled:0.200/0.247 Lat/PosSim:0.829/0.827 Opt:40 Skip:0 Grad:0.577 Scale:65536 MAE:0.1382 PSNR:14.9 SSIM:0.3345 | val L:0.2147 PSNR:14.6 SSIM:0.4258 HFEN:0.7931 | 预估剩余时间:32分钟
+Epoch  40/100 | lr:6.73e-05 train L:0.494576 Rec:0.240618 Lat/Reg:0.1801/4.8991 LatW/RegW:0.0090/0.2450 Hard/Sampled:0.200/0.249 Lat/PosSim:0.820/0.819 Opt:40 Skip:0 Grad:0.565 Scale:65536 MAE:0.1384 PSNR:14.7 SSIM:0.3340 | val L:0.2100 PSNR:14.6 SSIM:0.4366 HFEN:0.7940 | 预估剩余时间:31分钟
+  >> 刷新最优模型，验证SSIM：0.436635
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0040.pth
+Epoch  41/100 | lr:6.58e-05 train L:0.493416 Rec:0.238336 Lat/Reg:0.1813/4.9203 LatW/RegW:0.0091/0.2460 Hard/Sampled:0.200/0.244 Lat/PosSim:0.819/0.816 Opt:40 Skip:0 Grad:0.612 Scale:65536 MAE:0.1352 PSNR:15.0 SSIM:0.3369 | val L:0.2191 PSNR:14.4 SSIM:0.4223 HFEN:0.8012 | 预估剩余时间:31分钟
+Epoch  42/100 | lr:6.43e-05 train L:0.473169 Rec:0.225768 Lat/Reg:0.1700/4.7780 LatW/RegW:0.0085/0.2389 Hard/Sampled:0.200/0.246 Lat/PosSim:0.830/0.828 Opt:40 Skip:0 Grad:0.596 Scale:65536 MAE:0.1303 PSNR:15.1 SSIM:0.3631 | val L:0.2097 PSNR:14.6 SSIM:0.4385 HFEN:0.7953 | 预估剩余时间:30分钟
+  >> 刷新最优模型，验证SSIM：0.438519
+Epoch  43/100 | lr:6.28e-05 train L:0.508167 Rec:0.250083 Lat/Reg:0.1827/4.9789 LatW/RegW:0.0091/0.2489 Hard/Sampled:0.200/0.250 Lat/PosSim:0.817/0.813 Opt:40 Skip:0 Grad:0.612 Scale:65536 MAE:0.1442 PSNR:14.3 SSIM:0.3161 | val L:0.2090 PSNR:14.7 SSIM:0.4394 HFEN:0.8047 | 预估剩余时间:30分钟
+  >> 刷新最优模型，验证SSIM：0.439400
+  >> 刷新PSNR最优模型：14.6939 dB
+Epoch  44/100 | lr:6.13e-05 train L:0.488017 Rec:0.240328 Lat/Reg:0.1652/4.7886 LatW/RegW:0.0083/0.2394 Hard/Sampled:0.200/0.243 Lat/PosSim:0.835/0.833 Opt:40 Skip:0 Grad:0.557 Scale:65536 MAE:0.1356 PSNR:15.1 SSIM:0.3295 | val L:0.2109 PSNR:14.6 SSIM:0.4378 HFEN:0.7980 | 预估剩余时间:29分钟
+Epoch  45/100 | lr:5.98e-05 train L:0.475174 Rec:0.222116 Lat/Reg:0.1809/4.8802 LatW/RegW:0.0090/0.2440 Hard/Sampled:0.200/0.248 Lat/PosSim:0.819/0.814 Opt:40 Skip:0 Grad:0.718 Scale:65536 MAE:0.1344 PSNR:14.8 SSIM:0.3858 | val L:0.2081 PSNR:14.7 SSIM:0.4427 HFEN:0.7862 | 预估剩余时间:29分钟
+  >> 刷新最优模型，验证SSIM：0.442670
+  >> 刷新PSNR最优模型：14.7126 dB
+  >> 刷新HFEN最优模型：0.786237
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0045.pth
+Epoch  46/100 | lr:5.82e-05 train L:0.466501 Rec:0.222065 Lat/Reg:0.1660/4.7227 LatW/RegW:0.0083/0.2361 Hard/Sampled:0.200/0.241 Lat/PosSim:0.834/0.832 Opt:40 Skip:0 Grad:0.633 Scale:65536 MAE:0.1246 PSNR:15.4 SSIM:0.3696 | val L:0.2048 PSNR:14.9 SSIM:0.4473 HFEN:0.7953 | 预估剩余时间:28分钟
+  >> 刷新最优模型，验证SSIM：0.447264
+  >> 刷新PSNR最优模型：14.8949 dB
+Epoch  47/100 | lr:5.67e-05 train L:0.480329 Rec:0.234492 Lat/Reg:0.1704/4.7463 LatW/RegW:0.0085/0.2373 Hard/Sampled:0.200/0.249 Lat/PosSim:0.830/0.826 Opt:40 Skip:0 Grad:0.570 Scale:65536 MAE:0.1317 PSNR:15.0 SSIM:0.3433 | val L:0.2031 PSNR:15.0 SSIM:0.4505 HFEN:0.7831 | 预估剩余时间:28分钟
+  >> 刷新最优模型，验证SSIM：0.450461
+  >> 刷新PSNR最优模型：14.9571 dB
+  >> 刷新HFEN最优模型：0.783068
+Epoch  48/100 | lr:5.52e-05 train L:0.482655 Rec:0.232346 Lat/Reg:0.1824/4.8238 LatW/RegW:0.0091/0.2412 Hard/Sampled:0.200/0.247 Lat/PosSim:0.818/0.815 Opt:40 Skip:0 Grad:0.573 Scale:65536 MAE:0.1319 PSNR:15.0 SSIM:0.3494 | val L:0.2048 PSNR:14.9 SSIM:0.4470 HFEN:0.7873 | 预估剩余时间:27分钟
+Epoch  49/100 | lr:5.36e-05 train L:0.464666 Rec:0.214703 Lat/Reg:0.1821/4.8171 LatW/RegW:0.0091/0.2409 Hard/Sampled:0.200/0.240 Lat/PosSim:0.818/0.815 Opt:40 Skip:0 Grad:0.664 Scale:65536 MAE:0.1239 PSNR:15.6 SSIM:0.3911 | val L:0.2045 PSNR:14.8 SSIM:0.4508 HFEN:0.7876 | 预估剩余时间:27分钟
+  >> 刷新最优模型，验证SSIM：0.450754
+Epoch  50/100 | lr:5.21e-05 train L:0.473743 Rec:0.228276 Lat/Reg:0.1702/4.7392 LatW/RegW:0.0085/0.2370 Hard/Sampled:0.200/0.248 Lat/PosSim:0.830/0.826 Opt:40 Skip:0 Grad:0.538 Scale:131072 MAE:0.1254 PSNR:15.3 SSIM:0.3525 | val L:0.2020 PSNR:14.9 SSIM:0.4553 HFEN:0.7931 | 预估剩余时间:26分钟
+  >> 刷新最优模型，验证SSIM：0.455274
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0050.pth
+Epoch  51/100 | lr:5.05e-05 train L:0.471229 Rec:0.224319 Lat/Reg:0.1769/4.7613 LatW/RegW:0.0088/0.2381 Hard/Sampled:0.200/0.247 Lat/PosSim:0.823/0.820 Opt:40 Skip:0 Grad:0.563 Scale:131072 MAE:0.1261 PSNR:15.3 SSIM:0.3669 | val L:0.2023 PSNR:14.9 SSIM:0.4547 HFEN:0.7943 | 预估剩余时间:26分钟
+Epoch  52/100 | lr:4.89e-05 train L:0.467551 Rec:0.221144 Lat/Reg:0.1762/4.7519 LatW/RegW:0.0088/0.2376 Hard/Sampled:0.200/0.249 Lat/PosSim:0.824/0.820 Opt:40 Skip:0 Grad:0.615 Scale:131072 MAE:0.1282 PSNR:15.2 SSIM:0.3783 | val L:0.2026 PSNR:14.9 SSIM:0.4553 HFEN:0.7814 | 预估剩余时间:25分钟
+  >> 刷新最优模型，验证SSIM：0.455340
+  >> 刷新HFEN最优模型：0.781394
+Epoch  53/100 | lr:4.74e-05 train L:0.458322 Rec:0.214330 Lat/Reg:0.1769/4.7030 LatW/RegW:0.0088/0.2351 Hard/Sampled:0.200/0.241 Lat/PosSim:0.823/0.821 Opt:40 Skip:0 Grad:0.540 Scale:131072 MAE:0.1274 PSNR:15.2 SSIM:0.3961 | val L:0.1999 PSNR:15.1 SSIM:0.4578 HFEN:0.7987 | 预估剩余时间:24分钟
+  >> 刷新最优模型，验证SSIM：0.457790
+  >> 刷新PSNR最优模型：15.0562 dB
+Epoch  54/100 | lr:4.58e-05 train L:0.483775 Rec:0.235937 Lat/Reg:0.1753/4.7815 LatW/RegW:0.0088/0.2391 Hard/Sampled:0.200/0.248 Lat/PosSim:0.825/0.822 Opt:40 Skip:0 Grad:0.608 Scale:131072 MAE:0.1292 PSNR:15.2 SSIM:0.3378 | val L:0.2015 PSNR:15.0 SSIM:0.4551 HFEN:0.7973 | 预估剩余时间:24分钟
+Epoch  55/100 | lr:4.43e-05 train L:0.455757 Rec:0.214440 Lat/Reg:0.1735/4.6528 LatW/RegW:0.0087/0.2326 Hard/Sampled:0.200/0.243 Lat/PosSim:0.826/0.825 Opt:40 Skip:0 Grad:0.581 Scale:131072 MAE:0.1252 PSNR:15.3 SSIM:0.3968 | val L:0.1980 PSNR:15.1 SSIM:0.4619 HFEN:0.7918 | 预估剩余时间:23分钟
+  >> 刷新最优模型，验证SSIM：0.461902
+  >> 刷新PSNR最优模型：15.0881 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0055.pth
+Epoch  56/100 | lr:4.28e-05 train L:0.471125 Rec:0.225857 Lat/Reg:0.1849/4.7204 LatW/RegW:0.0092/0.2360 Hard/Sampled:0.200/0.253 Lat/PosSim:0.815/0.813 Opt:40 Skip:0 Grad:0.626 Scale:131072 MAE:0.1307 PSNR:15.2 SSIM:0.3689 | val L:0.2009 PSNR:14.9 SSIM:0.4592 HFEN:0.7896 | 预估剩余时间:23分钟
+Epoch  57/100 | lr:4.12e-05 train L:0.465766 Rec:0.223565 Lat/Reg:0.1721/4.6719 LatW/RegW:0.0086/0.2336 Hard/Sampled:0.200/0.246 Lat/PosSim:0.828/0.825 Opt:40 Skip:0 Grad:0.574 Scale:131072 MAE:0.1219 PSNR:15.4 SSIM:0.3619 | val L:0.2006 PSNR:14.9 SSIM:0.4585 HFEN:0.7834 | 预估剩余时间:22分钟
+Epoch  58/100 | lr:3.97e-05 train L:0.471260 Rec:0.226136 Lat/Reg:0.1803/4.7221 LatW/RegW:0.0090/0.2361 Hard/Sampled:0.200/0.248 Lat/PosSim:0.820/0.818 Opt:40 Skip:0 Grad:0.632 Scale:131072 MAE:0.1241 PSNR:15.4 SSIM:0.3557 | val L:0.1990 PSNR:15.0 SSIM:0.4605 HFEN:0.7850 | 预估剩余时间:22分钟
+Epoch  59/100 | lr:3.82e-05 train L:0.471053 Rec:0.226671 Lat/Reg:0.1779/4.7097 LatW/RegW:0.0089/0.2355 Hard/Sampled:0.200/0.245 Lat/PosSim:0.822/0.820 Opt:40 Skip:0 Grad:0.635 Scale:131072 MAE:0.1276 PSNR:15.2 SSIM:0.3628 | val L:0.1974 PSNR:15.0 SSIM:0.4653 HFEN:0.7795 | 预估剩余时间:21分钟
+  >> 刷新最优模型，验证SSIM：0.465307
+  >> 刷新HFEN最优模型：0.779459
+Epoch  60/100 | lr:3.67e-05 train L:0.467111 Rec:0.226232 Lat/Reg:0.1747/4.6429 LatW/RegW:0.0087/0.2321 Hard/Sampled:0.200/0.249 Lat/PosSim:0.825/0.824 Opt:40 Skip:0 Grad:0.688 Scale:131072 MAE:0.1272 PSNR:15.5 SSIM:0.3604 | val L:0.1973 PSNR:15.0 SSIM:0.4649 HFEN:0.7754 | 预估剩余时间:21分钟
+  >> 刷新HFEN最优模型：0.775405
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0060.pth
+Epoch  61/100 | lr:3.52e-05 train L:0.461432 Rec:0.219739 Lat/Reg:0.1722/4.6617 LatW/RegW:0.0086/0.2331 Hard/Sampled:0.200/0.248 Lat/PosSim:0.828/0.824 Opt:40 Skip:0 Grad:0.574 Scale:131072 MAE:0.1223 PSNR:15.3 SSIM:0.3755 | val L:0.1943 PSNR:15.2 SSIM:0.4691 HFEN:0.7841 | 预估剩余时间:20分钟
+  >> 刷新最优模型，验证SSIM：0.469062
+  >> 刷新PSNR最优模型：15.2229 dB
+Epoch  62/100 | lr:3.37e-05 train L:0.458830 Rec:0.217701 Lat/Reg:0.1745/4.6481 LatW/RegW:0.0087/0.2324 Hard/Sampled:0.200/0.243 Lat/PosSim:0.825/0.823 Opt:40 Skip:0 Grad:0.618 Scale:131072 MAE:0.1181 PSNR:15.7 SSIM:0.3750 | val L:0.1974 PSNR:15.1 SSIM:0.4645 HFEN:0.7892 | 预估剩余时间:20分钟
+Epoch  63/100 | lr:3.23e-05 train L:0.441931 Rec:0.201899 Lat/Reg:0.1807/4.6199 LatW/RegW:0.0090/0.2310 Hard/Sampled:0.200/0.243 Lat/PosSim:0.819/0.816 Opt:40 Skip:0 Grad:0.658 Scale:131072 MAE:0.1200 PSNR:15.5 SSIM:0.4261 | val L:0.1938 PSNR:15.2 SSIM:0.4726 HFEN:0.7800 | 预估剩余时间:19分钟
+  >> 刷新最优模型，验证SSIM：0.472603
+Epoch  64/100 | lr:3.08e-05 train L:0.475092 Rec:0.232369 Lat/Reg:0.1736/4.6809 LatW/RegW:0.0087/0.2340 Hard/Sampled:0.200/0.243 Lat/PosSim:0.826/0.822 Opt:40 Skip:0 Grad:0.617 Scale:131072 MAE:0.1300 PSNR:15.3 SSIM:0.3495 | val L:0.1952 PSNR:15.2 SSIM:0.4668 HFEN:0.7855 | 预估剩余时间:19分钟
+Epoch  65/100 | lr:2.94e-05 train L:0.470894 Rec:0.225666 Lat/Reg:0.1823/4.7223 LatW/RegW:0.0091/0.2361 Hard/Sampled:0.200/0.250 Lat/PosSim:0.818/0.815 Opt:40 Skip:0 Grad:0.639 Scale:131072 MAE:0.1273 PSNR:15.2 SSIM:0.3651 | val L:0.1958 PSNR:15.1 SSIM:0.4666 HFEN:0.7828 | 预估剩余时间:18分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0065.pth
+Epoch  66/100 | lr:2.80e-05 train L:0.450705 Rec:0.214218 Lat/Reg:0.1665/4.5632 LatW/RegW:0.0083/0.2282 Hard/Sampled:0.200/0.250 Lat/PosSim:0.833/0.831 Opt:40 Skip:0 Grad:0.590 Scale:131072 MAE:0.1177 PSNR:15.9 SSIM:0.3870 | val L:0.1939 PSNR:15.3 SSIM:0.4711 HFEN:0.7794 | 预估剩余时间:18分钟
+  >> 刷新PSNR最优模型：15.2624 dB
+Epoch  67/100 | lr:2.67e-05 train L:0.441963 Rec:0.204105 Lat/Reg:0.1755/4.5817 LatW/RegW:0.0088/0.2291 Hard/Sampled:0.200/0.245 Lat/PosSim:0.825/0.822 Opt:40 Skip:0 Grad:0.641 Scale:131072 MAE:0.1191 PSNR:15.7 SSIM:0.4207 | val L:0.1926 PSNR:15.3 SSIM:0.4735 HFEN:0.7859 | 预估剩余时间:17分钟
+  >> 刷新最优模型，验证SSIM：0.473539
+Epoch  68/100 | lr:2.53e-05 train L:0.456460 Rec:0.219795 Lat/Reg:0.1695/4.5638 LatW/RegW:0.0085/0.2282 Hard/Sampled:0.200/0.244 Lat/PosSim:0.830/0.829 Opt:40 Skip:0 Grad:0.573 Scale:131072 MAE:0.1252 PSNR:15.4 SSIM:0.3807 | val L:0.1939 PSNR:15.2 SSIM:0.4712 HFEN:0.7864 | 预估剩余时间:17分钟
+Epoch  69/100 | lr:2.40e-05 train L:0.465313 Rec:0.224539 Lat/Reg:0.1741/4.6413 LatW/RegW:0.0087/0.2321 Hard/Sampled:0.200/0.247 Lat/PosSim:0.826/0.823 Opt:40 Skip:0 Grad:0.566 Scale:131072 MAE:0.1282 PSNR:15.3 SSIM:0.3722 | val L:0.1913 PSNR:15.3 SSIM:0.4772 HFEN:0.7832 | 预估剩余时间:16分钟
+  >> 刷新最优模型，验证SSIM：0.477236
+  >> 刷新PSNR最优模型：15.2872 dB
+Epoch  70/100 | lr:2.27e-05 train L:0.456580 Rec:0.218819 Lat/Reg:0.1711/4.5841 LatW/RegW:0.0086/0.2292 Hard/Sampled:0.200/0.242 Lat/PosSim:0.829/0.827 Opt:40 Skip:0 Grad:0.614 Scale:131072 MAE:0.1206 PSNR:15.7 SSIM:0.3765 | val L:0.1917 PSNR:15.3 SSIM:0.4753 HFEN:0.7780 | 预估剩余时间:16分钟
+  >> 刷新PSNR最优模型：15.3382 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0070.pth
+Epoch  71/100 | lr:2.14e-05 train L:0.445358 Rec:0.207151 Lat/Reg:0.1800/4.5842 LatW/RegW:0.0090/0.2292 Hard/Sampled:0.200/0.244 Lat/PosSim:0.820/0.817 Opt:40 Skip:0 Grad:0.644 Scale:131072 MAE:0.1218 PSNR:15.6 SSIM:0.4116 | val L:0.1917 PSNR:15.4 SSIM:0.4757 HFEN:0.7770 | 预估剩余时间:15分钟
+  >> 刷新PSNR最优模型：15.3714 dB
+Epoch  72/100 | lr:2.02e-05 train L:0.454649 Rec:0.214400 Lat/Reg:0.1825/4.6224 LatW/RegW:0.0091/0.2311 Hard/Sampled:0.200/0.245 Lat/PosSim:0.817/0.815 Opt:40 Skip:0 Grad:0.661 Scale:131072 MAE:0.1206 PSNR:15.7 SSIM:0.3844 | val L:0.1927 PSNR:15.2 SSIM:0.4741 HFEN:0.7771 | 预估剩余时间:15分钟
+Epoch  73/100 | lr:1.89e-05 train L:0.465657 Rec:0.224950 Lat/Reg:0.1733/4.6409 LatW/RegW:0.0087/0.2320 Hard/Sampled:0.200/0.248 Lat/PosSim:0.827/0.823 Opt:40 Skip:0 Grad:0.581 Scale:131072 MAE:0.1227 PSNR:15.5 SSIM:0.3623 | val L:0.1894 PSNR:15.4 SSIM:0.4799 HFEN:0.7795 | 预估剩余时间:14分钟
+  >> 刷新最优模型，验证SSIM：0.479877
+  >> 刷新PSNR最优模型：15.4119 dB
+Epoch  74/100 | lr:1.78e-05 train L:0.446651 Rec:0.210029 Lat/Reg:0.1714/4.5610 LatW/RegW:0.0086/0.2280 Hard/Sampled:0.200/0.249 Lat/PosSim:0.829/0.825 Opt:40 Skip:0 Grad:0.656 Scale:131072 MAE:0.1209 PSNR:15.6 SSIM:0.4037 | val L:0.1912 PSNR:15.4 SSIM:0.4762 HFEN:0.7837 | 预估剩余时间:13分钟
+Epoch  75/100 | lr:1.66e-05 train L:0.446317 Rec:0.209524 Lat/Reg:0.1736/4.5622 LatW/RegW:0.0087/0.2281 Hard/Sampled:0.200/0.238 Lat/PosSim:0.826/0.823 Opt:40 Skip:0 Grad:0.646 Scale:131072 MAE:0.1164 PSNR:15.9 SSIM:0.3991 | val L:0.1906 PSNR:15.4 SSIM:0.4773 HFEN:0.7796 | 预估剩余时间:13分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0075.pth
+Epoch  76/100 | lr:1.55e-05 train L:0.459751 Rec:0.218629 Lat/Reg:0.1787/4.6437 LatW/RegW:0.0089/0.2322 Hard/Sampled:0.200/0.247 Lat/PosSim:0.821/0.818 Opt:40 Skip:0 Grad:0.631 Scale:131072 MAE:0.1200 PSNR:15.6 SSIM:0.3778 | val L:0.1896 PSNR:15.4 SSIM:0.4789 HFEN:0.7784 | 预估剩余时间:12分钟
+Epoch  77/100 | lr:1.44e-05 train L:0.452339 Rec:0.215823 Lat/Reg:0.1751/4.5552 LatW/RegW:0.0088/0.2278 Hard/Sampled:0.200/0.246 Lat/PosSim:0.825/0.823 Opt:40 Skip:0 Grad:0.658 Scale:131072 MAE:0.1220 PSNR:15.7 SSIM:0.3857 | val L:0.1896 PSNR:15.5 SSIM:0.4776 HFEN:0.7811 | 预估剩余时间:12分钟
+  >> 刷新PSNR最优模型：15.4583 dB
+Epoch  78/100 | lr:1.34e-05 train L:0.463908 Rec:0.224158 Lat/Reg:0.1750/4.6201 LatW/RegW:0.0087/0.2310 Hard/Sampled:0.200/0.241 Lat/PosSim:0.825/0.823 Opt:40 Skip:0 Grad:0.586 Scale:131072 MAE:0.1180 PSNR:15.8 SSIM:0.3567 | val L:0.1893 PSNR:15.4 SSIM:0.4784 HFEN:0.7797 | 预估剩余时间:11分钟
+Epoch  79/100 | lr:1.24e-05 train L:0.447393 Rec:0.207842 Lat/Reg:0.1842/4.6068 LatW/RegW:0.0092/0.2303 Hard/Sampled:0.200/0.243 Lat/PosSim:0.816/0.815 Opt:40 Skip:0 Grad:0.689 Scale:131072 MAE:0.1191 PSNR:15.7 SSIM:0.4054 | val L:0.1895 PSNR:15.5 SSIM:0.4775 HFEN:0.7803 | 预估剩余时间:11分钟
+  >> 刷新PSNR最优模型：15.4747 dB
+Epoch  80/100 | lr:1.14e-05 train L:0.446995 Rec:0.210185 Lat/Reg:0.1773/4.5589 LatW/RegW:0.0089/0.2279 Hard/Sampled:0.200/0.243 Lat/PosSim:0.823/0.819 Opt:40 Skip:0 Grad:0.619 Scale:131072 MAE:0.1200 PSNR:15.6 SSIM:0.4011 | val L:0.1896 PSNR:15.4 SSIM:0.4792 HFEN:0.7765 | 预估剩余时间:10分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0080.pth
+Epoch  81/100 | lr:1.05e-05 train L:0.440887 Rec:0.207802 Lat/Reg:0.1690/4.4927 LatW/RegW:0.0085/0.2246 Hard/Sampled:0.200/0.244 Lat/PosSim:0.831/0.828 Opt:40 Skip:0 Grad:0.610 Scale:131072 MAE:0.1172 PSNR:15.8 SSIM:0.4053 | val L:0.1894 PSNR:15.4 SSIM:0.4798 HFEN:0.7773 | 预估剩余时间:10分钟
+Epoch  82/100 | lr:9.56e-06 train L:0.450239 Rec:0.212986 Lat/Reg:0.1752/4.5698 LatW/RegW:0.0088/0.2285 Hard/Sampled:0.200/0.244 Lat/PosSim:0.825/0.821 Opt:40 Skip:0 Grad:0.609 Scale:131072 MAE:0.1220 PSNR:15.6 SSIM:0.3956 | val L:0.1887 PSNR:15.5 SSIM:0.4809 HFEN:0.7839 | 预估剩余时间:9分钟
+  >> 刷新最优模型，验证SSIM：0.480931
+Epoch  83/100 | lr:8.71e-06 train L:0.431251 Rec:0.199703 Lat/Reg:0.1676/4.4634 LatW/RegW:0.0084/0.2232 Hard/Sampled:0.200/0.245 Lat/PosSim:0.832/0.831 Opt:40 Skip:0 Grad:0.649 Scale:131072 MAE:0.1088 PSNR:16.3 SSIM:0.4184 | val L:0.1893 PSNR:15.3 SSIM:0.4805 HFEN:0.7815 | 预估剩余时间:9分钟
+Epoch  84/100 | lr:7.89e-06 train L:0.429885 Rec:0.194826 Lat/Reg:0.1770/4.5242 LatW/RegW:0.0088/0.2262 Hard/Sampled:0.200/0.236 Lat/PosSim:0.823/0.820 Opt:40 Skip:0 Grad:0.694 Scale:131072 MAE:0.1130 PSNR:16.0 SSIM:0.4382 | val L:0.1889 PSNR:15.4 SSIM:0.4810 HFEN:0.7808 | 预估剩余时间:8分钟
+  >> 刷新最优模型，验证SSIM：0.481024
+Epoch  85/100 | lr:7.12e-06 train L:0.449590 Rec:0.213713 Lat/Reg:0.1738/4.5438 LatW/RegW:0.0087/0.2272 Hard/Sampled:0.200/0.246 Lat/PosSim:0.826/0.822 Opt:40 Skip:0 Grad:0.627 Scale:131072 MAE:0.1178 PSNR:15.7 SSIM:0.3883 | val L:0.1880 PSNR:15.4 SSIM:0.4823 HFEN:0.7820 | 预估剩余时间:8分钟
+  >> 刷新最优模型，验证SSIM：0.482309
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0085.pth
+Epoch  86/100 | lr:6.40e-06 train L:0.443354 Rec:0.209986 Lat/Reg:0.1706/4.4967 LatW/RegW:0.0085/0.2248 Hard/Sampled:0.200/0.241 Lat/PosSim:0.829/0.828 Opt:40 Skip:0 Grad:0.611 Scale:131072 MAE:0.1157 PSNR:15.9 SSIM:0.3961 | val L:0.1875 PSNR:15.5 SSIM:0.4833 HFEN:0.7815 | 预估剩余时间:7分钟
+  >> 刷新最优模型，验证SSIM：0.483313
+Epoch  87/100 | lr:5.71e-06 train L:0.453137 Rec:0.216317 Lat/Reg:0.1784/4.5580 LatW/RegW:0.0089/0.2279 Hard/Sampled:0.200/0.244 Lat/PosSim:0.822/0.819 Opt:40 Skip:0 Grad:0.666 Scale:131072 MAE:0.1211 PSNR:15.6 SSIM:0.3844 | val L:0.1882 PSNR:15.4 SSIM:0.4826 HFEN:0.7793 | 预估剩余时间:7分钟
+Epoch  88/100 | lr:5.07e-06 train L:0.433640 Rec:0.202224 Lat/Reg:0.1648/4.4635 LatW/RegW:0.0082/0.2232 Hard/Sampled:0.200/0.243 Lat/PosSim:0.835/0.831 Opt:40 Skip:0 Grad:0.643 Scale:131072 MAE:0.1131 PSNR:16.0 SSIM:0.4188 | val L:0.1877 PSNR:15.5 SSIM:0.4836 HFEN:0.7799 | 预估剩余时间:6分钟
+  >> 刷新最优模型，验证SSIM：0.483569
+Epoch  89/100 | lr:4.48e-06 train L:0.442371 Rec:0.209123 Lat/Reg:0.1678/4.4972 LatW/RegW:0.0084/0.2249 Hard/Sampled:0.200/0.243 Lat/PosSim:0.832/0.828 Opt:40 Skip:0 Grad:0.603 Scale:131072 MAE:0.1147 PSNR:15.9 SSIM:0.3977 | val L:0.1874 PSNR:15.5 SSIM:0.4833 HFEN:0.7794 | 预估剩余时间:6分钟
+  >> 刷新PSNR最优模型：15.4943 dB
+Epoch  90/100 | lr:3.93e-06 train L:0.427019 Rec:0.194596 Lat/Reg:0.1761/4.4724 LatW/RegW:0.0088/0.2236 Hard/Sampled:0.200/0.240 Lat/PosSim:0.824/0.822 Opt:40 Skip:0 Grad:0.676 Scale:131072 MAE:0.1159 PSNR:16.0 SSIM:0.4449 | val L:0.1872 PSNR:15.5 SSIM:0.4835 HFEN:0.7813 | 预估剩余时间:5分钟
+  >> 刷新PSNR最优模型：15.5251 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0090.pth
+Epoch  91/100 | lr:3.42e-06 train L:0.455609 Rec:0.220458 Lat/Reg:0.1674/4.5356 LatW/RegW:0.0084/0.2268 Hard/Sampled:0.200/0.241 Lat/PosSim:0.833/0.829 Opt:40 Skip:0 Grad:0.596 Scale:131072 MAE:0.1164 PSNR:15.9 SSIM:0.3645 | val L:0.1875 PSNR:15.5 SSIM:0.4829 HFEN:0.7823 | 预估剩余时间:5分钟
+  >> 刷新PSNR最优模型：15.5284 dB
+Epoch  92/100 | lr:2.97e-06 train L:0.447558 Rec:0.210448 Lat/Reg:0.1778/4.5644 LatW/RegW:0.0089/0.2282 Hard/Sampled:0.200/0.245 Lat/PosSim:0.822/0.819 Opt:40 Skip:0 Grad:0.622 Scale:131072 MAE:0.1245 PSNR:15.4 SSIM:0.4085 | val L:0.1878 PSNR:15.5 SSIM:0.4824 HFEN:0.7818 | 预估剩余时间:4分钟
+Epoch  93/100 | lr:2.56e-06 train L:0.448337 Rec:0.210084 Lat/Reg:0.1800/4.5850 LatW/RegW:0.0090/0.2293 Hard/Sampled:0.200/0.241 Lat/PosSim:0.820/0.816 Opt:40 Skip:0 Grad:0.615 Scale:131072 MAE:0.1215 PSNR:15.6 SSIM:0.4071 | val L:0.1870 PSNR:15.5 SSIM:0.4839 HFEN:0.7812 | 预估剩余时间:4分钟
+  >> 刷新最优模型，验证SSIM：0.483913
+Epoch  94/100 | lr:2.19e-06 train L:0.449745 Rec:0.214060 Lat/Reg:0.1753/4.5384 LatW/RegW:0.0088/0.2269 Hard/Sampled:0.200/0.248 Lat/PosSim:0.825/0.821 Opt:40 Skip:0 Grad:0.592 Scale:131072 MAE:0.1192 PSNR:15.6 SSIM:0.3888 | val L:0.1867 PSNR:15.6 SSIM:0.4844 HFEN:0.7817 | 预估剩余时间:3分钟
+  >> 刷新最优模型，验证SSIM：0.484379
+  >> 刷新PSNR最优模型：15.5524 dB
+Epoch  95/100 | lr:1.88e-06 train L:0.439797 Rec:0.205735 Lat/Reg:0.1721/4.5092 LatW/RegW:0.0086/0.2255 Hard/Sampled:0.200/0.244 Lat/PosSim:0.828/0.825 Opt:40 Skip:0 Grad:0.673 Scale:131072 MAE:0.1160 PSNR:15.7 SSIM:0.4096 | val L:0.1868 PSNR:15.5 SSIM:0.4843 HFEN:0.7810 | 预估剩余时间:3分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0095.pth
+Epoch  96/100 | lr:1.61e-06 train L:0.433248 Rec:0.200322 Lat/Reg:0.1741/4.4844 LatW/RegW:0.0087/0.2242 Hard/Sampled:0.200/0.247 Lat/PosSim:0.826/0.824 Opt:40 Skip:0 Grad:0.671 Scale:131072 MAE:0.1176 PSNR:15.9 SSIM:0.4283 | val L:0.1869 PSNR:15.5 SSIM:0.4844 HFEN:0.7808 | 预估剩余时间:2分钟
+  >> 刷新最优模型，验证SSIM：0.484394
+Epoch  97/100 | lr:1.39e-06 train L:0.441354 Rec:0.207357 Lat/Reg:0.1704/4.5095 LatW/RegW:0.0085/0.2255 Hard/Sampled:0.200/0.244 Lat/PosSim:0.830/0.826 Opt:40 Skip:0 Grad:0.629 Scale:131072 MAE:0.1143 PSNR:16.0 SSIM:0.4006 | val L:0.1868 PSNR:15.5 SSIM:0.4845 HFEN:0.7808 | 预估剩余时间:2分钟
+  >> 刷新最优模型，验证SSIM：0.484467
+Epoch  98/100 | lr:1.22e-06 train L:0.443158 Rec:0.207262 Lat/Reg:0.1748/4.5431 LatW/RegW:0.0087/0.2272 Hard/Sampled:0.200/0.240 Lat/PosSim:0.825/0.820 Opt:40 Skip:0 Grad:0.633 Scale:131072 MAE:0.1142 PSNR:15.8 SSIM:0.4007 | val L:0.1868 PSNR:15.5 SSIM:0.4844 HFEN:0.7807 | 预估剩余时间:1分钟
+Epoch  99/100 | lr:1.10e-06 train L:0.442244 Rec:0.207994 Lat/Reg:0.1729/4.5121 LatW/RegW:0.0086/0.2256 Hard/Sampled:0.200/0.239 Lat/PosSim:0.827/0.825 Opt:40 Skip:0 Grad:0.594 Scale:131072 MAE:0.1165 PSNR:15.8 SSIM:0.4037 | val L:0.1868 PSNR:15.5 SSIM:0.4845 HFEN:0.7800 | 预估剩余时间:1分钟
+  >> 刷新最优模型，验证SSIM：0.484470
+Epoch 100/100 | lr:1.02e-06 train L:0.429674 Rec:0.194580 Lat/Reg:0.1839/4.5180 LatW/RegW:0.0092/0.2259 Hard/Sampled:0.200/0.245 Lat/PosSim:0.816/0.812 Opt:40 Skip:0 Grad:0.672 Scale:262144 MAE:0.1161 PSNR:15.9 SSIM:0.4378 | val L:0.1868 PSNR:15.5 SSIM:0.4844 HFEN:0.7798 | 预估剩余时间:0分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/checkpoints/epoch_0100.pth
+
+全部训练结束！最优验证SSIM：0.484470
+
+加载最优模型，在独立测试集评估最终效果...
+测试集病例总数: 3
+Moment验证集校准 | scale=27.8481 | raw MAE=0.0306125 | calibrated MAE=0.0323914
+测试集最终指标 | MAE: 0.108223 | PSNR: 16.11 dB | SSIM: 0.520373 | 前景PSNR: 15.75 dB | 前景SSIM: 0.498455 | Gradient MAE: 0.075171 | HFEN: 0.737152
+
+============================================================
+启动MC Dropout方差图对照评估（单次矩传播 vs MC Dropout）...
+  MC Dropout 推理次数: 200
+  Dropout 率: 0.2
+不确定性方差图对比结果 | RMSD vs MC200 variance: 0.000496 | MAE brain vs MC200 variance: 0.000319
+Moment-vs-MC相关性 | Pearson: 0.8687 | Spearman: 0.9255
+不确定性-vs-绝对误差相关性 | Moment Pearson/Spearman: 0.2328/0.3174 | MC Pearson/Spearman: 0.2260/0.3231
+高不确定区域覆盖高误差区域(top 10%) | Moment: 0.1149 | MC: 0.0971
+Moment方差与真实平方误差的MAE | raw: 0.026463 | validation-calibrated: 0.028900
+平均推理时间 | Moment: 0.196s (1次) | MC200: 9.805s (200次) | 时间比: 50.0x
+峰值额外显存 | Moment: 6624.6 MB | MC200: 1788.5 MB
+同次推理的一一对应对比图保存至: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/figures/test_mc_dropout_compare (3 cases)
+不确定性方差CSV日志保存至: /root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl/uncertainty_results.csv
+============================================================
+
+所有模型、日志文件存放路径：/root/sj-tmp/ctri/jingjian RA-ReCL/output_rarecl

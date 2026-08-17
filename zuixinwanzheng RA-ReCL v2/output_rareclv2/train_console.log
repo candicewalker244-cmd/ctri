@@ -1,0 +1,249 @@
+nohup: ignoring input
+训练设备: cuda
+混合精度状态: True
+数据集路径: /root/sj-tmp/ctri/data/dataset
+RA-ReCL v2 PatchNCE状态: True
+Residual refiner状态: True
+方法版本: E0 + residual refinement + curriculum multi-scale Region-PatchNCE
+RA-ReCL v2参数: lambda=0.05, temperature=0.07, curriculum=0.2/0.6, hard middle/final=0.3/0.2, level_weights=(0.2, 0.3, 0.5), feature_dim=64, patches/negative_pool=256/1024, refiner_channels/scale=8/0.1
+Moment propagation不参与训练，仅保留为训练后不确定性评估路径
+验证/测试裁剪: (150, 150, 150)
+训练集病例总数: 40
+验证集病例总数: 8
+测试集病例总数: 3
+CT/MRI配对检查: 病例ID、shape、affine和跨集合去重均通过
+模型总参数量: 30,424,794
+可训练参数量: 30,424,794
+
+开始训练，epoch 1 到 100
+Epoch   1/100 | lr:1.00e-04 train L:0.351273 Rec:0.351273 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.00492 Opt:40 Skip:0 Grad:0.389 Scale:65536 MAE:0.2609 PSNR:10.5 SSIM:0.1791 | val L:0.3110 PSNR:11.8 SSIM:0.2425 HFEN:0.8312 | 预估剩余时间:52分钟
+  >> 刷新最优模型，验证SSIM：0.242516
+  >> 刷新PSNR最优模型：11.7964 dB
+  >> 刷新HFEN最优模型：0.831200
+Epoch   2/100 | lr:1.00e-04 train L:0.307939 Rec:0.307939 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.01855 Opt:40 Skip:0 Grad:0.322 Scale:65536 MAE:0.2069 PSNR:12.2 SSIM:0.2311 | val L:0.2931 PSNR:12.5 SSIM:0.2669 HFEN:0.8361 | 预估剩余时间:51分钟
+  >> 刷新最优模型，验证SSIM：0.266915
+  >> 刷新PSNR最优模型：12.5380 dB
+Epoch   3/100 | lr:9.99e-05 train L:0.306712 Rec:0.306712 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.03429 Opt:40 Skip:0 Grad:0.300 Scale:65536 MAE:0.2002 PSNR:12.5 SSIM:0.2273 | val L:0.2831 PSNR:13.0 SSIM:0.2778 HFEN:0.8328 | 预估剩余时间:50分钟
+  >> 刷新最优模型，验证SSIM：0.277751
+  >> 刷新PSNR最优模型：13.0027 dB
+Epoch   4/100 | lr:9.98e-05 train L:0.297425 Rec:0.297425 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.05034 Opt:40 Skip:0 Grad:0.307 Scale:65536 MAE:0.1874 PSNR:12.9 SSIM:0.2381 | val L:0.2729 PSNR:13.2 SSIM:0.2990 HFEN:0.8415 | 预估剩余时间:50分钟
+  >> 刷新最优模型，验证SSIM：0.298978
+  >> 刷新PSNR最优模型：13.1831 dB
+Epoch   5/100 | lr:9.96e-05 train L:0.300510 Rec:0.300510 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.06209 Opt:40 Skip:0 Grad:0.270 Scale:65536 MAE:0.1852 PSNR:12.9 SSIM:0.2254 | val L:0.2662 PSNR:13.7 SSIM:0.3090 HFEN:0.8267 | 预估剩余时间:49分钟
+  >> 刷新最优模型，验证SSIM：0.308984
+  >> 刷新PSNR最优模型：13.6966 dB
+  >> 刷新HFEN最优模型：0.826664
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0005.pth
+Epoch   6/100 | lr:9.94e-05 train L:0.277684 Rec:0.277684 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.06953 Opt:40 Skip:0 Grad:0.300 Scale:65536 MAE:0.1614 PSNR:13.7 SSIM:0.2583 | val L:0.2612 PSNR:13.5 SSIM:0.3305 HFEN:0.8369 | 预估剩余时间:49分钟
+  >> 刷新最优模型，验证SSIM：0.330502
+Epoch   7/100 | lr:9.91e-05 train L:0.276857 Rec:0.276857 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.07634 Opt:40 Skip:0 Grad:0.302 Scale:65536 MAE:0.1614 PSNR:13.7 SSIM:0.2634 | val L:0.2581 PSNR:13.6 SSIM:0.3352 HFEN:0.8303 | 预估剩余时间:48分钟
+  >> 刷新最优模型，验证SSIM：0.335162
+Epoch   8/100 | lr:9.88e-05 train L:0.274239 Rec:0.274239 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.07962 Opt:40 Skip:0 Grad:0.309 Scale:65536 MAE:0.1602 PSNR:13.8 SSIM:0.2694 | val L:0.2608 PSNR:13.7 SSIM:0.3274 HFEN:0.8393 | 预估剩余时间:47分钟
+Epoch   9/100 | lr:9.84e-05 train L:0.279148 Rec:0.279148 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08309 Opt:40 Skip:0 Grad:0.335 Scale:65536 MAE:0.1645 PSNR:13.5 SSIM:0.2663 | val L:0.2566 PSNR:13.6 SSIM:0.3375 HFEN:0.8204 | 预估剩余时间:46分钟
+  >> 刷新最优模型，验证SSIM：0.337501
+  >> 刷新HFEN最优模型：0.820368
+Epoch  10/100 | lr:9.80e-05 train L:0.268471 Rec:0.268471 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08410 Opt:40 Skip:0 Grad:0.297 Scale:65536 MAE:0.1562 PSNR:13.7 SSIM:0.2848 | val L:0.2535 PSNR:13.9 SSIM:0.3405 HFEN:0.8298 | 预估剩余时间:46分钟
+  >> 刷新最优模型，验证SSIM：0.340531
+  >> 刷新PSNR最优模型：13.8944 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0010.pth
+Epoch  11/100 | lr:9.76e-05 train L:0.256747 Rec:0.256747 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08539 Opt:40 Skip:0 Grad:0.348 Scale:65536 MAE:0.1477 PSNR:14.0 SSIM:0.3073 | val L:0.2531 PSNR:13.6 SSIM:0.3448 HFEN:0.8427 | 预估剩余时间:45分钟
+  >> 刷新最优模型，验证SSIM：0.344790
+Epoch  12/100 | lr:9.71e-05 train L:0.270309 Rec:0.270309 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08811 Opt:40 Skip:0 Grad:0.336 Scale:65536 MAE:0.1564 PSNR:13.8 SSIM:0.2799 | val L:0.2531 PSNR:13.7 SSIM:0.3440 HFEN:0.8448 | 预估剩余时间:45分钟
+Epoch  13/100 | lr:9.65e-05 train L:0.261102 Rec:0.261102 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08759 Opt:40 Skip:0 Grad:0.305 Scale:65536 MAE:0.1438 PSNR:14.2 SSIM:0.2881 | val L:0.2525 PSNR:13.8 SSIM:0.3413 HFEN:0.8519 | 预估剩余时间:44分钟
+Epoch  14/100 | lr:9.59e-05 train L:0.251746 Rec:0.251746 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08861 Opt:40 Skip:0 Grad:0.367 Scale:65536 MAE:0.1467 PSNR:14.1 SSIM:0.3212 | val L:0.2497 PSNR:13.9 SSIM:0.3463 HFEN:0.8290 | 预估剩余时间:44分钟
+  >> 刷新最优模型，验证SSIM：0.346276
+  >> 刷新PSNR最优模型：13.9422 dB
+Epoch  15/100 | lr:9.53e-05 train L:0.254840 Rec:0.254840 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08908 Opt:40 Skip:0 Grad:0.354 Scale:65536 MAE:0.1429 PSNR:14.2 SSIM:0.3079 | val L:0.2492 PSNR:13.9 SSIM:0.3480 HFEN:0.8296 | 预估剩余时间:43分钟
+  >> 刷新最优模型，验证SSIM：0.348002
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0015.pth
+Epoch  16/100 | lr:9.46e-05 train L:0.244601 Rec:0.244601 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08783 Opt:40 Skip:0 Grad:0.358 Scale:65536 MAE:0.1406 PSNR:14.2 SSIM:0.3377 | val L:0.2472 PSNR:13.9 SSIM:0.3514 HFEN:0.8353 | 预估剩余时间:43分钟
+  >> 刷新最优模型，验证SSIM：0.351373
+  >> 刷新PSNR最优模型：13.9477 dB
+Epoch  17/100 | lr:9.39e-05 train L:0.239594 Rec:0.239594 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08862 Opt:40 Skip:0 Grad:0.409 Scale:65536 MAE:0.1344 PSNR:14.5 SSIM:0.3426 | val L:0.2447 PSNR:14.1 SSIM:0.3532 HFEN:0.8342 | 预估剩余时间:42分钟
+  >> 刷新最优模型，验证SSIM：0.353234
+  >> 刷新PSNR最优模型：14.0550 dB
+Epoch  18/100 | lr:9.31e-05 train L:0.247950 Rec:0.247950 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08897 Opt:40 Skip:0 Grad:0.371 Scale:65536 MAE:0.1393 PSNR:14.2 SSIM:0.3237 | val L:0.2391 PSNR:14.3 SSIM:0.3619 HFEN:0.8438 | 预估剩余时间:42分钟
+  >> 刷新最优模型，验证SSIM：0.361870
+  >> 刷新PSNR最优模型：14.3155 dB
+Epoch  19/100 | lr:9.23e-05 train L:0.243372 Rec:0.243372 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.08895 Opt:40 Skip:0 Grad:0.414 Scale:65536 MAE:0.1401 PSNR:14.2 SSIM:0.3409 | val L:0.2420 PSNR:14.1 SSIM:0.3589 HFEN:0.8417 | 预估剩余时间:41分钟
+Epoch  20/100 | lr:9.14e-05 train L:0.245184 Rec:0.245184 RRP:0.0000 RRPW:0.0000 Stage:0.0 Hard:0.00 Sampled:0.000 PosSim:0.000 RefDelta:0.09008 Opt:40 Skip:0 Grad:0.409 Scale:65536 MAE:0.1394 PSNR:14.3 SSIM:0.3318 | val L:0.2398 PSNR:14.1 SSIM:0.3645 HFEN:0.8332 | 预估剩余时间:41分钟
+  >> 刷新最优模型，验证SSIM：0.364462
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0020.pth
+Epoch  21/100 | lr:9.05e-05 train L:0.600025 Rec:0.239746 RRP:7.2056 RRPW:0.3603 Stage:1.0 Hard:0.30 Sampled:0.352 PosSim:0.412 RefDelta:0.09065 Opt:40 Skip:0 Grad:0.655 Scale:65536 MAE:0.1312 PSNR:14.6 SSIM:0.3391 | val L:0.2412 PSNR:14.2 SSIM:0.3584 HFEN:0.8206 | 预估剩余时间:40分钟
+Epoch  22/100 | lr:8.96e-05 train L:0.568148 Rec:0.244583 RRP:6.4713 RRPW:0.3236 Stage:1.0 Hard:0.30 Sampled:0.360 PosSim:0.520 RefDelta:0.08967 Opt:40 Skip:0 Grad:0.706 Scale:65536 MAE:0.1423 PSNR:14.1 SSIM:0.3398 | val L:0.2479 PSNR:13.9 SSIM:0.3467 HFEN:0.8589 | 预估剩余时间:40分钟
+Epoch  23/100 | lr:8.86e-05 train L:0.538325 Rec:0.236549 RRP:6.0355 RRPW:0.3018 Stage:1.0 Hard:0.30 Sampled:0.361 PosSim:0.586 RefDelta:0.08945 Opt:40 Skip:0 Grad:0.489 Scale:65536 MAE:0.1343 PSNR:14.4 SSIM:0.3527 | val L:0.2389 PSNR:14.1 SSIM:0.3661 HFEN:0.8428 | 预估剩余时间:39分钟
+  >> 刷新最优模型，验证SSIM：0.366142
+Epoch  24/100 | lr:8.76e-05 train L:0.518201 Rec:0.226675 RRP:5.8305 RRPW:0.2915 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.610 RefDelta:0.08862 Opt:40 Skip:0 Grad:0.572 Scale:65536 MAE:0.1333 PSNR:14.5 SSIM:0.3754 | val L:0.2301 PSNR:14.3 SSIM:0.3809 HFEN:0.8228 | 预估剩余时间:39分钟
+  >> 刷新最优模型，验证SSIM：0.380871
+Epoch  25/100 | lr:8.66e-05 train L:0.520075 Rec:0.230206 RRP:5.7974 RRPW:0.2899 Stage:1.0 Hard:0.30 Sampled:0.358 PosSim:0.619 RefDelta:0.08787 Opt:40 Skip:0 Grad:0.536 Scale:65536 MAE:0.1333 PSNR:14.3 SSIM:0.3721 | val L:0.2292 PSNR:14.5 SSIM:0.3826 HFEN:0.8299 | 预估剩余时间:38分钟
+  >> 刷新最优模型，验证SSIM：0.382554
+  >> 刷新PSNR最优模型：14.4671 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0025.pth
+Epoch  26/100 | lr:8.55e-05 train L:0.509859 Rec:0.229576 RRP:5.6057 RRPW:0.2803 Stage:1.0 Hard:0.30 Sampled:0.356 PosSim:0.641 RefDelta:0.08890 Opt:40 Skip:0 Grad:0.557 Scale:65536 MAE:0.1345 PSNR:14.5 SSIM:0.3710 | val L:0.2297 PSNR:14.3 SSIM:0.3820 HFEN:0.8243 | 预估剩余时间:38分钟
+Epoch  27/100 | lr:8.44e-05 train L:0.513314 Rec:0.237251 RRP:5.5213 RRPW:0.2761 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.656 RefDelta:0.08950 Opt:40 Skip:0 Grad:0.524 Scale:65536 MAE:0.1341 PSNR:14.3 SSIM:0.3551 | val L:0.2356 PSNR:14.4 SSIM:0.3709 HFEN:0.8102 | 预估剩余时间:38分钟
+  >> 刷新HFEN最优模型：0.810167
+Epoch  28/100 | lr:8.32e-05 train L:0.484589 Rec:0.214783 RRP:5.3961 RRPW:0.2698 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.654 RefDelta:0.08820 Opt:40 Skip:0 Grad:0.580 Scale:65536 MAE:0.1247 PSNR:15.0 SSIM:0.4020 | val L:0.2314 PSNR:14.5 SSIM:0.3766 HFEN:0.8309 | 预估剩余时间:37分钟
+Epoch  29/100 | lr:8.21e-05 train L:0.493537 Rec:0.222788 RRP:5.4150 RRPW:0.2707 Stage:1.0 Hard:0.30 Sampled:0.356 PosSim:0.656 RefDelta:0.08881 Opt:40 Skip:0 Grad:0.580 Scale:65536 MAE:0.1315 PSNR:14.7 SSIM:0.3916 | val L:0.2247 PSNR:14.3 SSIM:0.3924 HFEN:0.8323 | 预估剩余时间:36分钟
+  >> 刷新最优模型，验证SSIM：0.392394
+Epoch  30/100 | lr:8.08e-05 train L:0.489936 Rec:0.224101 RRP:5.3167 RRPW:0.2658 Stage:1.0 Hard:0.30 Sampled:0.362 PosSim:0.660 RefDelta:0.08858 Opt:40 Skip:0 Grad:0.530 Scale:65536 MAE:0.1310 PSNR:14.7 SSIM:0.3853 | val L:0.2233 PSNR:14.4 SSIM:0.3978 HFEN:0.8091 | 预估剩余时间:36分钟
+  >> 刷新最优模型，验证SSIM：0.397783
+  >> 刷新HFEN最优模型：0.809126
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0030.pth
+Epoch  31/100 | lr:7.96e-05 train L:0.470126 Rec:0.208231 RRP:5.2379 RRPW:0.2619 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.667 RefDelta:0.08839 Opt:40 Skip:0 Grad:0.598 Scale:65536 MAE:0.1245 PSNR:14.9 SSIM:0.4200 | val L:0.2236 PSNR:14.5 SSIM:0.3935 HFEN:0.8241 | 预估剩余时间:35分钟
+Epoch  32/100 | lr:7.83e-05 train L:0.468152 Rec:0.207364 RRP:5.2158 RRPW:0.2608 Stage:1.0 Hard:0.30 Sampled:0.357 PosSim:0.676 RefDelta:0.08791 Opt:40 Skip:0 Grad:0.683 Scale:65536 MAE:0.1241 PSNR:14.8 SSIM:0.4272 | val L:0.2298 PSNR:14.2 SSIM:0.3831 HFEN:0.8323 | 预估剩余时间:35分钟
+Epoch  33/100 | lr:7.70e-05 train L:0.480302 Rec:0.217637 RRP:5.2533 RRPW:0.2627 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.667 RefDelta:0.08737 Opt:40 Skip:0 Grad:0.579 Scale:65536 MAE:0.1306 PSNR:14.5 SSIM:0.4064 | val L:0.2238 PSNR:14.5 SSIM:0.3929 HFEN:0.8385 | 预估剩余时间:34分钟
+  >> 刷新PSNR最优模型：14.5206 dB
+Epoch  34/100 | lr:7.57e-05 train L:0.475048 Rec:0.213240 RRP:5.2362 RRPW:0.2618 Stage:1.0 Hard:0.30 Sampled:0.359 PosSim:0.667 RefDelta:0.08641 Opt:40 Skip:0 Grad:0.582 Scale:65536 MAE:0.1330 PSNR:14.5 SSIM:0.4241 | val L:0.2140 PSNR:14.7 SSIM:0.4148 HFEN:0.8150 | 预估剩余时间:34分钟
+  >> 刷新最优模型，验证SSIM：0.414786
+  >> 刷新PSNR最优模型：14.6533 dB
+Epoch  35/100 | lr:7.43e-05 train L:0.469649 Rec:0.214417 RRP:5.1046 RRPW:0.2552 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.680 RefDelta:0.08690 Opt:40 Skip:0 Grad:0.607 Scale:65536 MAE:0.1300 PSNR:14.6 SSIM:0.4175 | val L:0.2161 PSNR:14.8 SSIM:0.4088 HFEN:0.8199 | 预估剩余时间:33分钟
+  >> 刷新PSNR最优模型：14.7623 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0035.pth
+Epoch  36/100 | lr:7.30e-05 train L:0.457154 Rec:0.207883 RRP:4.9854 RRPW:0.2493 Stage:1.0 Hard:0.30 Sampled:0.356 PosSim:0.686 RefDelta:0.08675 Opt:40 Skip:0 Grad:0.638 Scale:65536 MAE:0.1256 PSNR:14.7 SSIM:0.4274 | val L:0.2160 PSNR:14.5 SSIM:0.4128 HFEN:0.8207 | 预估剩余时间:33分钟
+Epoch  37/100 | lr:7.16e-05 train L:0.457081 Rec:0.205782 RRP:5.0260 RRPW:0.2513 Stage:1.0 Hard:0.30 Sampled:0.353 PosSim:0.685 RefDelta:0.08678 Opt:40 Skip:0 Grad:0.634 Scale:65536 MAE:0.1244 PSNR:14.8 SSIM:0.4292 | val L:0.2133 PSNR:14.8 SSIM:0.4151 HFEN:0.7993 | 预估剩余时间:32分钟
+  >> 刷新最优模型，验证SSIM：0.415113
+  >> 刷新PSNR最优模型：14.8385 dB
+  >> 刷新HFEN最优模型：0.799301
+Epoch  38/100 | lr:7.02e-05 train L:0.450043 Rec:0.200577 RRP:4.9893 RRPW:0.2495 Stage:1.0 Hard:0.30 Sampled:0.356 PosSim:0.691 RefDelta:0.08655 Opt:40 Skip:0 Grad:0.619 Scale:65536 MAE:0.1207 PSNR:15.0 SSIM:0.4459 | val L:0.2181 PSNR:14.6 SSIM:0.4074 HFEN:0.8122 | 预估剩余时间:32分钟
+Epoch  39/100 | lr:6.87e-05 train L:0.453220 Rec:0.207792 RRP:4.9086 RRPW:0.2454 Stage:1.0 Hard:0.30 Sampled:0.359 PosSim:0.692 RefDelta:0.08675 Opt:40 Skip:0 Grad:0.602 Scale:65536 MAE:0.1275 PSNR:14.7 SSIM:0.4292 | val L:0.2125 PSNR:14.9 SSIM:0.4170 HFEN:0.7901 | 预估剩余时间:31分钟
+  >> 刷新最优模型，验证SSIM：0.417000
+  >> 刷新PSNR最优模型：14.9144 dB
+  >> 刷新HFEN最优模型：0.790136
+Epoch  40/100 | lr:6.73e-05 train L:0.459435 Rec:0.209037 RRP:5.0080 RRPW:0.2504 Stage:1.0 Hard:0.30 Sampled:0.356 PosSim:0.691 RefDelta:0.08728 Opt:40 Skip:0 Grad:0.744 Scale:65536 MAE:0.1250 PSNR:14.7 SSIM:0.4272 | val L:0.2137 PSNR:14.7 SSIM:0.4161 HFEN:0.7992 | 预估剩余时间:31分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0040.pth
+Epoch  41/100 | lr:6.58e-05 train L:0.445773 Rec:0.199812 RRP:4.9192 RRPW:0.2460 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.695 RefDelta:0.08623 Opt:40 Skip:0 Grad:0.689 Scale:65536 MAE:0.1192 PSNR:15.0 SSIM:0.4477 | val L:0.2153 PSNR:14.7 SSIM:0.4126 HFEN:0.8107 | 预估剩余时间:30分钟
+Epoch  42/100 | lr:6.43e-05 train L:0.452521 Rec:0.206609 RRP:4.9182 RRPW:0.2459 Stage:1.0 Hard:0.30 Sampled:0.349 PosSim:0.691 RefDelta:0.08753 Opt:40 Skip:0 Grad:0.641 Scale:65536 MAE:0.1257 PSNR:14.9 SSIM:0.4290 | val L:0.2152 PSNR:14.7 SSIM:0.4128 HFEN:0.8221 | 预估剩余时间:30分钟
+Epoch  43/100 | lr:6.28e-05 train L:0.443754 Rec:0.201653 RRP:4.8420 RRPW:0.2421 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.704 RefDelta:0.08617 Opt:40 Skip:0 Grad:0.697 Scale:65536 MAE:0.1189 PSNR:15.0 SSIM:0.4443 | val L:0.2172 PSNR:14.7 SSIM:0.4099 HFEN:0.8007 | 预估剩余时间:29分钟
+Epoch  44/100 | lr:6.13e-05 train L:0.446616 Rec:0.202143 RRP:4.8895 RRPW:0.2445 Stage:1.0 Hard:0.30 Sampled:0.351 PosSim:0.696 RefDelta:0.08672 Opt:40 Skip:0 Grad:0.663 Scale:65536 MAE:0.1238 PSNR:14.9 SSIM:0.4439 | val L:0.2094 PSNR:14.9 SSIM:0.4252 HFEN:0.7950 | 预估剩余时间:29分钟
+  >> 刷新最优模型，验证SSIM：0.425175
+Epoch  45/100 | lr:5.98e-05 train L:0.434543 Rec:0.196329 RRP:4.7643 RRPW:0.2382 Stage:1.0 Hard:0.30 Sampled:0.347 PosSim:0.705 RefDelta:0.08716 Opt:40 Skip:0 Grad:0.669 Scale:65536 MAE:0.1184 PSNR:15.2 SSIM:0.4535 | val L:0.2087 PSNR:15.0 SSIM:0.4251 HFEN:0.7960 | 预估剩余时间:28分钟
+  >> 刷新PSNR最优模型：14.9648 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0045.pth
+Epoch  46/100 | lr:5.82e-05 train L:0.422742 Rec:0.188496 RRP:4.6849 RRPW:0.2342 Stage:1.0 Hard:0.30 Sampled:0.349 PosSim:0.711 RefDelta:0.08600 Opt:40 Skip:0 Grad:0.683 Scale:65536 MAE:0.1130 PSNR:15.6 SSIM:0.4702 | val L:0.2100 PSNR:14.8 SSIM:0.4233 HFEN:0.8115 | 预估剩余时间:28分钟
+Epoch  47/100 | lr:5.67e-05 train L:0.426985 Rec:0.191351 RRP:4.7127 RRPW:0.2356 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.713 RefDelta:0.08637 Opt:40 Skip:0 Grad:0.686 Scale:65536 MAE:0.1192 PSNR:15.1 SSIM:0.4714 | val L:0.2086 PSNR:14.9 SSIM:0.4259 HFEN:0.8089 | 预估剩余时间:27分钟
+  >> 刷新最优模型，验证SSIM：0.425852
+Epoch  48/100 | lr:5.52e-05 train L:0.425223 Rec:0.192273 RRP:4.6590 RRPW:0.2330 Stage:1.0 Hard:0.30 Sampled:0.350 PosSim:0.712 RefDelta:0.08667 Opt:40 Skip:0 Grad:0.682 Scale:65536 MAE:0.1176 PSNR:15.1 SSIM:0.4684 | val L:0.2075 PSNR:15.0 SSIM:0.4293 HFEN:0.8005 | 预估剩余时间:27分钟
+  >> 刷新最优模型，验证SSIM：0.429268
+Epoch  49/100 | lr:5.36e-05 train L:0.432411 Rec:0.196482 RRP:4.7186 RRPW:0.2359 Stage:1.0 Hard:0.30 Sampled:0.354 PosSim:0.705 RefDelta:0.08661 Opt:40 Skip:0 Grad:0.673 Scale:65536 MAE:0.1234 PSNR:15.1 SSIM:0.4553 | val L:0.2062 PSNR:15.0 SSIM:0.4320 HFEN:0.7905 | 预估剩余时间:26分钟
+  >> 刷新最优模型，验证SSIM：0.431997
+  >> 刷新PSNR最优模型：15.0220 dB
+Epoch  50/100 | lr:5.21e-05 train L:0.425760 Rec:0.193229 RRP:4.6506 RRPW:0.2325 Stage:1.0 Hard:0.30 Sampled:0.353 PosSim:0.706 RefDelta:0.08682 Opt:40 Skip:0 Grad:0.738 Scale:131072 MAE:0.1182 PSNR:15.3 SSIM:0.4608 | val L:0.2073 PSNR:14.9 SSIM:0.4289 HFEN:0.7943 | 预估剩余时间:26分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0050.pth
+Epoch  51/100 | lr:5.05e-05 train L:0.437338 Rec:0.197618 RRP:4.7944 RRPW:0.2397 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.700 RefDelta:0.08639 Opt:40 Skip:0 Grad:0.670 Scale:131072 MAE:0.1202 PSNR:15.0 SSIM:0.4536 | val L:0.2067 PSNR:15.0 SSIM:0.4288 HFEN:0.7879 | 预估剩余时间:25分钟
+  >> 刷新HFEN最优模型：0.787871
+Epoch  52/100 | lr:4.89e-05 train L:0.413719 Rec:0.182620 RRP:4.6220 RRPW:0.2311 Stage:1.0 Hard:0.30 Sampled:0.353 PosSim:0.712 RefDelta:0.08627 Opt:40 Skip:0 Grad:0.706 Scale:131072 MAE:0.1089 PSNR:15.6 SSIM:0.4831 | val L:0.2076 PSNR:15.0 SSIM:0.4284 HFEN:0.7914 | 预估剩余时间:25分钟
+  >> 刷新PSNR最优模型：15.0238 dB
+Epoch  53/100 | lr:4.74e-05 train L:0.437483 Rec:0.198741 RRP:4.7748 RRPW:0.2387 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.697 RefDelta:0.08831 Opt:40 Skip:0 Grad:0.677 Scale:131072 MAE:0.1228 PSNR:15.1 SSIM:0.4536 | val L:0.2047 PSNR:15.1 SSIM:0.4327 HFEN:0.7927 | 预估剩余时间:24分钟
+  >> 刷新最优模型，验证SSIM：0.432738
+  >> 刷新PSNR最优模型：15.1478 dB
+Epoch  54/100 | lr:4.58e-05 train L:0.416850 Rec:0.188240 RRP:4.5722 RRPW:0.2286 Stage:1.0 Hard:0.30 Sampled:0.352 PosSim:0.716 RefDelta:0.08659 Opt:40 Skip:0 Grad:0.700 Scale:131072 MAE:0.1138 PSNR:15.5 SSIM:0.4747 | val L:0.2053 PSNR:15.1 SSIM:0.4310 HFEN:0.7969 | 预估剩余时间:24分钟
+Epoch  55/100 | lr:4.43e-05 train L:0.411370 Rec:0.183007 RRP:4.5673 RRPW:0.2284 Stage:1.0 Hard:0.30 Sampled:0.351 PosSim:0.717 RefDelta:0.08609 Opt:40 Skip:0 Grad:0.682 Scale:131072 MAE:0.1139 PSNR:15.6 SSIM:0.4858 | val L:0.2041 PSNR:15.1 SSIM:0.4351 HFEN:0.7971 | 预估剩余时间:23分钟
+  >> 刷新最优模型，验证SSIM：0.435070
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0055.pth
+Epoch  56/100 | lr:4.28e-05 train L:0.411644 Rec:0.184553 RRP:4.5418 RRPW:0.2271 Stage:1.0 Hard:0.30 Sampled:0.353 PosSim:0.715 RefDelta:0.08728 Opt:40 Skip:0 Grad:0.704 Scale:131072 MAE:0.1109 PSNR:15.7 SSIM:0.4832 | val L:0.2044 PSNR:15.2 SSIM:0.4342 HFEN:0.7893 | 预估剩余时间:23分钟
+  >> 刷新PSNR最优模型：15.1511 dB
+Epoch  57/100 | lr:4.12e-05 train L:0.419791 Rec:0.190780 RRP:4.5802 RRPW:0.2290 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.709 RefDelta:0.08661 Opt:40 Skip:0 Grad:0.679 Scale:131072 MAE:0.1210 PSNR:15.3 SSIM:0.4730 | val L:0.2041 PSNR:15.2 SSIM:0.4344 HFEN:0.7928 | 预估剩余时间:22分钟
+  >> 刷新PSNR最优模型：15.1657 dB
+Epoch  58/100 | lr:3.97e-05 train L:0.422984 Rec:0.193129 RRP:4.5971 RRPW:0.2299 Stage:1.0 Hard:0.30 Sampled:0.355 PosSim:0.707 RefDelta:0.08656 Opt:40 Skip:0 Grad:0.717 Scale:131072 MAE:0.1199 PSNR:15.1 SSIM:0.4665 | val L:0.2075 PSNR:14.9 SSIM:0.4303 HFEN:0.8000 | 预估剩余时间:22分钟
+Epoch  59/100 | lr:3.82e-05 train L:0.423089 Rec:0.192424 RRP:4.6133 RRPW:0.2307 Stage:1.0 Hard:0.30 Sampled:0.353 PosSim:0.710 RefDelta:0.08693 Opt:40 Skip:0 Grad:0.683 Scale:131072 MAE:0.1171 PSNR:15.2 SSIM:0.4668 | val L:0.2010 PSNR:15.1 SSIM:0.4429 HFEN:0.7915 | 预估剩余时间:21分钟
+  >> 刷新最优模型，验证SSIM：0.442884
+Epoch  60/100 | lr:3.67e-05 train L:0.405557 Rec:0.179511 RRP:4.5209 RRPW:0.2260 Stage:1.0 Hard:0.30 Sampled:0.351 PosSim:0.720 RefDelta:0.08562 Opt:40 Skip:0 Grad:0.678 Scale:131072 MAE:0.1094 PSNR:15.6 SSIM:0.4968 | val L:0.2046 PSNR:15.1 SSIM:0.4340 HFEN:0.8077 | 预估剩余时间:21分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0060.pth
+Epoch  61/100 | lr:3.52e-05 train L:0.414059 Rec:0.186655 RRP:4.5481 RRPW:0.2274 Stage:2.0 Hard:0.20 Sampled:0.248 PosSim:0.714 RefDelta:0.08620 Opt:40 Skip:0 Grad:0.763 Scale:131072 MAE:0.1133 PSNR:15.5 SSIM:0.4755 | val L:0.2026 PSNR:15.2 SSIM:0.4370 HFEN:0.7955 | 预估剩余时间:20分钟
+  >> 刷新PSNR最优模型：15.2463 dB
+Epoch  62/100 | lr:3.37e-05 train L:0.410336 Rec:0.183420 RRP:4.5383 RRPW:0.2269 Stage:2.0 Hard:0.20 Sampled:0.249 PosSim:0.715 RefDelta:0.08656 Opt:40 Skip:0 Grad:0.752 Scale:131072 MAE:0.1116 PSNR:15.6 SSIM:0.4867 | val L:0.2020 PSNR:15.2 SSIM:0.4378 HFEN:0.8041 | 预估剩余时间:20分钟
+  >> 刷新PSNR最优模型：15.2499 dB
+Epoch  63/100 | lr:3.23e-05 train L:0.408238 Rec:0.183040 RRP:4.5040 RRPW:0.2252 Stage:2.0 Hard:0.20 Sampled:0.245 PosSim:0.714 RefDelta:0.08552 Opt:40 Skip:0 Grad:0.766 Scale:131072 MAE:0.1133 PSNR:15.5 SSIM:0.4849 | val L:0.2031 PSNR:15.1 SSIM:0.4374 HFEN:0.7874 | 预估剩余时间:19分钟
+  >> 刷新HFEN最优模型：0.787376
+Epoch  64/100 | lr:3.08e-05 train L:0.409226 Rec:0.182722 RRP:4.5301 RRPW:0.2265 Stage:2.0 Hard:0.20 Sampled:0.243 PosSim:0.717 RefDelta:0.08538 Opt:40 Skip:0 Grad:0.736 Scale:131072 MAE:0.1110 PSNR:15.6 SSIM:0.4866 | val L:0.2038 PSNR:15.0 SSIM:0.4380 HFEN:0.7972 | 预估剩余时间:18分钟
+Epoch  65/100 | lr:2.94e-05 train L:0.415275 Rec:0.188267 RRP:4.5402 RRPW:0.2270 Stage:2.0 Hard:0.20 Sampled:0.245 PosSim:0.713 RefDelta:0.08609 Opt:40 Skip:0 Grad:0.763 Scale:131072 MAE:0.1127 PSNR:15.5 SSIM:0.4703 | val L:0.2031 PSNR:15.2 SSIM:0.4361 HFEN:0.8069 | 预估剩余时间:18分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0065.pth
+Epoch  66/100 | lr:2.80e-05 train L:0.410674 Rec:0.185966 RRP:4.4942 RRPW:0.2247 Stage:2.0 Hard:0.20 Sampled:0.242 PosSim:0.715 RefDelta:0.08586 Opt:40 Skip:0 Grad:0.636 Scale:131072 MAE:0.1186 PSNR:15.3 SSIM:0.4871 | val L:0.2006 PSNR:15.3 SSIM:0.4423 HFEN:0.7908 | 预估剩余时间:17分钟
+  >> 刷新PSNR最优模型：15.2889 dB
+Epoch  67/100 | lr:2.67e-05 train L:0.422271 Rec:0.194421 RRP:4.5570 RRPW:0.2278 Stage:2.0 Hard:0.20 Sampled:0.248 PosSim:0.707 RefDelta:0.08654 Opt:40 Skip:0 Grad:0.736 Scale:131072 MAE:0.1213 PSNR:15.1 SSIM:0.4682 | val L:0.1997 PSNR:15.3 SSIM:0.4431 HFEN:0.8036 | 预估剩余时间:17分钟
+  >> 刷新最优模型，验证SSIM：0.443126
+  >> 刷新PSNR最优模型：15.2929 dB
+Epoch  68/100 | lr:2.53e-05 train L:0.399105 Rec:0.179294 RRP:4.3962 RRPW:0.2198 Stage:2.0 Hard:0.20 Sampled:0.246 PosSim:0.721 RefDelta:0.08530 Opt:40 Skip:0 Grad:0.713 Scale:131072 MAE:0.1094 PSNR:15.7 SSIM:0.4943 | val L:0.2004 PSNR:15.2 SSIM:0.4430 HFEN:0.7860 | 预估剩余时间:16分钟
+  >> 刷新HFEN最优模型：0.785966
+Epoch  69/100 | lr:2.40e-05 train L:0.416222 Rec:0.189862 RRP:4.5272 RRPW:0.2264 Stage:2.0 Hard:0.20 Sampled:0.249 PosSim:0.711 RefDelta:0.08591 Opt:40 Skip:0 Grad:0.783 Scale:131072 MAE:0.1165 PSNR:15.3 SSIM:0.4828 | val L:0.1977 PSNR:15.4 SSIM:0.4474 HFEN:0.7911 | 预估剩余时间:16分钟
+  >> 刷新最优模型，验证SSIM：0.447395
+  >> 刷新PSNR最优模型：15.3635 dB
+Epoch  70/100 | lr:2.27e-05 train L:0.396769 Rec:0.174996 RRP:4.4355 RRPW:0.2218 Stage:2.0 Hard:0.20 Sampled:0.246 PosSim:0.719 RefDelta:0.08527 Opt:40 Skip:0 Grad:0.740 Scale:131072 MAE:0.1049 PSNR:15.9 SSIM:0.5013 | val L:0.1977 PSNR:15.4 SSIM:0.4487 HFEN:0.7834 | 预估剩余时间:15分钟
+  >> 刷新最优模型，验证SSIM：0.448659
+  >> 刷新PSNR最优模型：15.3770 dB
+  >> 刷新HFEN最优模型：0.783398
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0070.pth
+Epoch  71/100 | lr:2.14e-05 train L:0.410128 Rec:0.185726 RRP:4.4880 RRPW:0.2244 Stage:2.0 Hard:0.20 Sampled:0.247 PosSim:0.713 RefDelta:0.08553 Opt:40 Skip:0 Grad:0.747 Scale:131072 MAE:0.1148 PSNR:15.3 SSIM:0.4843 | val L:0.1977 PSNR:15.4 SSIM:0.4490 HFEN:0.7863 | 预估剩余时间:15分钟
+  >> 刷新最优模型，验证SSIM：0.448964
+Epoch  72/100 | lr:2.02e-05 train L:0.395527 Rec:0.175005 RRP:4.4104 RRPW:0.2205 Stage:2.0 Hard:0.20 Sampled:0.244 PosSim:0.720 RefDelta:0.08539 Opt:40 Skip:0 Grad:0.721 Scale:131072 MAE:0.1048 PSNR:16.0 SSIM:0.5015 | val L:0.1985 PSNR:15.4 SSIM:0.4462 HFEN:0.7947 | 预估剩余时间:14分钟
+Epoch  73/100 | lr:1.89e-05 train L:0.405226 Rec:0.183645 RRP:4.4316 RRPW:0.2216 Stage:2.0 Hard:0.20 Sampled:0.245 PosSim:0.721 RefDelta:0.08592 Opt:40 Skip:0 Grad:0.678 Scale:131072 MAE:0.1152 PSNR:15.4 SSIM:0.4899 | val L:0.1981 PSNR:15.3 SSIM:0.4475 HFEN:0.8014 | 预估剩余时间:14分钟
+Epoch  74/100 | lr:1.78e-05 train L:0.413965 Rec:0.187326 RRP:4.5328 RRPW:0.2266 Stage:2.0 Hard:0.20 Sampled:0.246 PosSim:0.712 RefDelta:0.08660 Opt:40 Skip:0 Grad:0.796 Scale:131072 MAE:0.1140 PSNR:15.5 SSIM:0.4781 | val L:0.1971 PSNR:15.4 SSIM:0.4493 HFEN:0.7905 | 预估剩余时间:13分钟
+  >> 刷新最优模型，验证SSIM：0.449316
+Epoch  75/100 | lr:1.66e-05 train L:0.414519 Rec:0.191157 RRP:4.4672 RRPW:0.2234 Stage:2.0 Hard:0.20 Sampled:0.249 PosSim:0.713 RefDelta:0.08725 Opt:40 Skip:0 Grad:0.737 Scale:131072 MAE:0.1169 PSNR:15.3 SSIM:0.4678 | val L:0.1992 PSNR:15.3 SSIM:0.4444 HFEN:0.7927 | 预估剩余时间:13分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0075.pth
+Epoch  76/100 | lr:1.55e-05 train L:0.394870 Rec:0.175364 RRP:4.3901 RRPW:0.2195 Stage:2.0 Hard:0.20 Sampled:0.248 PosSim:0.722 RefDelta:0.08753 Opt:40 Skip:0 Grad:0.716 Scale:131072 MAE:0.1070 PSNR:15.9 SSIM:0.5022 | val L:0.1982 PSNR:15.3 SSIM:0.4483 HFEN:0.7958 | 预估剩余时间:12分钟
+Epoch  77/100 | lr:1.44e-05 train L:0.409209 Rec:0.185755 RRP:4.4691 RRPW:0.2235 Stage:2.0 Hard:0.20 Sampled:0.250 PosSim:0.712 RefDelta:0.08700 Opt:40 Skip:0 Grad:0.795 Scale:131072 MAE:0.1151 PSNR:15.3 SSIM:0.4837 | val L:0.1958 PSNR:15.4 SSIM:0.4531 HFEN:0.7950 | 预估剩余时间:12分钟
+  >> 刷新最优模型，验证SSIM：0.453112
+  >> 刷新PSNR最优模型：15.3852 dB
+Epoch  78/100 | lr:1.34e-05 train L:0.398992 Rec:0.179352 RRP:4.3928 RRPW:0.2196 Stage:2.0 Hard:0.20 Sampled:0.247 PosSim:0.722 RefDelta:0.08470 Opt:40 Skip:0 Grad:0.716 Scale:131072 MAE:0.1107 PSNR:15.5 SSIM:0.4977 | val L:0.1966 PSNR:15.4 SSIM:0.4510 HFEN:0.7942 | 预估剩余时间:11分钟
+Epoch  79/100 | lr:1.24e-05 train L:0.395954 Rec:0.177691 RRP:4.3653 RRPW:0.2183 Stage:2.0 Hard:0.20 Sampled:0.247 PosSim:0.724 RefDelta:0.08633 Opt:40 Skip:0 Grad:0.758 Scale:131072 MAE:0.1102 PSNR:15.6 SSIM:0.5066 | val L:0.1961 PSNR:15.3 SSIM:0.4527 HFEN:0.7896 | 预估剩余时间:11分钟
+Epoch  80/100 | lr:1.14e-05 train L:0.409975 Rec:0.187279 RRP:4.4539 RRPW:0.2227 Stage:2.0 Hard:0.20 Sampled:0.246 PosSim:0.717 RefDelta:0.08685 Opt:40 Skip:0 Grad:0.683 Scale:131072 MAE:0.1150 PSNR:15.4 SSIM:0.4738 | val L:0.1962 PSNR:15.4 SSIM:0.4529 HFEN:0.7912 | 预估剩余时间:10分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0080.pth
+Epoch  81/100 | lr:1.05e-05 train L:0.386715 Rec:0.172787 RRP:4.2785 RRPW:0.2139 Stage:2.0 Hard:0.20 Sampled:0.244 PosSim:0.729 RefDelta:0.08600 Opt:40 Skip:0 Grad:0.762 Scale:131072 MAE:0.1039 PSNR:16.0 SSIM:0.5029 | val L:0.1971 PSNR:15.4 SSIM:0.4501 HFEN:0.7922 | 预估剩余时间:10分钟
+Epoch  82/100 | lr:9.56e-06 train L:0.397112 Rec:0.179071 RRP:4.3608 RRPW:0.2180 Stage:2.0 Hard:0.20 Sampled:0.243 PosSim:0.720 RefDelta:0.08621 Opt:40 Skip:0 Grad:0.732 Scale:131072 MAE:0.1086 PSNR:15.9 SSIM:0.4940 | val L:0.1967 PSNR:15.3 SSIM:0.4514 HFEN:0.7920 | 预估剩余时间:9分钟
+Epoch  83/100 | lr:8.71e-06 train L:0.394288 Rec:0.175465 RRP:4.3765 RRPW:0.2188 Stage:2.0 Hard:0.20 Sampled:0.248 PosSim:0.724 RefDelta:0.08682 Opt:40 Skip:0 Grad:0.747 Scale:131072 MAE:0.1063 PSNR:15.8 SSIM:0.4990 | val L:0.1952 PSNR:15.4 SSIM:0.4542 HFEN:0.7852 | 预估剩余时间:9分钟
+  >> 刷新最优模型，验证SSIM：0.454189
+  >> 刷新PSNR最优模型：15.4381 dB
+Epoch  84/100 | lr:7.89e-06 train L:0.401740 Rec:0.181913 RRP:4.3965 RRPW:0.2198 Stage:2.0 Hard:0.20 Sampled:0.246 PosSim:0.719 RefDelta:0.08543 Opt:40 Skip:0 Grad:0.722 Scale:131072 MAE:0.1101 PSNR:15.6 SSIM:0.4895 | val L:0.1961 PSNR:15.4 SSIM:0.4519 HFEN:0.7959 | 预估剩余时间:8分钟
+Epoch  85/100 | lr:7.12e-06 train L:0.394401 Rec:0.175354 RRP:4.3810 RRPW:0.2190 Stage:2.0 Hard:0.20 Sampled:0.242 PosSim:0.724 RefDelta:0.08573 Opt:40 Skip:0 Grad:0.796 Scale:131072 MAE:0.1060 PSNR:15.8 SSIM:0.5035 | val L:0.1958 PSNR:15.4 SSIM:0.4522 HFEN:0.7870 | 预估剩余时间:8分钟
+  >> 刷新PSNR最优模型：15.4496 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0085.pth
+Epoch  86/100 | lr:6.40e-06 train L:0.395156 Rec:0.176630 RRP:4.3705 RRPW:0.2185 Stage:2.0 Hard:0.20 Sampled:0.243 PosSim:0.721 RefDelta:0.08565 Opt:40 Skip:0 Grad:0.769 Scale:131072 MAE:0.1094 PSNR:15.7 SSIM:0.5066 | val L:0.1953 PSNR:15.5 SSIM:0.4533 HFEN:0.7867 | 预估剩余时间:7分钟
+  >> 刷新PSNR最优模型：15.4577 dB
+Epoch  87/100 | lr:5.71e-06 train L:0.406165 Rec:0.184683 RRP:4.4296 RRPW:0.2215 Stage:2.0 Hard:0.20 Sampled:0.247 PosSim:0.715 RefDelta:0.08599 Opt:40 Skip:0 Grad:0.735 Scale:131072 MAE:0.1152 PSNR:15.4 SSIM:0.4911 | val L:0.1951 PSNR:15.5 SSIM:0.4537 HFEN:0.7872 | 预估剩余时间:7分钟
+Epoch  88/100 | lr:5.07e-06 train L:0.386117 Rec:0.170170 RRP:4.3189 RRPW:0.2159 Stage:2.0 Hard:0.20 Sampled:0.242 PosSim:0.727 RefDelta:0.08515 Opt:40 Skip:0 Grad:0.785 Scale:131072 MAE:0.1020 PSNR:16.1 SSIM:0.5149 | val L:0.1947 PSNR:15.4 SSIM:0.4549 HFEN:0.7879 | 预估剩余时间:6分钟
+  >> 刷新最优模型，验证SSIM：0.454940
+Epoch  89/100 | lr:4.48e-06 train L:0.403183 Rec:0.183225 RRP:4.3992 RRPW:0.2200 Stage:2.0 Hard:0.20 Sampled:0.249 PosSim:0.719 RefDelta:0.08642 Opt:40 Skip:0 Grad:0.737 Scale:131072 MAE:0.1140 PSNR:15.5 SSIM:0.4894 | val L:0.1943 PSNR:15.5 SSIM:0.4558 HFEN:0.7881 | 预估剩余时间:6分钟
+  >> 刷新最优模型，验证SSIM：0.455777
+  >> 刷新PSNR最优模型：15.4723 dB
+Epoch  90/100 | lr:3.93e-06 train L:0.402815 Rec:0.183981 RRP:4.3767 RRPW:0.2188 Stage:2.0 Hard:0.20 Sampled:0.249 PosSim:0.715 RefDelta:0.08716 Opt:40 Skip:0 Grad:0.729 Scale:131072 MAE:0.1130 PSNR:15.6 SSIM:0.4778 | val L:0.1945 PSNR:15.5 SSIM:0.4551 HFEN:0.7877 | 预估剩余时间:5分钟
+  >> 刷新PSNR最优模型：15.4759 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0090.pth
+Epoch  91/100 | lr:3.42e-06 train L:0.402321 Rec:0.181781 RRP:4.4108 RRPW:0.2205 Stage:2.0 Hard:0.20 Sampled:0.242 PosSim:0.719 RefDelta:0.08618 Opt:40 Skip:0 Grad:0.747 Scale:131072 MAE:0.1093 PSNR:15.6 SSIM:0.4870 | val L:0.1948 PSNR:15.4 SSIM:0.4549 HFEN:0.7894 | 预估剩余时间:5分钟
+Epoch  92/100 | lr:2.97e-06 train L:0.394787 Rec:0.177002 RRP:4.3557 RRPW:0.2178 Stage:2.0 Hard:0.20 Sampled:0.249 PosSim:0.719 RefDelta:0.08730 Opt:40 Skip:0 Grad:0.749 Scale:131072 MAE:0.1087 PSNR:15.7 SSIM:0.5002 | val L:0.1946 PSNR:15.5 SSIM:0.4550 HFEN:0.7877 | 预估剩余时间:4分钟
+Epoch  93/100 | lr:2.56e-06 train L:0.400257 Rec:0.180777 RRP:4.3896 RRPW:0.2195 Stage:2.0 Hard:0.20 Sampled:0.246 PosSim:0.719 RefDelta:0.08576 Opt:40 Skip:0 Grad:0.704 Scale:131072 MAE:0.1093 PSNR:15.6 SSIM:0.4925 | val L:0.1949 PSNR:15.4 SSIM:0.4547 HFEN:0.7891 | 预估剩余时间:4分钟
+Epoch  94/100 | lr:2.19e-06 train L:0.397194 Rec:0.178203 RRP:4.3798 RRPW:0.2190 Stage:2.0 Hard:0.20 Sampled:0.244 PosSim:0.719 RefDelta:0.08728 Opt:40 Skip:0 Grad:0.761 Scale:131072 MAE:0.1086 PSNR:15.7 SSIM:0.4956 | val L:0.1945 PSNR:15.4 SSIM:0.4557 HFEN:0.7885 | 预估剩余时间:3分钟
+Epoch  95/100 | lr:1.88e-06 train L:0.392185 Rec:0.177150 RRP:4.3007 RRPW:0.2150 Stage:2.0 Hard:0.20 Sampled:0.242 PosSim:0.724 RefDelta:0.08550 Opt:40 Skip:0 Grad:0.723 Scale:131072 MAE:0.1068 PSNR:15.8 SSIM:0.4968 | val L:0.1948 PSNR:15.4 SSIM:0.4552 HFEN:0.7896 | 预估剩余时间:3分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0095.pth
+Epoch  96/100 | lr:1.61e-06 train L:0.397731 Rec:0.178473 RRP:4.3851 RRPW:0.2193 Stage:2.0 Hard:0.20 Sampled:0.242 PosSim:0.718 RefDelta:0.08725 Opt:40 Skip:0 Grad:0.748 Scale:131072 MAE:0.1084 PSNR:15.8 SSIM:0.4926 | val L:0.1943 PSNR:15.4 SSIM:0.4565 HFEN:0.7874 | 预估剩余时间:2分钟
+  >> 刷新最优模型，验证SSIM：0.456453
+Epoch  97/100 | lr:1.39e-06 train L:0.391496 Rec:0.176824 RRP:4.2934 RRPW:0.2147 Stage:2.0 Hard:0.20 Sampled:0.244 PosSim:0.726 RefDelta:0.08610 Opt:40 Skip:0 Grad:0.774 Scale:131072 MAE:0.1102 PSNR:15.8 SSIM:0.4976 | val L:0.1943 PSNR:15.4 SSIM:0.4565 HFEN:0.7873 | 预估剩余时间:2分钟
+  >> 刷新最优模型，验证SSIM：0.456495
+Epoch  98/100 | lr:1.22e-06 train L:0.383768 Rec:0.168671 RRP:4.3019 RRPW:0.2151 Stage:2.0 Hard:0.20 Sampled:0.241 PosSim:0.727 RefDelta:0.08604 Opt:40 Skip:0 Grad:0.899 Scale:131072 MAE:0.1025 PSNR:16.3 SSIM:0.5142 | val L:0.1946 PSNR:15.4 SSIM:0.4556 HFEN:0.7866 | 预估剩余时间:1分钟
+Epoch  99/100 | lr:1.10e-06 train L:0.391352 Rec:0.176165 RRP:4.3037 RRPW:0.2152 Stage:2.0 Hard:0.20 Sampled:0.241 PosSim:0.724 RefDelta:0.08664 Opt:40 Skip:0 Grad:0.720 Scale:131072 MAE:0.1098 PSNR:15.8 SSIM:0.5082 | val L:0.1946 PSNR:15.4 SSIM:0.4556 HFEN:0.7877 | 预估剩余时间:1分钟
+Epoch 100/100 | lr:1.02e-06 train L:0.393408 Rec:0.175594 RRP:4.3563 RRPW:0.2178 Stage:2.0 Hard:0.20 Sampled:0.243 PosSim:0.722 RefDelta:0.08721 Opt:40 Skip:0 Grad:0.756 Scale:262144 MAE:0.1078 PSNR:15.7 SSIM:0.5015 | val L:0.1946 PSNR:15.4 SSIM:0.4557 HFEN:0.7879 | 预估剩余时间:0分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/checkpoints/epoch_0100.pth
+
+全部训练结束！最优验证SSIM：0.456495
+
+加载最优模型，在独立测试集评估最终效果...
+测试集病例总数: 3
+Moment验证集校准 | scale=39.3247 | raw MAE=0.0314226 | calibrated MAE=0.03383
+测试集最终指标 | MAE: 0.103682 | PSNR: 16.25 dB | SSIM: 0.486855 | 前景PSNR: 15.90 dB | 前景SSIM: 0.467883 | Gradient MAE: 0.076468 | HFEN: 0.743232
+
+============================================================
+启动MC Dropout方差图对照评估（单次矩传播 vs MC Dropout）...
+  MC Dropout 推理次数: 200
+  Dropout 率: 0.2
+不确定性方差图对比结果 | RMSD vs MC200 variance: 0.000445 | MAE brain vs MC200 variance: 0.000292
+Moment-vs-MC相关性 | Pearson: 0.8676 | Spearman: 0.8974
+不确定性-vs-绝对误差相关性 | Moment Pearson/Spearman: 0.0703/0.1874 | MC Pearson/Spearman: 0.1311/0.2243
+高不确定区域覆盖高误差区域(top 10%) | Moment: 0.0437 | MC: 0.0756
+Moment方差与真实平方误差的MAE | raw: 0.025566 | validation-calibrated: 0.030430
+平均推理时间 | Moment: 0.205s (1次) | MC200: 10.404s (200次) | 时间比: 50.8x
+峰值额外显存 | Moment: 6624.7 MB | MC200: 1788.1 MB
+同次推理的一一对应对比图保存至: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/figures/test_mc_dropout_compare (3 cases)
+不确定性方差CSV日志保存至: /root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2/uncertainty_results.csv
+============================================================
+
+所有模型、日志文件存放路径：/root/sj-tmp/ctri/zuixinwanzheng RA-ReCL v2/output_rareclv2

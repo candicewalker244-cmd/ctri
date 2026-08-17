@@ -1,0 +1,2 @@
+test_loss,test_mae,test_psnr,test_ssim,test_foreground_mae,test_foreground_psnr,test_foreground_ssim,test_gradient_mae,test_hfen,test_rec_l1,test_rec_ms_ssim,test_rec_edge,test_rec_frequency,test_rec_weighted_l1,test_rec_weighted_ms_ssim,test_rec_weighted_edge,test_rec_weighted_frequency
+0.176242,0.103682,16.246737,0.486855,0.112382,15.896846,0.467883,0.076468,0.743232,0.103682,0.410953,0.039782,0.003318,0.046657,0.123286,0.005967,0.000332

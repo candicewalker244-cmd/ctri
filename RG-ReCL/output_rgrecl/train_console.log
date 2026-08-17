@@ -1,0 +1,289 @@
+nohup: ignoring input
+训练设备: cuda
+混合精度状态: True
+数据集路径: /root/sj-tmp/ctri/data/dataset
+RG-ReCL 状态: True
+方法版本: E0 + Region-aware PatchNCE
+RG-ReCL 参数: lambda=0.05, temperature=0.07, hard_ratio=0.2, feature_dim=64, patches/negative_pool=256/1024
+Moment propagation不参与训练，仅保留为训练后不确定性评估路径
+验证/测试裁剪: (150, 150, 150)
+训练集病例总数: 40
+验证集病例总数: 8
+测试集病例总数: 3
+CT/MRI配对检查: 病例ID、shape、affine和跨集合去重均通过
+模型总参数量: 30,424,353
+可训练参数量: 30,424,353
+
+开始训练，epoch 1 到 100
+Epoch   1/100 | lr:1.00e-04 train L:0.733124 Rec:0.355400 RG:7.554481 RGW:0.377724 Hard/Sampled:0.200/0.265 PosSim:0.438 Opt:40 Skip:0 Grad:0.920 Scale:65536 MAE:0.2668 PSNR:10.5 SSIM:0.1784 | val L:0.3153 PSNR:11.8 SSIM:0.2320 HFEN:0.8571 | 预估剩余时间:55分钟
+  >> 刷新最优模型，验证SSIM：0.232026
+  >> 刷新PSNR最优模型：11.7644 dB
+  >> 刷新HFEN最优模型：0.857127
+Epoch   2/100 | lr:1.00e-04 train L:0.663116 Rec:0.327573 RG:6.710848 RGW:0.335542 Hard/Sampled:0.200/0.265 PosSim:0.570 Opt:40 Skip:0 Grad:0.505 Scale:65536 MAE:0.2337 PSNR:11.5 SSIM:0.2135 | val L:0.3081 PSNR:12.1 SSIM:0.2444 HFEN:0.8377 | 预估剩余时间:52分钟
+  >> 刷新最优模型，验证SSIM：0.244384
+  >> 刷新PSNR最优模型：12.0653 dB
+  >> 刷新HFEN最优模型：0.837729
+Epoch   3/100 | lr:9.99e-05 train L:0.631116 Rec:0.315533 RG:6.311660 RGW:0.315583 Hard/Sampled:0.200/0.263 PosSim:0.626 Opt:40 Skip:0 Grad:0.425 Scale:65536 MAE:0.2174 PSNR:11.9 SSIM:0.2237 | val L:0.3025 PSNR:12.4 SSIM:0.2508 HFEN:0.8287 | 预估剩余时间:51分钟
+  >> 刷新最优模型，验证SSIM：0.250761
+  >> 刷新PSNR最优模型：12.3691 dB
+  >> 刷新HFEN最优模型：0.828709
+Epoch   4/100 | lr:9.98e-05 train L:0.615309 Rec:0.310998 RG:6.086219 RGW:0.304311 Hard/Sampled:0.200/0.261 PosSim:0.661 Opt:40 Skip:0 Grad:0.429 Scale:65536 MAE:0.2113 PSNR:12.2 SSIM:0.2318 | val L:0.2986 PSNR:12.6 SSIM:0.2552 HFEN:0.8291 | 预估剩余时间:50分钟
+  >> 刷新最优模型，验证SSIM：0.255185
+  >> 刷新PSNR最优模型：12.5683 dB
+Epoch   5/100 | lr:9.96e-05 train L:0.616527 Rec:0.322021 RG:5.890112 RGW:0.294506 Hard/Sampled:0.200/0.259 PosSim:0.685 Opt:40 Skip:0 Grad:0.414 Scale:65536 MAE:0.2190 PSNR:11.9 SSIM:0.2083 | val L:0.2958 PSNR:12.7 SSIM:0.2585 HFEN:0.8265 | 预估剩余时间:50分钟
+  >> 刷新最优模型，验证SSIM：0.258500
+  >> 刷新PSNR最优模型：12.6560 dB
+  >> 刷新HFEN最优模型：0.826463
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0005.pth
+Epoch   6/100 | lr:9.94e-05 train L:0.598363 Rec:0.309954 RG:5.768172 RGW:0.288409 Hard/Sampled:0.200/0.257 PosSim:0.696 Opt:40 Skip:0 Grad:0.425 Scale:65536 MAE:0.2059 PSNR:12.3 SSIM:0.2257 | val L:0.2909 PSNR:12.7 SSIM:0.2687 HFEN:0.8289 | 预估剩余时间:49分钟
+  >> 刷新最优模型，验证SSIM：0.268729
+  >> 刷新PSNR最优模型：12.7020 dB
+Epoch   7/100 | lr:9.91e-05 train L:0.585538 Rec:0.300415 RG:5.702466 RGW:0.285123 Hard/Sampled:0.200/0.258 PosSim:0.700 Opt:40 Skip:0 Grad:0.404 Scale:65536 MAE:0.1945 PSNR:12.6 SSIM:0.2382 | val L:0.2877 PSNR:13.0 SSIM:0.2664 HFEN:0.8335 | 预估剩余时间:48分钟
+  >> 刷新PSNR最优模型：13.0210 dB
+Epoch   8/100 | lr:9.88e-05 train L:0.580023 Rec:0.297993 RG:5.640603 RGW:0.282030 Hard/Sampled:0.200/0.258 PosSim:0.710 Opt:40 Skip:0 Grad:0.424 Scale:65536 MAE:0.1903 PSNR:12.8 SSIM:0.2371 | val L:0.2845 PSNR:13.0 SSIM:0.2753 HFEN:0.8302 | 预估剩余时间:48分钟
+  >> 刷新最优模型，验证SSIM：0.275270
+Epoch   9/100 | lr:9.84e-05 train L:0.584455 Rec:0.298669 RG:5.715722 RGW:0.285786 Hard/Sampled:0.200/0.256 PosSim:0.703 Opt:40 Skip:0 Grad:0.415 Scale:65536 MAE:0.1947 PSNR:12.6 SSIM:0.2448 | val L:0.2839 PSNR:13.3 SSIM:0.2709 HFEN:0.8247 | 预估剩余时间:47分钟
+  >> 刷新PSNR最优模型：13.3201 dB
+  >> 刷新HFEN最优模型：0.824731
+Epoch  10/100 | lr:9.80e-05 train L:0.577619 Rec:0.300300 RG:5.546381 RGW:0.277319 Hard/Sampled:0.200/0.256 PosSim:0.721 Opt:40 Skip:0 Grad:0.502 Scale:65536 MAE:0.1949 PSNR:12.7 SSIM:0.2374 | val L:0.2812 PSNR:13.1 SSIM:0.2814 HFEN:0.8341 | 预估剩余时间:46分钟
+  >> 刷新最优模型，验证SSIM：0.281440
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0010.pth
+Epoch  11/100 | lr:9.76e-05 train L:0.566181 Rec:0.291599 RG:5.491627 RGW:0.274581 Hard/Sampled:0.200/0.258 PosSim:0.725 Opt:40 Skip:0 Grad:0.395 Scale:65536 MAE:0.1834 PSNR:13.0 SSIM:0.2445 | val L:0.2726 PSNR:13.3 SSIM:0.2964 HFEN:0.8254 | 预估剩余时间:46分钟
+  >> 刷新最优模型，验证SSIM：0.296409
+  >> 刷新PSNR最优模型：13.3412 dB
+Epoch  12/100 | lr:9.71e-05 train L:0.569923 Rec:0.291516 RG:5.568141 RGW:0.278407 Hard/Sampled:0.200/0.248 PosSim:0.721 Opt:40 Skip:0 Grad:0.509 Scale:65536 MAE:0.1846 PSNR:13.0 SSIM:0.2499 | val L:0.2776 PSNR:13.4 SSIM:0.2829 HFEN:0.8300 | 预估剩余时间:45分钟
+  >> 刷新PSNR最优模型：13.4266 dB
+Epoch  13/100 | lr:9.65e-05 train L:0.558493 Rec:0.290393 RG:5.362006 RGW:0.268100 Hard/Sampled:0.200/0.251 PosSim:0.741 Opt:40 Skip:0 Grad:0.436 Scale:65536 MAE:0.1804 PSNR:13.1 SSIM:0.2444 | val L:0.2699 PSNR:13.4 SSIM:0.2979 HFEN:0.8288 | 预估剩余时间:45分钟
+  >> 刷新最优模型，验证SSIM：0.297897
+Epoch  14/100 | lr:9.59e-05 train L:0.566034 Rec:0.296678 RG:5.387125 RGW:0.269356 Hard/Sampled:0.200/0.255 PosSim:0.732 Opt:40 Skip:0 Grad:0.530 Scale:65536 MAE:0.1896 PSNR:12.9 SSIM:0.2404 | val L:0.2720 PSNR:13.4 SSIM:0.2987 HFEN:0.8314 | 预估剩余时间:44分钟
+  >> 刷新最优模型，验证SSIM：0.298740
+  >> 刷新PSNR最优模型：13.4386 dB
+Epoch  15/100 | lr:9.53e-05 train L:0.550861 Rec:0.291217 RG:5.192880 RGW:0.259644 Hard/Sampled:0.200/0.256 PosSim:0.747 Opt:40 Skip:0 Grad:0.488 Scale:65536 MAE:0.1808 PSNR:13.3 SSIM:0.2412 | val L:0.2678 PSNR:13.5 SSIM:0.3031 HFEN:0.8401 | 预估剩余时间:44分钟
+  >> 刷新最优模型，验证SSIM：0.303071
+  >> 刷新PSNR最优模型：13.5476 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0015.pth
+Epoch  16/100 | lr:9.46e-05 train L:0.546154 Rec:0.282202 RG:5.279024 RGW:0.263951 Hard/Sampled:0.200/0.256 PosSim:0.731 Opt:40 Skip:0 Grad:0.569 Scale:65536 MAE:0.1742 PSNR:13.4 SSIM:0.2628 | val L:0.2641 PSNR:13.6 SSIM:0.3173 HFEN:0.8202 | 预估剩余时间:43分钟
+  >> 刷新最优模型，验证SSIM：0.317253
+  >> 刷新PSNR最优模型：13.5604 dB
+  >> 刷新HFEN最优模型：0.820173
+Epoch  17/100 | lr:9.39e-05 train L:0.532615 Rec:0.270719 RG:5.237920 RGW:0.261896 Hard/Sampled:0.200/0.251 PosSim:0.725 Opt:40 Skip:0 Grad:0.526 Scale:65536 MAE:0.1623 PSNR:13.8 SSIM:0.2770 | val L:0.2604 PSNR:13.6 SSIM:0.3236 HFEN:0.8273 | 预估剩余时间:43分钟
+  >> 刷新最优模型，验证SSIM：0.323615
+  >> 刷新PSNR最优模型：13.5727 dB
+Epoch  18/100 | lr:9.31e-05 train L:0.544001 Rec:0.276287 RG:5.354288 RGW:0.267714 Hard/Sampled:0.200/0.254 PosSim:0.718 Opt:40 Skip:0 Grad:0.578 Scale:65536 MAE:0.1694 PSNR:13.4 SSIM:0.2709 | val L:0.2586 PSNR:13.8 SSIM:0.3245 HFEN:0.8259 | 预估剩余时间:42分钟
+  >> 刷新最优模型，验证SSIM：0.324519
+  >> 刷新PSNR最优模型：13.7651 dB
+Epoch  19/100 | lr:9.23e-05 train L:0.538123 Rec:0.276458 RG:5.233304 RGW:0.261665 Hard/Sampled:0.200/0.254 PosSim:0.733 Opt:40 Skip:0 Grad:0.528 Scale:65536 MAE:0.1677 PSNR:13.6 SSIM:0.2676 | val L:0.2493 PSNR:13.8 SSIM:0.3468 HFEN:0.8136 | 预估剩余时间:42分钟
+  >> 刷新最优模型，验证SSIM：0.346755
+  >> 刷新PSNR最优模型：13.7855 dB
+  >> 刷新HFEN最优模型：0.813628
+Epoch  20/100 | lr:9.14e-05 train L:0.538748 Rec:0.277916 RG:5.216651 RGW:0.260833 Hard/Sampled:0.200/0.254 PosSim:0.733 Opt:40 Skip:0 Grad:0.601 Scale:65536 MAE:0.1665 PSNR:13.7 SSIM:0.2628 | val L:0.2632 PSNR:13.6 SSIM:0.3184 HFEN:0.8394 | 预估剩余时间:41分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0020.pth
+Epoch  21/100 | lr:9.05e-05 train L:0.533567 Rec:0.271655 RG:5.238255 RGW:0.261913 Hard/Sampled:0.200/0.251 PosSim:0.730 Opt:40 Skip:0 Grad:0.519 Scale:65536 MAE:0.1628 PSNR:13.9 SSIM:0.2754 | val L:0.2421 PSNR:13.9 SSIM:0.3622 HFEN:0.8121 | 预估剩余时间:41分钟
+  >> 刷新最优模型，验证SSIM：0.362223
+  >> 刷新PSNR最优模型：13.8991 dB
+  >> 刷新HFEN最优模型：0.812064
+Epoch  22/100 | lr:8.96e-05 train L:0.526994 Rec:0.268121 RG:5.177453 RGW:0.258873 Hard/Sampled:0.200/0.249 PosSim:0.736 Opt:40 Skip:0 Grad:0.600 Scale:65536 MAE:0.1624 PSNR:13.8 SSIM:0.2859 | val L:0.2532 PSNR:13.4 SSIM:0.3526 HFEN:0.8216 | 预估剩余时间:40分钟
+Epoch  23/100 | lr:8.86e-05 train L:0.529693 Rec:0.276999 RG:5.053885 RGW:0.252694 Hard/Sampled:0.200/0.245 PosSim:0.744 Opt:40 Skip:0 Grad:0.488 Scale:65536 MAE:0.1656 PSNR:13.8 SSIM:0.2622 | val L:0.2355 PSNR:14.1 SSIM:0.3774 HFEN:0.8051 | 预估剩余时间:40分钟
+  >> 刷新最优模型，验证SSIM：0.377411
+  >> 刷新PSNR最优模型：14.0729 dB
+  >> 刷新HFEN最优模型：0.805055
+Epoch  24/100 | lr:8.76e-05 train L:0.505094 Rec:0.249216 RG:5.117561 RGW:0.255878 Hard/Sampled:0.200/0.249 PosSim:0.729 Opt:40 Skip:0 Grad:0.628 Scale:65536 MAE:0.1467 PSNR:14.3 SSIM:0.3182 | val L:0.2336 PSNR:14.2 SSIM:0.3781 HFEN:0.8042 | 预估剩余时间:39分钟
+  >> 刷新最优模型，验证SSIM：0.378104
+  >> 刷新PSNR最优模型：14.2393 dB
+  >> 刷新HFEN最优模型：0.804206
+Epoch  25/100 | lr:8.66e-05 train L:0.514364 Rec:0.263696 RG:5.013359 RGW:0.250668 Hard/Sampled:0.200/0.251 PosSim:0.740 Opt:40 Skip:0 Grad:0.555 Scale:65536 MAE:0.1586 PSNR:14.0 SSIM:0.2916 | val L:0.2360 PSNR:13.8 SSIM:0.3869 HFEN:0.8013 | 预估剩余时间:39分钟
+  >> 刷新最优模型，验证SSIM：0.386908
+  >> 刷新HFEN最优模型：0.801335
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0025.pth
+Epoch  26/100 | lr:8.55e-05 train L:0.502567 Rec:0.247911 RG:5.093122 RGW:0.254656 Hard/Sampled:0.200/0.249 PosSim:0.725 Opt:40 Skip:0 Grad:0.672 Scale:65536 MAE:0.1481 PSNR:14.3 SSIM:0.3234 | val L:0.2353 PSNR:14.0 SSIM:0.3849 HFEN:0.7995 | 预估剩余时间:38分钟
+  >> 刷新HFEN最优模型：0.799529
+Epoch  27/100 | lr:8.44e-05 train L:0.501154 Rec:0.249736 RG:5.028361 RGW:0.251418 Hard/Sampled:0.200/0.250 PosSim:0.730 Opt:40 Skip:0 Grad:0.582 Scale:65536 MAE:0.1519 PSNR:14.1 SSIM:0.3277 | val L:0.2286 PSNR:14.1 SSIM:0.3996 HFEN:0.7944 | 预估剩余时间:37分钟
+  >> 刷新最优模型，验证SSIM：0.399563
+  >> 刷新HFEN最优模型：0.794439
+Epoch  28/100 | lr:8.32e-05 train L:0.496362 Rec:0.247136 RG:4.984522 RGW:0.249226 Hard/Sampled:0.200/0.251 PosSim:0.733 Opt:40 Skip:0 Grad:0.607 Scale:65536 MAE:0.1488 PSNR:14.2 SSIM:0.3293 | val L:0.2279 PSNR:14.1 SSIM:0.4005 HFEN:0.7955 | 预估剩余时间:37分钟
+  >> 刷新最优模型，验证SSIM：0.400545
+Epoch  29/100 | lr:8.21e-05 train L:0.499095 Rec:0.253876 RG:4.904373 RGW:0.245219 Hard/Sampled:0.200/0.252 PosSim:0.740 Opt:40 Skip:0 Grad:0.541 Scale:65536 MAE:0.1486 PSNR:14.4 SSIM:0.3083 | val L:0.2208 PSNR:14.4 SSIM:0.4121 HFEN:0.7941 | 预估剩余时间:36分钟
+  >> 刷新最优模型，验证SSIM：0.412141
+  >> 刷新PSNR最优模型：14.3767 dB
+  >> 刷新HFEN最优模型：0.794058
+Epoch  30/100 | lr:8.08e-05 train L:0.494671 Rec:0.247033 RG:4.952767 RGW:0.247638 Hard/Sampled:0.200/0.248 PosSim:0.729 Opt:40 Skip:0 Grad:0.662 Scale:65536 MAE:0.1494 PSNR:14.5 SSIM:0.3289 | val L:0.2222 PSNR:14.2 SSIM:0.4131 HFEN:0.7928 | 预估剩余时间:36分钟
+  >> 刷新最优模型，验证SSIM：0.413108
+  >> 刷新HFEN最优模型：0.792826
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0030.pth
+Epoch  31/100 | lr:7.96e-05 train L:0.491886 Rec:0.244130 RG:4.955121 RGW:0.247756 Hard/Sampled:0.200/0.251 PosSim:0.727 Opt:40 Skip:0 Grad:0.638 Scale:65536 MAE:0.1451 PSNR:14.3 SSIM:0.3321 | val L:0.2218 PSNR:14.4 SSIM:0.4101 HFEN:0.7869 | 预估剩余时间:35分钟
+  >> 刷新HFEN最优模型：0.786856
+Epoch  32/100 | lr:7.83e-05 train L:0.524277 Rec:0.273510 RG:5.015329 RGW:0.250766 Hard/Sampled:0.200/0.251 PosSim:0.727 Opt:40 Skip:0 Grad:0.753 Scale:65536 MAE:0.1621 PSNR:14.0 SSIM:0.2703 | val L:0.2201 PSNR:14.4 SSIM:0.4146 HFEN:0.7923 | 预估剩余时间:35分钟
+  >> 刷新最优模型，验证SSIM：0.414643
+  >> 刷新PSNR最优模型：14.3801 dB
+Epoch  33/100 | lr:7.70e-05 train L:0.501363 Rec:0.257247 RG:4.882320 RGW:0.244116 Hard/Sampled:0.200/0.248 PosSim:0.735 Opt:40 Skip:0 Grad:0.538 Scale:65536 MAE:0.1493 PSNR:14.3 SSIM:0.2966 | val L:0.2204 PSNR:14.2 SSIM:0.4148 HFEN:0.7857 | 预估剩余时间:34分钟
+  >> 刷新最优模型，验证SSIM：0.414822
+  >> 刷新HFEN最优模型：0.785666
+Epoch  34/100 | lr:7.57e-05 train L:0.485203 Rec:0.241489 RG:4.874268 RGW:0.243713 Hard/Sampled:0.200/0.252 PosSim:0.732 Opt:40 Skip:0 Grad:0.613 Scale:65536 MAE:0.1392 PSNR:14.7 SSIM:0.3307 | val L:0.2186 PSNR:14.4 SSIM:0.4170 HFEN:0.7884 | 预估剩余时间:34分钟
+  >> 刷新最优模型，验证SSIM：0.417008
+  >> 刷新PSNR最优模型：14.4494 dB
+Epoch  35/100 | lr:7.43e-05 train L:0.489017 Rec:0.245175 RG:4.876842 RGW:0.243842 Hard/Sampled:0.200/0.248 PosSim:0.733 Opt:40 Skip:0 Grad:0.557 Scale:65536 MAE:0.1463 PSNR:14.4 SSIM:0.3325 | val L:0.2177 PSNR:14.2 SSIM:0.4242 HFEN:0.7878 | 预估剩余时间:33分钟
+  >> 刷新最优模型，验证SSIM：0.424215
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0035.pth
+Epoch  36/100 | lr:7.30e-05 train L:0.492410 Rec:0.248264 RG:4.882908 RGW:0.244145 Hard/Sampled:0.200/0.250 PosSim:0.729 Opt:40 Skip:0 Grad:0.591 Scale:65536 MAE:0.1454 PSNR:14.4 SSIM:0.3209 | val L:0.2133 PSNR:14.5 SSIM:0.4321 HFEN:0.7885 | 预估剩余时间:33分钟
+  >> 刷新最优模型，验证SSIM：0.432134
+  >> 刷新PSNR最优模型：14.4919 dB
+Epoch  37/100 | lr:7.16e-05 train L:0.482537 Rec:0.239236 RG:4.866021 RGW:0.243301 Hard/Sampled:0.200/0.248 PosSim:0.730 Opt:40 Skip:0 Grad:0.634 Scale:65536 MAE:0.1404 PSNR:14.6 SSIM:0.3414 | val L:0.2114 PSNR:14.5 SSIM:0.4352 HFEN:0.7896 | 预估剩余时间:32分钟
+  >> 刷新最优模型，验证SSIM：0.435226
+  >> 刷新PSNR最优模型：14.5159 dB
+Epoch  38/100 | lr:7.02e-05 train L:0.482666 Rec:0.241658 RG:4.820153 RGW:0.241008 Hard/Sampled:0.200/0.249 PosSim:0.735 Opt:40 Skip:0 Grad:0.609 Scale:65536 MAE:0.1403 PSNR:14.7 SSIM:0.3360 | val L:0.2122 PSNR:14.6 SSIM:0.4335 HFEN:0.7841 | 预估剩余时间:32分钟
+  >> 刷新PSNR最优模型：14.5688 dB
+  >> 刷新HFEN最优模型：0.784070
+Epoch  39/100 | lr:6.87e-05 train L:0.480327 Rec:0.239648 RG:4.813577 RGW:0.240679 Hard/Sampled:0.200/0.242 PosSim:0.736 Opt:40 Skip:0 Grad:0.579 Scale:65536 MAE:0.1383 PSNR:14.9 SSIM:0.3376 | val L:0.2117 PSNR:14.6 SSIM:0.4326 HFEN:0.7858 | 预估剩余时间:31分钟
+  >> 刷新PSNR最优模型：14.6149 dB
+Epoch  40/100 | lr:6.73e-05 train L:0.485339 Rec:0.241360 RG:4.879567 RGW:0.243978 Hard/Sampled:0.200/0.251 PosSim:0.726 Opt:40 Skip:0 Grad:0.734 Scale:65536 MAE:0.1392 PSNR:14.6 SSIM:0.3338 | val L:0.2086 PSNR:14.7 SSIM:0.4398 HFEN:0.7899 | 预估剩余时间:31分钟
+  >> 刷新最优模型，验证SSIM：0.439812
+  >> 刷新PSNR最优模型：14.6949 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0040.pth
+Epoch  41/100 | lr:6.58e-05 train L:0.484619 Rec:0.239268 RG:4.907007 RGW:0.245350 Hard/Sampled:0.200/0.247 PosSim:0.721 Opt:40 Skip:0 Grad:0.567 Scale:65536 MAE:0.1365 PSNR:14.9 SSIM:0.3375 | val L:0.2186 PSNR:14.4 SSIM:0.4228 HFEN:0.8052 | 预估剩余时间:30分钟
+Epoch  42/100 | lr:6.43e-05 train L:0.462435 Rec:0.225111 RG:4.746472 RGW:0.237324 Hard/Sampled:0.200/0.247 PosSim:0.741 Opt:40 Skip:0 Grad:0.575 Scale:65536 MAE:0.1305 PSNR:15.1 SSIM:0.3666 | val L:0.2089 PSNR:14.5 SSIM:0.4431 HFEN:0.7920 | 预估剩余时间:30分钟
+  >> 刷新最优模型，验证SSIM：0.443149
+Epoch  43/100 | lr:6.28e-05 train L:0.495313 Rec:0.249397 RG:4.918317 RGW:0.245916 Hard/Sampled:0.200/0.256 PosSim:0.722 Opt:40 Skip:0 Grad:0.576 Scale:65536 MAE:0.1448 PSNR:14.3 SSIM:0.3203 | val L:0.2065 PSNR:14.7 SSIM:0.4464 HFEN:0.7932 | 预估剩余时间:29分钟
+  >> 刷新最优模型，验证SSIM：0.446353
+  >> 刷新PSNR最优模型：14.7467 dB
+Epoch  44/100 | lr:6.13e-05 train L:0.475415 Rec:0.239638 RG:4.715535 RGW:0.235777 Hard/Sampled:0.200/0.249 PosSim:0.735 Opt:40 Skip:0 Grad:0.554 Scale:65536 MAE:0.1364 PSNR:15.0 SSIM:0.3333 | val L:0.2090 PSNR:14.7 SSIM:0.4412 HFEN:0.7909 | 预估剩余时间:29分钟
+Epoch  45/100 | lr:5.98e-05 train L:0.461477 Rec:0.220745 RG:4.814641 RGW:0.240732 Hard/Sampled:0.200/0.253 PosSim:0.721 Opt:40 Skip:0 Grad:0.675 Scale:65536 MAE:0.1339 PSNR:14.9 SSIM:0.3901 | val L:0.2063 PSNR:14.8 SSIM:0.4461 HFEN:0.7796 | 预估剩余时间:28分钟
+  >> 刷新PSNR最优模型：14.7930 dB
+  >> 刷新HFEN最优模型：0.779624
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0045.pth
+Epoch  46/100 | lr:5.82e-05 train L:0.454479 Rec:0.221146 RG:4.666659 RGW:0.233333 Hard/Sampled:0.200/0.245 PosSim:0.738 Opt:40 Skip:0 Grad:0.621 Scale:65536 MAE:0.1240 PSNR:15.4 SSIM:0.3730 | val L:0.2062 PSNR:14.9 SSIM:0.4451 HFEN:0.7883 | 预估剩余时间:28分钟
+  >> 刷新PSNR最优模型：14.8605 dB
+Epoch  47/100 | lr:5.67e-05 train L:0.468316 Rec:0.233764 RG:4.691049 RGW:0.234552 Hard/Sampled:0.200/0.248 PosSim:0.734 Opt:40 Skip:0 Grad:0.568 Scale:65536 MAE:0.1319 PSNR:15.0 SSIM:0.3465 | val L:0.2029 PSNR:15.0 SSIM:0.4509 HFEN:0.7776 | 预估剩余时间:27分钟
+  >> 刷新最优模型，验证SSIM：0.450927
+  >> 刷新PSNR最优模型：14.9690 dB
+  >> 刷新HFEN最优模型：0.777599
+Epoch  48/100 | lr:5.52e-05 train L:0.470825 Rec:0.231732 RG:4.781862 RGW:0.239093 Hard/Sampled:0.200/0.247 PosSim:0.720 Opt:40 Skip:0 Grad:0.577 Scale:65536 MAE:0.1321 PSNR:14.9 SSIM:0.3519 | val L:0.2042 PSNR:15.0 SSIM:0.4479 HFEN:0.7773 | 预估剩余时间:27分钟
+  >> 刷新HFEN最优模型：0.777256
+Epoch  49/100 | lr:5.36e-05 train L:0.446632 Rec:0.213243 RG:4.667768 RGW:0.233388 Hard/Sampled:0.200/0.246 PosSim:0.728 Opt:40 Skip:0 Grad:0.628 Scale:65536 MAE:0.1239 PSNR:15.6 SSIM:0.3965 | val L:0.2042 PSNR:14.8 SSIM:0.4515 HFEN:0.7801 | 预估剩余时间:26分钟
+  >> 刷新最优模型，验证SSIM：0.451476
+Epoch  50/100 | lr:5.21e-05 train L:0.459064 Rec:0.227210 RG:4.637083 RGW:0.231854 Hard/Sampled:0.200/0.248 PosSim:0.736 Opt:40 Skip:0 Grad:0.564 Scale:131072 MAE:0.1255 PSNR:15.3 SSIM:0.3567 | val L:0.2007 PSNR:15.0 SSIM:0.4571 HFEN:0.7861 | 预估剩余时间:26分钟
+  >> 刷新最优模型，验证SSIM：0.457100
+  >> 刷新PSNR最优模型：14.9969 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0050.pth
+Epoch  51/100 | lr:5.05e-05 train L:0.457967 Rec:0.223299 RG:4.693360 RGW:0.234668 Hard/Sampled:0.200/0.243 PosSim:0.726 Opt:40 Skip:0 Grad:0.586 Scale:131072 MAE:0.1260 PSNR:15.3 SSIM:0.3705 | val L:0.2006 PSNR:15.0 SSIM:0.4575 HFEN:0.7893 | 预估剩余时间:25分钟
+  >> 刷新最优模型，验证SSIM：0.457486
+  >> 刷新PSNR最优模型：15.0043 dB
+Epoch  52/100 | lr:4.89e-05 train L:0.452243 Rec:0.220344 RG:4.637989 RGW:0.231899 Hard/Sampled:0.200/0.244 PosSim:0.729 Opt:40 Skip:0 Grad:0.625 Scale:131072 MAE:0.1282 PSNR:15.2 SSIM:0.3818 | val L:0.2010 PSNR:15.0 SSIM:0.4566 HFEN:0.7832 | 预估剩余时间:25分钟
+  >> 刷新PSNR最优模型：15.0314 dB
+Epoch  53/100 | lr:4.74e-05 train L:0.445783 Rec:0.213869 RG:4.638281 RGW:0.231914 Hard/Sampled:0.200/0.246 PosSim:0.725 Opt:40 Skip:0 Grad:0.573 Scale:131072 MAE:0.1280 PSNR:15.2 SSIM:0.3988 | val L:0.1993 PSNR:15.1 SSIM:0.4586 HFEN:0.7963 | 预估剩余时间:24分钟
+  >> 刷新最优模型，验证SSIM：0.458555
+  >> 刷新PSNR最优模型：15.0927 dB
+Epoch  54/100 | lr:4.58e-05 train L:0.471773 Rec:0.235217 RG:4.731121 RGW:0.236556 Hard/Sampled:0.200/0.247 PosSim:0.726 Opt:40 Skip:0 Grad:0.641 Scale:131072 MAE:0.1294 PSNR:15.2 SSIM:0.3407 | val L:0.2013 PSNR:15.1 SSIM:0.4541 HFEN:0.7967 | 预估剩余时间:24分钟
+Epoch  55/100 | lr:4.43e-05 train L:0.444500 Rec:0.214224 RG:4.605526 RGW:0.230276 Hard/Sampled:0.200/0.243 PosSim:0.731 Opt:40 Skip:0 Grad:0.631 Scale:131072 MAE:0.1254 PSNR:15.3 SSIM:0.3989 | val L:0.1973 PSNR:15.2 SSIM:0.4620 HFEN:0.7882 | 预估剩余时间:23分钟
+  >> 刷新最优模型，验证SSIM：0.461983
+  >> 刷新PSNR最优模型：15.1595 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0055.pth
+Epoch  56/100 | lr:4.28e-05 train L:0.459842 Rec:0.225385 RG:4.689145 RGW:0.234457 Hard/Sampled:0.200/0.246 PosSim:0.718 Opt:40 Skip:0 Grad:0.651 Scale:131072 MAE:0.1310 PSNR:15.2 SSIM:0.3711 | val L:0.2001 PSNR:14.9 SSIM:0.4601 HFEN:0.7900 | 预估剩余时间:23分钟
+Epoch  57/100 | lr:4.12e-05 train L:0.452368 Rec:0.222983 RG:4.587712 RGW:0.229386 Hard/Sampled:0.200/0.247 PosSim:0.734 Opt:40 Skip:0 Grad:0.585 Scale:131072 MAE:0.1223 PSNR:15.4 SSIM:0.3652 | val L:0.2001 PSNR:14.9 SSIM:0.4591 HFEN:0.7803 | 预估剩余时间:22分钟
+Epoch  58/100 | lr:3.97e-05 train L:0.456995 Rec:0.225139 RG:4.637121 RGW:0.231856 Hard/Sampled:0.200/0.250 PosSim:0.726 Opt:40 Skip:0 Grad:0.662 Scale:131072 MAE:0.1242 PSNR:15.4 SSIM:0.3595 | val L:0.1978 PSNR:15.1 SSIM:0.4621 HFEN:0.7806 | 预估剩余时间:21分钟
+  >> 刷新最优模型，验证SSIM：0.462143
+Epoch  59/100 | lr:3.82e-05 train L:0.458217 Rec:0.226163 RG:4.641073 RGW:0.232054 Hard/Sampled:0.200/0.242 PosSim:0.723 Opt:40 Skip:0 Grad:0.642 Scale:131072 MAE:0.1281 PSNR:15.2 SSIM:0.3659 | val L:0.1976 PSNR:15.0 SSIM:0.4649 HFEN:0.7770 | 预估剩余时间:21分钟
+  >> 刷新最优模型，验证SSIM：0.464917
+  >> 刷新HFEN最优模型：0.777043
+Epoch  60/100 | lr:3.67e-05 train L:0.455177 Rec:0.225823 RG:4.587088 RGW:0.229354 Hard/Sampled:0.200/0.241 PosSim:0.726 Opt:40 Skip:0 Grad:0.713 Scale:131072 MAE:0.1280 PSNR:15.5 SSIM:0.3639 | val L:0.1973 PSNR:15.1 SSIM:0.4643 HFEN:0.7770 | 预估剩余时间:20分钟
+  >> 刷新HFEN最优模型：0.777021
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0060.pth
+Epoch  61/100 | lr:3.52e-05 train L:0.447755 Rec:0.218875 RG:4.577602 RGW:0.228880 Hard/Sampled:0.200/0.247 PosSim:0.730 Opt:40 Skip:0 Grad:0.580 Scale:131072 MAE:0.1226 PSNR:15.3 SSIM:0.3801 | val L:0.1960 PSNR:15.2 SSIM:0.4645 HFEN:0.7867 | 预估剩余时间:20分钟
+  >> 刷新PSNR最优模型：15.2259 dB
+Epoch  62/100 | lr:3.37e-05 train L:0.446608 Rec:0.217778 RG:4.576608 RGW:0.228830 Hard/Sampled:0.200/0.243 PosSim:0.725 Opt:40 Skip:0 Grad:0.653 Scale:131072 MAE:0.1187 PSNR:15.6 SSIM:0.3763 | val L:0.1977 PSNR:15.2 SSIM:0.4618 HFEN:0.7897 | 预估剩余时间:19分钟
+Epoch  63/100 | lr:3.23e-05 train L:0.428269 Rec:0.200693 RG:4.551509 RGW:0.227575 Hard/Sampled:0.200/0.250 PosSim:0.721 Opt:40 Skip:0 Grad:0.650 Scale:131072 MAE:0.1193 PSNR:15.5 SSIM:0.4285 | val L:0.1940 PSNR:15.3 SSIM:0.4699 HFEN:0.7772 | 预估剩余时间:19分钟
+  >> 刷新最优模型，验证SSIM：0.469933
+  >> 刷新PSNR最优模型：15.2604 dB
+Epoch  64/100 | lr:3.08e-05 train L:0.461954 Rec:0.231512 RG:4.608838 RGW:0.230442 Hard/Sampled:0.200/0.241 PosSim:0.729 Opt:40 Skip:0 Grad:0.594 Scale:131072 MAE:0.1301 PSNR:15.3 SSIM:0.3530 | val L:0.1961 PSNR:15.2 SSIM:0.4641 HFEN:0.7849 | 预估剩余时间:18分钟
+Epoch  65/100 | lr:2.94e-05 train L:0.457203 Rec:0.225219 RG:4.639682 RGW:0.231984 Hard/Sampled:0.200/0.249 PosSim:0.718 Opt:40 Skip:0 Grad:0.653 Scale:131072 MAE:0.1277 PSNR:15.2 SSIM:0.3674 | val L:0.1959 PSNR:15.1 SSIM:0.4646 HFEN:0.7802 | 预估剩余时间:18分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0065.pth
+Epoch  66/100 | lr:2.80e-05 train L:0.437907 Rec:0.213916 RG:4.479803 RGW:0.223990 Hard/Sampled:0.200/0.241 PosSim:0.733 Opt:40 Skip:0 Grad:0.589 Scale:131072 MAE:0.1181 PSNR:15.8 SSIM:0.3895 | val L:0.1948 PSNR:15.3 SSIM:0.4671 HFEN:0.7813 | 预估剩余时间:17分钟
+  >> 刷新PSNR最优模型：15.2917 dB
+Epoch  67/100 | lr:2.67e-05 train L:0.429625 Rec:0.203871 RG:4.515074 RGW:0.225754 Hard/Sampled:0.200/0.247 PosSim:0.725 Opt:40 Skip:0 Grad:0.646 Scale:131072 MAE:0.1192 PSNR:15.7 SSIM:0.4221 | val L:0.1925 PSNR:15.3 SSIM:0.4718 HFEN:0.7857 | 预估剩余时间:17分钟
+  >> 刷新最优模型，验证SSIM：0.471786
+  >> 刷新PSNR最优模型：15.3358 dB
+Epoch  68/100 | lr:2.53e-05 train L:0.443912 Rec:0.219049 RG:4.497262 RGW:0.224863 Hard/Sampled:0.200/0.245 PosSim:0.729 Opt:40 Skip:0 Grad:0.577 Scale:131072 MAE:0.1256 PSNR:15.4 SSIM:0.3842 | val L:0.1940 PSNR:15.2 SSIM:0.4699 HFEN:0.7898 | 预估剩余时间:16分钟
+Epoch  69/100 | lr:2.40e-05 train L:0.452207 Rec:0.223866 RG:4.566818 RGW:0.228341 Hard/Sampled:0.200/0.244 PosSim:0.723 Opt:40 Skip:0 Grad:0.573 Scale:131072 MAE:0.1288 PSNR:15.2 SSIM:0.3759 | val L:0.1919 PSNR:15.3 SSIM:0.4742 HFEN:0.7866 | 预估剩余时间:16分钟
+  >> 刷新最优模型，验证SSIM：0.474227
+Epoch  70/100 | lr:2.27e-05 train L:0.443271 Rec:0.218188 RG:4.501665 RGW:0.225083 Hard/Sampled:0.200/0.238 PosSim:0.727 Opt:40 Skip:0 Grad:0.606 Scale:131072 MAE:0.1211 PSNR:15.7 SSIM:0.3795 | val L:0.1915 PSNR:15.4 SSIM:0.4745 HFEN:0.7759 | 预估剩余时间:15分钟
+  >> 刷新最优模型，验证SSIM：0.474500
+  >> 刷新PSNR最优模型：15.3823 dB
+  >> 刷新HFEN最优模型：0.775880
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0070.pth
+Epoch  71/100 | lr:2.14e-05 train L:0.430871 Rec:0.206829 RG:4.480836 RGW:0.224042 Hard/Sampled:0.200/0.242 PosSim:0.723 Opt:40 Skip:0 Grad:0.643 Scale:131072 MAE:0.1220 PSNR:15.6 SSIM:0.4132 | val L:0.1925 PSNR:15.4 SSIM:0.4722 HFEN:0.7802 | 预估剩余时间:15分钟
+  >> 刷新PSNR最优模型：15.3876 dB
+Epoch  72/100 | lr:2.02e-05 train L:0.441338 Rec:0.213938 RG:4.547994 RGW:0.227400 Hard/Sampled:0.200/0.242 PosSim:0.719 Opt:40 Skip:0 Grad:0.647 Scale:131072 MAE:0.1207 PSNR:15.7 SSIM:0.3862 | val L:0.1931 PSNR:15.2 SSIM:0.4714 HFEN:0.7790 | 预估剩余时间:14分钟
+Epoch  73/100 | lr:1.89e-05 train L:0.453466 Rec:0.224308 RG:4.583154 RGW:0.229158 Hard/Sampled:0.200/0.246 PosSim:0.725 Opt:40 Skip:0 Grad:0.583 Scale:131072 MAE:0.1232 PSNR:15.4 SSIM:0.3654 | val L:0.1901 PSNR:15.4 SSIM:0.4770 HFEN:0.7828 | 预估剩余时间:14分钟
+  >> 刷新最优模型，验证SSIM：0.477036
+  >> 刷新PSNR最优模型：15.4416 dB
+Epoch  74/100 | lr:1.78e-05 train L:0.433212 Rec:0.209671 RG:4.470823 RGW:0.223541 Hard/Sampled:0.200/0.243 PosSim:0.729 Opt:40 Skip:0 Grad:0.687 Scale:131072 MAE:0.1212 PSNR:15.6 SSIM:0.4060 | val L:0.1925 PSNR:15.3 SSIM:0.4722 HFEN:0.7871 | 预估剩余时间:13分钟
+Epoch  75/100 | lr:1.66e-05 train L:0.434212 Rec:0.209360 RG:4.497036 RGW:0.224852 Hard/Sampled:0.200/0.245 PosSim:0.726 Opt:40 Skip:0 Grad:0.661 Scale:131072 MAE:0.1174 PSNR:15.9 SSIM:0.4016 | val L:0.1916 PSNR:15.4 SSIM:0.4737 HFEN:0.7813 | 预估剩余时间:13分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0075.pth
+Epoch  76/100 | lr:1.55e-05 train L:0.447030 Rec:0.217999 RG:4.580624 RGW:0.229031 Hard/Sampled:0.200/0.247 PosSim:0.719 Opt:40 Skip:0 Grad:0.643 Scale:131072 MAE:0.1208 PSNR:15.6 SSIM:0.3811 | val L:0.1894 PSNR:15.5 SSIM:0.4774 HFEN:0.7797 | 预估剩余时间:12分钟
+  >> 刷新最优模型，验证SSIM：0.477351
+  >> 刷新PSNR最优模型：15.4774 dB
+Epoch  77/100 | lr:1.44e-05 train L:0.441088 Rec:0.215566 RG:4.510437 RGW:0.225522 Hard/Sampled:0.200/0.244 PosSim:0.723 Opt:40 Skip:0 Grad:0.667 Scale:131072 MAE:0.1227 PSNR:15.6 SSIM:0.3879 | val L:0.1897 PSNR:15.5 SSIM:0.4762 HFEN:0.7831 | 预估剩余时间:12分钟
+Epoch  78/100 | lr:1.34e-05 train L:0.451291 Rec:0.223769 RG:4.550430 RGW:0.227522 Hard/Sampled:0.200/0.242 PosSim:0.722 Opt:40 Skip:0 Grad:0.582 Scale:131072 MAE:0.1187 PSNR:15.7 SSIM:0.3593 | val L:0.1891 PSNR:15.5 SSIM:0.4782 HFEN:0.7787 | 预估剩余时间:11分钟
+  >> 刷新最优模型，验证SSIM：0.478227
+Epoch  79/100 | lr:1.24e-05 train L:0.434746 Rec:0.207458 RG:4.545757 RGW:0.227288 Hard/Sampled:0.200/0.248 PosSim:0.718 Opt:40 Skip:0 Grad:0.707 Scale:131072 MAE:0.1195 PSNR:15.7 SSIM:0.4075 | val L:0.1901 PSNR:15.5 SSIM:0.4753 HFEN:0.7842 | 预估剩余时间:11分钟
+Epoch  80/100 | lr:1.14e-05 train L:0.433956 Rec:0.209783 RG:4.483461 RGW:0.224173 Hard/Sampled:0.200/0.247 PosSim:0.723 Opt:40 Skip:0 Grad:0.640 Scale:131072 MAE:0.1207 PSNR:15.5 SSIM:0.4038 | val L:0.1892 PSNR:15.4 SSIM:0.4781 HFEN:0.7754 | 预估剩余时间:10分钟
+  >> 刷新HFEN最优模型：0.775353
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0080.pth
+Epoch  81/100 | lr:1.05e-05 train L:0.427854 Rec:0.206598 RG:4.425120 RGW:0.221256 Hard/Sampled:0.200/0.247 PosSim:0.731 Opt:40 Skip:0 Grad:0.632 Scale:131072 MAE:0.1172 PSNR:15.8 SSIM:0.4101 | val L:0.1899 PSNR:15.4 SSIM:0.4770 HFEN:0.7779 | 预估剩余时间:10分钟
+Epoch  82/100 | lr:9.56e-06 train L:0.437379 Rec:0.213404 RG:4.479506 RGW:0.223975 Hard/Sampled:0.200/0.245 PosSim:0.723 Opt:40 Skip:0 Grad:0.625 Scale:131072 MAE:0.1233 PSNR:15.5 SSIM:0.3967 | val L:0.1894 PSNR:15.5 SSIM:0.4774 HFEN:0.7869 | 预估剩余时间:9分钟
+  >> 刷新PSNR最优模型：15.5013 dB
+Epoch  83/100 | lr:8.71e-06 train L:0.417482 Rec:0.198751 RG:4.374613 RGW:0.218731 Hard/Sampled:0.200/0.244 PosSim:0.736 Opt:40 Skip:0 Grad:0.649 Scale:131072 MAE:0.1091 PSNR:16.3 SSIM:0.4225 | val L:0.1896 PSNR:15.4 SSIM:0.4780 HFEN:0.7825 | 预估剩余时间:9分钟
+Epoch  84/100 | lr:7.89e-06 train L:0.416433 Rec:0.194400 RG:4.440665 RGW:0.222033 Hard/Sampled:0.200/0.242 PosSim:0.726 Opt:40 Skip:0 Grad:0.697 Scale:131072 MAE:0.1132 PSNR:15.9 SSIM:0.4398 | val L:0.1894 PSNR:15.5 SSIM:0.4783 HFEN:0.7824 | 预估剩余时间:8分钟
+  >> 刷新最优模型，验证SSIM：0.478326
+Epoch  85/100 | lr:7.12e-06 train L:0.436478 Rec:0.213224 RG:4.465081 RGW:0.223254 Hard/Sampled:0.200/0.241 PosSim:0.727 Opt:40 Skip:0 Grad:0.632 Scale:131072 MAE:0.1179 PSNR:15.7 SSIM:0.3907 | val L:0.1887 PSNR:15.4 SSIM:0.4799 HFEN:0.7821 | 预估剩余时间:8分钟
+  >> 刷新最优模型，验证SSIM：0.479853
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0085.pth
+Epoch  86/100 | lr:6.40e-06 train L:0.430329 Rec:0.209461 RG:4.417352 RGW:0.220868 Hard/Sampled:0.200/0.237 PosSim:0.728 Opt:40 Skip:0 Grad:0.625 Scale:131072 MAE:0.1160 PSNR:15.8 SSIM:0.3988 | val L:0.1883 PSNR:15.5 SSIM:0.4804 HFEN:0.7845 | 预估剩余时间:7分钟
+  >> 刷新最优模型，验证SSIM：0.480363
+Epoch  87/100 | lr:5.71e-06 train L:0.440039 Rec:0.216251 RG:4.475752 RGW:0.223788 Hard/Sampled:0.200/0.246 PosSim:0.722 Opt:40 Skip:0 Grad:0.651 Scale:131072 MAE:0.1218 PSNR:15.6 SSIM:0.3858 | val L:0.1885 PSNR:15.4 SSIM:0.4807 HFEN:0.7806 | 预估剩余时间:7分钟
+  >> 刷新最优模型，验证SSIM：0.480689
+Epoch  88/100 | lr:5.07e-06 train L:0.417377 Rec:0.201018 RG:4.327183 RGW:0.216359 Hard/Sampled:0.200/0.239 PosSim:0.739 Opt:40 Skip:0 Grad:0.618 Scale:131072 MAE:0.1132 PSNR:16.0 SSIM:0.4234 | val L:0.1879 PSNR:15.5 SSIM:0.4817 HFEN:0.7811 | 预估剩余时间:6分钟
+  >> 刷新最优模型，验证SSIM：0.481702
+Epoch  89/100 | lr:4.48e-06 train L:0.428470 Rec:0.208240 RG:4.404604 RGW:0.220230 Hard/Sampled:0.200/0.243 PosSim:0.731 Opt:40 Skip:0 Grad:0.641 Scale:131072 MAE:0.1149 PSNR:15.9 SSIM:0.4014 | val L:0.1879 PSNR:15.5 SSIM:0.4811 HFEN:0.7797 | 预估剩余时间:6分钟
+Epoch  90/100 | lr:3.93e-06 train L:0.414772 Rec:0.194543 RG:4.404574 RGW:0.220229 Hard/Sampled:0.200/0.243 PosSim:0.726 Opt:40 Skip:0 Grad:0.698 Scale:131072 MAE:0.1164 PSNR:15.9 SSIM:0.4459 | val L:0.1878 PSNR:15.5 SSIM:0.4810 HFEN:0.7829 | 预估剩余时间:5分钟
+  >> 刷新PSNR最优模型：15.5390 dB
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0090.pth
+Epoch  91/100 | lr:3.42e-06 train L:0.442494 Rec:0.219785 RG:4.454178 RGW:0.222709 Hard/Sampled:0.200/0.241 PosSim:0.730 Opt:40 Skip:0 Grad:0.616 Scale:131072 MAE:0.1170 PSNR:15.8 SSIM:0.3679 | val L:0.1879 PSNR:15.5 SSIM:0.4808 HFEN:0.7843 | 预估剩余时间:5分钟
+Epoch  92/100 | lr:2.97e-06 train L:0.434784 Rec:0.210181 RG:4.492057 RGW:0.224603 Hard/Sampled:0.200/0.244 PosSim:0.723 Opt:40 Skip:0 Grad:0.649 Scale:131072 MAE:0.1249 PSNR:15.4 SSIM:0.4103 | val L:0.1880 PSNR:15.5 SSIM:0.4810 HFEN:0.7826 | 预估剩余时间:4分钟
+Epoch  93/100 | lr:2.56e-06 train L:0.435452 Rec:0.210018 RG:4.508698 RGW:0.225435 Hard/Sampled:0.200/0.240 PosSim:0.718 Opt:40 Skip:0 Grad:0.630 Scale:131072 MAE:0.1222 PSNR:15.5 SSIM:0.4085 | val L:0.1876 PSNR:15.5 SSIM:0.4816 HFEN:0.7818 | 预估剩余时间:4分钟
+Epoch  94/100 | lr:2.19e-06 train L:0.437035 Rec:0.213625 RG:4.468197 RGW:0.223410 Hard/Sampled:0.200/0.249 PosSim:0.723 Opt:40 Skip:0 Grad:0.596 Scale:131072 MAE:0.1198 PSNR:15.6 SSIM:0.3914 | val L:0.1872 PSNR:15.6 SSIM:0.4821 HFEN:0.7832 | 预估剩余时间:3分钟
+  >> 刷新最优模型，验证SSIM：0.482103
+  >> 刷新PSNR最优模型：15.5619 dB
+Epoch  95/100 | lr:1.88e-06 train L:0.427266 Rec:0.205279 RG:4.439744 RGW:0.221987 Hard/Sampled:0.200/0.243 PosSim:0.727 Opt:40 Skip:0 Grad:0.705 Scale:131072 MAE:0.1164 PSNR:15.7 SSIM:0.4119 | val L:0.1873 PSNR:15.6 SSIM:0.4821 HFEN:0.7819 | 预估剩余时间:3分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0095.pth
+Epoch  96/100 | lr:1.61e-06 train L:0.419929 Rec:0.199815 RG:4.402279 RGW:0.220114 Hard/Sampled:0.200/0.243 PosSim:0.728 Opt:40 Skip:0 Grad:0.655 Scale:131072 MAE:0.1180 PSNR:15.9 SSIM:0.4310 | val L:0.1874 PSNR:15.5 SSIM:0.4821 HFEN:0.7815 | 预估剩余时间:2分钟
+Epoch  97/100 | lr:1.39e-06 train L:0.428080 Rec:0.206979 RG:4.422021 RGW:0.221101 Hard/Sampled:0.200/0.241 PosSim:0.728 Opt:40 Skip:0 Grad:0.647 Scale:131072 MAE:0.1149 PSNR:16.0 SSIM:0.4030 | val L:0.1873 PSNR:15.6 SSIM:0.4823 HFEN:0.7812 | 预估剩余时间:2分钟
+  >> 刷新最优模型，验证SSIM：0.482324
+Epoch  98/100 | lr:1.22e-06 train L:0.430136 Rec:0.206069 RG:4.481328 RGW:0.224066 Hard/Sampled:0.200/0.245 PosSim:0.724 Opt:40 Skip:0 Grad:0.679 Scale:131072 MAE:0.1142 PSNR:15.8 SSIM:0.4046 | val L:0.1873 PSNR:15.6 SSIM:0.4822 HFEN:0.7813 | 预估剩余时间:1分钟
+Epoch  99/100 | lr:1.10e-06 train L:0.428547 Rec:0.206963 RG:4.431683 RGW:0.221584 Hard/Sampled:0.200/0.242 PosSim:0.728 Opt:40 Skip:0 Grad:0.613 Scale:131072 MAE:0.1168 PSNR:15.8 SSIM:0.4078 | val L:0.1873 PSNR:15.6 SSIM:0.4821 HFEN:0.7807 | 预估剩余时间:1分钟
+  >> 刷新PSNR最优模型：15.5626 dB
+Epoch 100/100 | lr:1.02e-06 train L:0.416078 Rec:0.194356 RG:4.434435 RGW:0.221722 Hard/Sampled:0.200/0.239 PosSim:0.719 Opt:40 Skip:0 Grad:0.699 Scale:262144 MAE:0.1166 PSNR:15.9 SSIM:0.4391 | val L:0.1873 PSNR:15.6 SSIM:0.4821 HFEN:0.7804 | 预估剩余时间:0分钟
+  >> 保存周期断点: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/checkpoints/epoch_0100.pth
+
+全部训练结束！最优验证SSIM：0.482324
+
+加载最优模型，在独立测试集评估最终效果...
+测试集病例总数: 3
+Moment验证集校准 | scale=30.129 | raw MAE=0.0306381 | calibrated MAE=0.0326091
+测试集最终指标 | MAE: 0.108908 | PSNR: 16.04 dB | SSIM: 0.516738 | 前景PSNR: 15.66 dB | 前景SSIM: 0.495201 | Gradient MAE: 0.075903 | HFEN: 0.740797
+
+============================================================
+启动MC Dropout方差图对照评估（单次矩传播 vs MC Dropout）...
+  MC Dropout 推理次数: 200
+  Dropout 率: 0.2
+不确定性方差图对比结果 | RMSD vs MC200 variance: 0.000491 | MAE brain vs MC200 variance: 0.000316
+Moment-vs-MC相关性 | Pearson: 0.8550 | Spearman: 0.9067
+不确定性-vs-绝对误差相关性 | Moment Pearson/Spearman: 0.2405/0.3150 | MC Pearson/Spearman: 0.2314/0.3135
+高不确定区域覆盖高误差区域(top 10%) | Moment: 0.1175 | MC: 0.1009
+Moment方差与真实平方误差的MAE | raw: 0.026881 | validation-calibrated: 0.029589
+平均推理时间 | Moment: 0.196s (1次) | MC200: 9.805s (200次) | 时间比: 50.0x
+峰值额外显存 | Moment: 6625.6 MB | MC200: 1789.7 MB
+同次推理的一一对应对比图保存至: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/figures/test_mc_dropout_compare (3 cases)
+不确定性方差CSV日志保存至: /root/sj-tmp/ctri/RG-ReCL/output_rgrecl/uncertainty_results.csv
+============================================================
+
+所有模型、日志文件存放路径：/root/sj-tmp/ctri/RG-ReCL/output_rgrecl
