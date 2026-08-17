@@ -1,0 +1,2 @@
+loss,mae,psnr,ssim,foreground_mae,foreground_psnr,foreground_ssim,gradient_mae,hfen,best_ssim,checkpoint
+0.18004540105660757,0.10612113773822784,16.151294708251953,0.4784501890341441,0.11466544369856517,15.84739621480306,0.4582013686498006,0.07706551253795624,0.7454212109247843,0.45123177766799927,/root/sj-tmp/ctri3/residual_refinement_ct_to_mri/output_residual_refinement_exp01/checkpoints/best.pth
